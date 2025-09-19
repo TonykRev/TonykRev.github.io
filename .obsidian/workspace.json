@@ -162,6 +162,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "3dd84a331bc7b2ce",
-  "lastOpenFiles": []
+  "active": "d750b936cd95531a",
+  "lastOpenFiles": [
+    "public/images/avatar.png.temp",
+    "static/images/avatar.png.temp"
+  ]
 }
