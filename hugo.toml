@@ -6,14 +6,14 @@ theme = "loficode"
   # Thông tin tác giả
   [params.author]
     name  = "Your Name"
-    image = "/images/avatar.png"
+    image = "/images/avatar.jpg"
     bio   = "Security Researcher | CTF Player"
 
   # Profile section (theme hỗ trợ)
   [params.profile]
     name   = "Your Name"
     tagline = "Your tagline here"
-    photo   = "/images/avatar.png"
+    photo   = "/images/avatar.jpg"
 
   # Social links
   [params.social]
