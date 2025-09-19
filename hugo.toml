@@ -5,13 +5,13 @@ theme = "loficode"
 
   # Thông tin tác giả
   [params.author]
-    name  = "Your Name"
+    name  = "Tran Quang Huy"
     image = "/images/avatar.jpg"
-    bio   = "Security Researcher | CTF Player"
+    bio   = "Security Researcher | Reverse Engineering"
 
   # Profile section (theme hỗ trợ)
   [params.profile]
-    name   = "Your Name"
+    name   = "Tran Quang Huy"
     tagline = "Your tagline here"
     photo   = "/images/avatar.jpg"
 
@@ -20,10 +20,10 @@ theme = "loficode"
     github   = "raisingpixels"
     twitter  = "raisingpixels"
     linkedin = "your-linkedin-username"
-    email    = "your-email@example.com"
+    email    = "tranhuydh81@gmail.com"
     youtube  = "https://youtube.com/@yourusername"
-    instagram = "your-instagram-username"
-    facebook  = "your-facebook-username"
+    instagram = "https://www.instagram.com/t0nyk_"
+    facebook  = "https://www.facebook.com/t0nyK06"
 
 # Navigation menu
 [[menu.main]]
