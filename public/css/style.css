@@ -169,9 +169,10 @@ nav {
     margin: 0 auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 1rem;
     align-items: center;
+    min-height: 60px;
 }
 
 .nav-left {
@@ -230,18 +231,24 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     list-style: none;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 400;
-    transition: color 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
     transition: all 0.3s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    line-height: 1.2;
+    min-width: max-content;
+    display: inline-block;
 }
 
 .nav-links a:hover {

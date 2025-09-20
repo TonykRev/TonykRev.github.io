@@ -1,0 +1,59 @@
+/* Navigation Fix - Prevent About/Contact text overlapping */
+
+nav {
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    gap: 1.2rem !important;
+    align-items: center !important;
+}
+
+.nav-links {
+    gap: 1.2rem !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.nav-links a {
+    padding: 0.5rem 0.7rem !important;
+    white-space: nowrap !important;
+    min-width: max-content !important;
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+}
+
+.header-controls {
+    gap: 0.8rem !important;
+    flex-shrink: 0 !important;
+}
+
+.logo {
+    max-width: 45% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+@media (max-width: 768px) {
+    .nav-links,
+    .desktop-nav {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav {
+        gap: 0.8rem !important;
+    }
+    
+    .nav-links {
+        gap: 1rem !important;
+    }
+    
+    .nav-links a {
+        padding: 0.4rem 0.6rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .logo {
+        font-size: 1.3rem !important;
+        max-width: 40% !important;
+    }
+}
