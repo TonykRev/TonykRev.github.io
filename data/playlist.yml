@@ -1,0 +1,29 @@
+- name: "Ordinary"
+  artist: "Alex Warren"
+  url: "/music/Ordinary.mp3"
+  cover: "/images/covers/ordinary.jpg"
+  
+
+- name: "I Love You 3000"
+  artist: "Stephanie Poetri"
+  url: "/music/loveyou3000.mp3"
+  cover: "/images/covers/love3000.jpg"
+  #theme: "#ff9800"   # cam nổi bật
+
+- name: "As The World Caves In"
+  artist: "Sarah Cothran"
+  url: "/music/As_World_Caves_In.mp3"
+  cover: "/images/covers/worldCavesIn.jpg"
+  #theme: "#00bcd4"   # xanh ngọc
+
+- name: "Car's Outside"
+  artist: "James Arthur"
+  url: "/music/Car_Outside.mp3"
+  cover: "/images/covers/caroutside.jpg"
+  #theme: "#4caf50"   # xanh lá
+
+- name: "HIGHEST IN THE ROOM"
+  artist: "Travis Scott"
+  url: "/music/HIGHEST_IN_THE_ROOM.mp3"
+  cover: "/images/covers/highest.jpg"
+  #theme: "#9c27b0"   # tím

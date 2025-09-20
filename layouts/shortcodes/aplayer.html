@@ -1,0 +1,26 @@
+<!-- Load APlayer CSS & JS từ CDN -->
+<link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
+<script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+
+<!-- Container -->
+<div id="aplayer"></div>
+
+<!-- Init Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: false,          // true nếu muốn player cố định dưới màn hình
+        autoplay: false,       // tự động phát khi load
+        theme: '#b7daff',
+        audio: [
+            {
+                name: 'Ordinary',
+                artist: 'Lady Gaga, Bruno Mars',
+                url: '{{ "/music/Ordinary.mp3" | relURL }}',
+                cover: '{{ "images/covers/ordinary.jpg" | relURL }}'
+            }
+        ]
+    });
+});
+</script>
