@@ -3,66 +3,88 @@
 (function () {
   "use strict";
 
-  // Theme toggle functionality with auto-detection
-  const themeToggle = document.querySelector(".theme-toggle");
-  const htmlElement = document.documentElement;
+  // Initialize theme as early as possible
+  function initTheme() {
+    const htmlElement = document.documentElement;
+    
+    // Auto-detect theme preference
+    function getInitialTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        return savedTheme;
+      }
 
-  // Auto-detect theme preference
-  function getInitialTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      return savedTheme;
+      // Use system preference if no saved theme
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        return "dark";
+      }
+
+      return "light";
     }
 
-    // Use system preference if no saved theme
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    }
-
-    return "light";
+    // Set initial theme immediately
+    const currentTheme = getInitialTheme();
+    htmlElement.setAttribute("data-theme", currentTheme);
+    
+    return currentTheme;
   }
+  
+  // Initialize theme immediately
+  const initialTheme = initTheme();
 
-  // Set initial theme
-  const currentTheme = getInitialTheme();
-  htmlElement.setAttribute("data-theme", currentTheme);
+  // Wait for DOM to be ready for the rest
+  function initializeThemeToggle() {
+    const themeToggle = document.querySelector(".theme-toggle");
+    const htmlElement = document.documentElement;
 
-  // Update button icon and text based on theme
-  function updateThemeIcon() {
-    const isDark = htmlElement.getAttribute("data-theme") === "dark";
+    // Update button icon and text based on theme
+    function updateThemeIcon() {
+      const isDark = htmlElement.getAttribute("data-theme") === "dark";
+      if (themeToggle) {
+        themeToggle.innerHTML = isDark ? "☀️" : "🌙";
+      }
+    }
+
+    // Listen for system theme changes
+    if (window.matchMedia) {
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          // Only auto-switch if user hasn't manually set a preference
+          if (!localStorage.getItem("theme")) {
+            const newTheme = e.matches ? "dark" : "light";
+            htmlElement.setAttribute("data-theme", newTheme);
+            updateThemeIcon();
+          }
+        });
+    }
+
     if (themeToggle) {
-      themeToggle.innerHTML = isDark ? "☀️" : "🌙";
+      updateThemeIcon();
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        htmlElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon();
+      });
     }
   }
-
-  // Listen for system theme changes
-  if (window.matchMedia) {
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        // Only auto-switch if user hasn't manually set a preference
-        if (!localStorage.getItem("theme")) {
-          const newTheme = e.matches ? "dark" : "light";
-          htmlElement.setAttribute("data-theme", newTheme);
-          updateThemeIcon();
-        }
-      });
+  
+  // Initialize theme toggle when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeThemeToggle);
+  } else {
+    initializeThemeToggle();
   }
 
-  if (themeToggle) {
-    updateThemeIcon();
-
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = htmlElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-      htmlElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateThemeIcon();
-    });
-  }
+  // Main initialization function
+  function initializeMain() {
 
   // Reading progress (for blog posts)
   const readingProgress = document.querySelector(".reading-progress");
@@ -1878,16 +1900,24 @@
     return postDiv;
   }
 
-  // Console easter egg
-  console.log(`
-    ☕ Welcome to LofiCode! ☕
+    // Console easter egg
+    console.log(`
+      ☕ Welcome to LofiCode! ☕
 
-    You found the console! Here are some keyboard shortcuts:
+      You found the console! Here are some keyboard shortcuts:
 
-    't' - Toggle theme (light/dark)
-    'm' - Mute/unmute ambient sounds
+      't' - Toggle theme (light/dark)
+      'm' - Mute/unmute ambient sounds
 
-    Built with love, coffee, and way too many interruptions.
-    Happy coding! ✨
-    `);
+      Built with love, coffee, and way too many interruptions.
+      Happy coding! ✨
+      `);
+  }
+  
+  // Initialize main functionality when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeMain);
+  } else {
+    initializeMain();
+  }
 })();

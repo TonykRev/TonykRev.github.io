@@ -2695,6 +2695,51 @@ footer {
     font-weight: 500;
 }
 
+/* Music Section */
+.music-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.music-section .section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    background: var(--btn-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.music-section .section-title::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background: var(--btn-gradient);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .music-section {
+        margin: 2rem 0;
+        padding: 1.5rem 0;
+    }
+    
+    .music-section .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* Tags Cloud */
 .tags-cloud {
     display: flex;

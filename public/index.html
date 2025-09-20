@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.150.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.150.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
@@ -26,7 +26,7 @@
   property="og:type"
   content="website"
 />
-<meta property="og:url" content="//localhost:1313/" />
+<meta property="og:url" content="//localhost:1314/" />
 <meta property="og:site_name" content="" />
 
 
@@ -55,13 +55,13 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css">
+<link rel="stylesheet" href="//localhost:1314/css/style.css">
 
 
 <link
   rel="alternate"
   type="application/rss&#43;xml"
-  href="//localhost:1313/index.xml"
+  href="//localhost:1314/index.xml"
 />
 
 </head>
@@ -69,25 +69,53 @@
     
 
     
-    <header class="site-header">
+    
+<header class="site-header">
     <nav>
         <div class="nav-left">
-            <a href="//localhost:1313/" class="logo"></a>
+            <a href="//localhost:1314/" class="logo"></a>
         </div>
 
-        <div class="nav-links">
+        
+        <div class="nav-links desktop-nav">
             
-            <a href="//localhost:1313/about/" class="nav-link">About</a>
+            <a href="//localhost:1314/about/" class="nav-link ">
+                About
+            </a>
             
-            <a href="//localhost:1313/contact/" class="nav-link">Contact</a>
+            <a href="//localhost:1314/contact/" class="nav-link ">
+                Contact
+            </a>
             
         </div>
+
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
 
         <div class="header-controls">
             <button class="search-toggle" title="Search posts">🔍</button>
             <button class="theme-toggle" title="Toggle dark mode">🌙</button>
         </div>
     </nav>
+
+    
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            
+            <a href="//localhost:1314/about/" class="mobile-nav-link ">
+                About
+            </a>
+            
+            <a href="//localhost:1314/contact/" class="mobile-nav-link ">
+                Contact
+            </a>
+            
+        </div>
+    </div>
 
     
     <div class="search-form-container" id="searchForm">
@@ -106,6 +134,62 @@
     </div>
 </header>
 
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-open');
+        });
+
+        
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+    }
+
+    
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchForm = document.getElementById('searchForm');
+    const searchClose = document.querySelector('.search-close');
+    
+    if (searchToggle && searchForm) {
+        searchToggle.addEventListener('click', function() {
+            searchForm.classList.add('active');
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 300);
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchForm.classList.remove('active');
+            });
+        }
+    }
+
+    
+});
+</script>
+
     
 
     <main>
@@ -114,20 +198,20 @@
   <div class="author-profile-section">
     <div class="profile-photo-container">
       <img
-        src="//localhost:1313/images/avatar.png"
-        alt="Your Name"
+        src="//localhost:1314/images/avatar.jpg"
+        alt="Tran Quang Huy"
         class="profile-photo"
       />
     </div>
     <p class="profile-tagline"></p>
     <div class="social-links">
        
-      <a href="mailto:your-email@example.com" class="social-link" title="Email">
+      <a href="mailto:tranhuydh81@gmail.com" class="social-link" title="Email">
         <i class="fas fa-envelope social-icon"></i>
       </a>
         
       <a
-        href="your-facebook-username"
+        href="https://www.facebook.com/t0nyK06"
         target="_blank"
         rel="noopener"
         class="social-link"
@@ -147,7 +231,7 @@
       </a>
         
       <a
-        href="your-instagram-username"
+        href="https://www.instagram.com/t0nyk_"
         target="_blank"
         rel="noopener"
         class="social-link"
@@ -187,6 +271,286 @@
       </a>
        
     </div>
+  </div>
+
+  
+  <div class="music-section">
+    <h2 class="section-title">🎵 Playlist</h2>
+    
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
+<script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+
+
+<div class="ap-hamburger" onclick="toggleAPlayer()">
+  <div class="hamburger-line"></div>
+  <div class="hamburger-line"></div>
+  <div class="hamburger-line"></div>
+</div>
+
+
+<div id="aplayer" class="ap-mini"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    fixed: false,          
+    autoplay: false,
+    audio: [{
+        name: 'Ordinary',
+        artist: 'Alex Warren',
+        url: '\/music\/Ordinary.mp3',
+        cover: '\/images\/covers\/ordinary.jpg'
+      },{
+        name: 'I Love You 3000',
+        artist: 'Stephanie Poetri',
+        url: '\/music\/loveyou3000.mp3',
+        cover: '\/images\/covers\/love3000.jpg'
+      },{
+        name: 'As The World Caves In',
+        artist: 'Sarah Cothran',
+        url: '\/music\/As_World_Caves_In.mp3',
+        cover: '\/images\/covers\/worldCavesIn.jpg'
+      },{
+        name: 'Car\u0027s Outside',
+        artist: 'James Arthur',
+        url: '\/music\/Car_Outside.mp3',
+        cover: '\/images\/covers\/caroutside.jpg'
+      },{
+        name: 'HIGHEST IN THE ROOM',
+        artist: 'Travis Scott',
+        url: '\/music\/HIGHEST_IN_THE_ROOM.mp3',
+        cover: '\/images\/covers\/highest.jpg'
+      }
+    ]
+  });
+});
+
+
+let isAPlayerOpen = false;
+function toggleAPlayer() {
+  const hamburger = document.querySelector('.ap-hamburger');
+  const player = document.getElementById('aplayer');
+  
+  isAPlayerOpen = !isAPlayerOpen;
+  
+  if (isAPlayerOpen) {
+    hamburger.classList.add('active');
+    player.classList.add('show');
+  } else {
+    hamburger.classList.remove('active');
+    player.classList.remove('show');
+  }
+}
+</script>
+
+<style>
+:root{
+  --ap-bg:      #0f0f12;
+  --ap-bg-2:    #151518;
+  --ap-text:    #f3e3a6;   
+  --ap-muted:   #a8996b;   
+  --ap-accent:  #f1c40f;   
+  --ap-border:  #2b2b2f;
+  --ap-shadow:  rgba(0,0,0,.55);
+}
+
+ 
+.ap-hamburger {
+  position: fixed;
+  top: 70px;            
+  left: 28px;           
+  width: 36px;
+  height: 36px;
+  background: var(--ap-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 12px var(--ap-shadow);
+  z-index: 1001;        
+  transition: all 0.3s ease;
+}
+
+.ap-hamburger:hover {
+  background: var(--ap-bg-2);
+  transform: translateY(-2px);
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background: var(--ap-text);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+ 
+.ap-hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.ap-hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.ap-hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+ 
+.ap-mini{
+  position: fixed;
+  top: 110px;           
+  left: 28px;           
+  width: 200px;         
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ap-bg);
+  box-shadow: 0 8px 24px var(--ap-shadow);
+  z-index: 1000;
+  font-family: Inter, "Noto Sans JP", "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
+   
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ 
+.ap-mini.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+ 
+.aplayer .aplayer-info{
+  background: linear-gradient(135deg, #191919, #101012);
+  padding: 6px 7px;
+  height: 44px;
+  color: var(--ap-text);
+}
+
+ 
+.aplayer .aplayer-music{
+  margin-left: 44px;               
+  line-height: 14px;
+}
+.aplayer .aplayer-title{
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ap-text);
+}
+.aplayer .aplayer-author{
+  font-size: 10px;
+  color: var(--ap-muted);
+}
+
+ 
+.aplayer .aplayer-pic{
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--ap-shadow);
+}
+
+ 
+.aplayer .aplayer-time{
+  font-size: 9px;
+  color: var(--ap-muted);
+}
+.aplayer .aplayer-icon{ 
+  width:14px; 
+  height:14px; 
+}
+.aplayer .aplayer-icon path{ 
+  fill: var(--ap-muted); 
+}
+.aplayer .aplayer-icon:hover path{ 
+  fill: var(--ap-accent); 
+}
+
+ 
+.aplayer .aplayer-bar-wrap .aplayer-bar{
+  height: 2px !important;
+  background: #3c3c41 !important;
+}
+.aplayer .aplayer-bar-wrap .aplayer-played{
+  background: var(--ap-accent) !important;
+}
+
+ 
+.aplayer .aplayer-list{
+  background: var(--ap-bg-2);
+  color: var(--ap-text);
+  font-size: 10px;
+  border-top: 1px solid var(--ap-border);
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.aplayer .aplayer-list li{
+  padding: 2px 6px;
+  line-height: 18px;
+  height: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.aplayer .aplayer-list-index{ 
+  width: 12px; 
+}
+.aplayer .aplayer-list-author{ 
+  color: var(--ap-muted); 
+}
+
+.aplayer .aplayer-list li:hover{
+  background: #24242a;
+  color: var(--ap-text);
+}
+
+.aplayer .aplayer-list li.aplayer-list-light{
+  background: rgba(241,196,15,0.12);
+  color: var(--ap-text);
+  border-left: 2px solid var(--ap-accent);
+}
+
+ 
+.aplayer .aplayer-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.aplayer .aplayer-list::-webkit-scrollbar-track {
+  background: var(--ap-bg);
+}
+
+.aplayer .aplayer-list::-webkit-scrollbar-thumb {
+  background: var(--ap-muted);
+  border-radius: 2px;
+}
+
+ 
+.aplayer .aplayer-lrc{ 
+  display:none!important; 
+}
+
+ 
+@media (max-width: 768px) {
+  .ap-mini {
+    left: 10px;
+    width: 180px;
+  }
+  
+  .ap-hamburger {
+    left: 10px;
+  }
+}
+</style>
   </div>
 
   <div class="filter-section">
@@ -250,6 +614,6 @@
 
     
 
-    <script src="//localhost:1313/js/main.js"></script>
+    <script src="//localhost:1314/js/main.js"></script>
 </body>
 </html>

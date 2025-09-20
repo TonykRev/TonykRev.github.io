@@ -2,25 +2,265 @@
 <link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
 <script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
 
+<!-- Custom Player Styles -->
+<style>
+.aplayer {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px var(--shadow-color) !important;
+    backdrop-filter: blur(20px) !important;
+    margin: 2rem 0;
+    font-family: 'Inter', sans-serif !important;
+    overflow: hidden;
+}
+
+.aplayer .aplayer-list {
+    background: transparent !important;
+    border-top: 1px solid var(--border-color) !important;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.aplayer .aplayer-list ol {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.aplayer .aplayer-list ol li {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    padding: 12px 16px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    position: relative !important;
+}
+
+.aplayer .aplayer-list ol li:hover {
+    background: rgba(255, 0, 107, 0.1) !important;
+    transform: translateX(4px) !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-playing {
+    background: rgba(255, 0, 107, 0.15) !important;
+    border-left: 3px solid var(--accent-primary) !important;
+    padding-left: 13px !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-playing:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--btn-gradient) !important;
+    border-radius: 0 2px 2px 0;
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-cur {
+    display: none !important;
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-index {
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    min-width: 20px !important;
+    font-size: 0.9rem !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-playing .aplayer-list-index {
+    color: var(--accent-primary) !important;
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-title {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+    flex: 1 !important;
+    font-size: 0.95rem !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-playing .aplayer-list-title {
+    color: var(--accent-primary) !important;
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-author {
+    color: var(--text-secondary) !important;
+    font-size: 0.85rem !important;
+    opacity: 0.8 !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-playing .aplayer-list-author {
+    color: var(--accent-primary) !important;
+    opacity: 1 !important;
+}
+
+/* Player body styles */
+.aplayer .aplayer-body {
+    background: transparent !important;
+    padding: 20px !important;
+}
+
+.aplayer .aplayer-pic {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+    border: 2px solid var(--border-color) !important;
+}
+
+.aplayer .aplayer-info {
+    margin-left: 20px !important;
+}
+
+.aplayer .aplayer-info .aplayer-music {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+}
+
+.aplayer .aplayer-info .aplayer-author {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem !important;
+}
+
+/* Controls */
+.aplayer .aplayer-controller {
+    background: transparent !important;
+    padding: 0 20px 20px !important;
+}
+
+.aplayer .aplayer-bar-wrap {
+    background: rgba(255,255,255,0.1) !important;
+    border-radius: 6px !important;
+    margin: 0 10px !important;
+}
+
+.aplayer .aplayer-bar .aplayer-loaded {
+    background: rgba(255,255,255,0.2) !important;
+}
+
+.aplayer .aplayer-bar .aplayer-played {
+    background: var(--btn-gradient) !important;
+    position: relative !important;
+}
+
+.aplayer .aplayer-bar .aplayer-played::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 8px var(--glow-color);
+}
+
+/* Button styles */
+.aplayer .aplayer-controller .aplayer-btn {
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease !important;
+}
+
+.aplayer .aplayer-controller .aplayer-btn:hover {
+    color: var(--accent-primary) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Time and volume */
+.aplayer .aplayer-controller .aplayer-time,
+.aplayer .aplayer-controller .aplayer-volume-wrap {
+    color: var(--text-secondary) !important;
+}
+
+/* List button */
+.aplayer .aplayer-list-button {
+    background: rgba(255, 0, 107, 0.1) !important;
+    border: 1px solid var(--accent-primary) !important;
+    color: var(--accent-primary) !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.aplayer .aplayer-list-button:hover {
+    background: var(--accent-primary) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px var(--glow-color) !important;
+}
+
+/* Scrollbar for playlist */
+.aplayer .aplayer-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.aplayer .aplayer-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+}
+
+.aplayer .aplayer-list::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 3px;
+}
+
+.aplayer .aplayer-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+</style>
+
 <!-- Container -->
 <div id="aplayer"></div>
 
 <!-- Init Script -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const ap = new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: false,          // true nếu muốn player cố định dưới màn hình
-        autoplay: false,       // tự động phát khi load
-        theme: '#b7daff',
-        audio: [
-            {
-                name: 'Ordinary',
-                artist: 'Lady Gaga, Bruno Mars',
-                url: '{{ "/music/Ordinary.mp3" | relURL }}',
-                cover: '{{ "images/covers/ordinary.jpg" | relURL }}'
-            }
-        ]
-    });
+    // Load playlist từ Hugo data
+    const playlist = [
+        {{ range $.Site.Data.playlist }}
+        {
+            name: '{{ .name }}',
+            artist: '{{ .artist }}',
+            url: '{{ .url | relURL }}',
+            cover: '{{ .cover | relURL }}'
+        },
+        {{ end }}
+    ];
+
+    if (playlist.length > 0) {
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: false,
+            autoplay: false,
+            theme: '#FF006B',
+            loop: 'all',
+            order: 'list',
+            preload: 'auto',
+            volume: 0.7,
+            mutex: true,
+            listFolded: false,
+            listMaxHeight: '300px',
+            audio: playlist
+        });
+        
+        // Custom event handling for better UX
+        ap.on('play', function () {
+            console.log('🎵 Now playing:', ap.list.audios[ap.list.index].name);
+        });
+        
+        ap.on('pause', function () {
+            console.log('⏸️ Music paused');
+        });
+        
+        ap.on('ended', function () {
+            console.log('✅ Track ended');
+        });
+    }
 });
 </script>

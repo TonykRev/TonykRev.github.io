@@ -2,37 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>//localhost:1313/</link>
+    <link>//localhost:1314/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1314/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>//localhost:1313/about/</link>
+      <link>//localhost:1314/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/about/</guid>
+      <guid>//localhost:1314/about/</guid>
       <description></description>
     </item>
     <item>
       <title></title>
-      <link>//localhost:1313/archivements/</link>
+      <link>//localhost:1314/archivements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/archivements/</guid>
+      <guid>//localhost:1314/archivements/</guid>
       <description></description>
     </item>
     <item>
       <title></title>
-      <link>//localhost:1313/archives/</link>
+      <link>//localhost:1314/archives/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/archives/</guid>
+      <guid>//localhost:1314/archives/</guid>
       <description></description>
     </item>
     <item>
       <title></title>
-      <link>//localhost:1313/home/</link>
+      <link>//localhost:1314/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/home/</guid>
+      <guid>//localhost:1314/contact/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1314/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/home/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1314/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1314/posts/</guid>
       <description></description>
     </item>
   </channel>
