@@ -1,0 +1,112 @@
+<!-- Enhanced Header with Mobile Navigation -->
+<header class="site-header">
+    <nav>
+        <div class="nav-left">
+            <a href="{{ "/" | absLangURL }}" class="logo">{{ .Site.Title }}</a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL | absLangURL }}" class="nav-link {{ if eq .URL $.RelPermalink }}active{{ end }}">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="header-controls">
+            <button class="search-toggle" title="Search posts">🔍</button>
+            <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL | absLangURL }}" class="mobile-nav-link {{ if eq .URL $.RelPermalink }}active{{ end }}">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Sliding Search Form -->
+    <div class="search-form-container" id="searchForm">
+        <div class="search-form">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off">
+                <button class="search-submit" type="button">
+                    <span>🔍</span>
+                </button>
+                <button class="search-close" type="button">
+                    <span>✕</span>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>
+
+<script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-open');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+
+        // Close mobile menu on resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+    }
+
+    // Search functionality 
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchForm = document.getElementById('searchForm');
+    const searchClose = document.querySelector('.search-close');
+    
+    if (searchToggle && searchForm) {
+        searchToggle.addEventListener('click', function() {
+            searchForm.classList.add('active');
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 300);
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchForm.classList.remove('active');
+            });
+        }
+    }
+
+    // Theme toggle is handled by main.js
+});
+</script>
