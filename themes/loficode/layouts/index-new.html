@@ -1,0 +1,171 @@
+{{ define "main" }}
+<div class="homepage-container">
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar">
+        <!-- Music Player Widget -->
+        <div class="sidebar-widget music-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-music"></i> Now Playing</h3>
+            </div>
+            <div class="widget-content">
+                {{ partial "aplayer.html" . }}
+            </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="sidebar-widget categories-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-folder"></i> Categories</h3>
+            </div>
+            <div class="widget-content">
+                <ul class="category-list">
+                    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                    <li>
+                        <a href="/categories/{{ $name | urlize }}/">
+                            <span class="category-name">{{ $name }}</span>
+                            <span class="category-count">{{ len $taxonomy }}</span>
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tags Widget -->
+        <div class="sidebar-widget tags-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-tags"></i> Popular Tags</h3>
+            </div>
+            <div class="widget-content">
+                <div class="tag-cloud">
+                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                    <a href="/tags/{{ $name | urlize }}/" class="tag-item" data-count="{{ len $taxonomy }}">
+                        {{ $name }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Widget -->
+        <div class="sidebar-widget stats-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-chart-bar"></i> Site Stats</h3>
+            </div>
+            <div class="widget-content">
+                <div class="stat-item">
+                    <span class="stat-label">Total Posts</span>
+                    <span class="stat-value">{{ len (where .Site.RegularPages "Type" "posts") }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Categories</span>
+                    <span class="stat-value">{{ len .Site.Taxonomies.categories }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tags</span>
+                    <span class="stat-value">{{ len .Site.Taxonomies.tags }}</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-minimal">
+            <h1 class="site-title">{{ .Site.Title }}</h1>
+            <p class="site-tagline">{{ .Site.Params.tagline | default "Chill beats, clean code, creative content" }}</p>
+        </section>
+
+        <!-- Posts Grid -->
+        <section class="posts-section">
+            <div class="posts-header">
+                <h2>Latest Posts</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="recent">Recent</button>
+                    <button class="filter-tab" data-filter="popular">Popular</button>
+                </div>
+            </div>
+            
+            <div class="posts-grid">
+                {{ range (where .Site.RegularPages "Type" "posts") }}
+                <article class="post-card" data-categories="{{ delimit .Params.categories " " }}">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">{{ .Date.Format "02" }}</span>
+                            <span class="date-month">{{ .Date.Format "Jan" }}</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> {{ .ReadingTime }} min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    {{ if .Params.image }}
+                    <div class="post-thumbnail">
+                        <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="{{ .Permalink }}" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    {{ else }}
+                    <div class="post-thumbnail placeholder-thumbnail">
+                        <div class="thumbnail-overlay">
+                            <a href="{{ .Permalink }}" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            {{ range .Params.categories }}
+                            <span class="category-badge">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        <h3 class="post-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        <p class="post-excerpt">{{ .Summary | truncate 100 }}</p>
+                        <div class="post-tags">
+                            {{ range first 3 .Params.tags }}
+                            <span class="tag-badge">#{{ . }}</span>
+                            {{ end }}
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="{{ .Permalink }}" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+// Filter tabs functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const postCards = document.querySelectorAll('.post-card');
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter logic here (placeholder for now)
+            const filter = this.dataset.filter;
+            // Add filtering animation
+            postCards.forEach(card => {
+                card.style.animation = 'fadeIn 0.5s ease';
+            });
+        });
+    });
+});
+</script>
+{{ end }}

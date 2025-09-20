@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on </title>
+    <link>//localhost:1313/categories/web/</link>
+    <description>Recent content in Web on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jan 2024 10:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Modern Web Apps with React</title>
+      <link>//localhost:1313/posts/sample-web-development/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/sample-web-development/</guid>
+      <description>&lt;h2 id=&#34;introduction-to-modern-web-development&#34;&gt;Introduction to Modern Web Development&lt;/h2&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-technologies&#34;&gt;Key Technologies&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;React.js for UI components&lt;/li&gt;&#xA;&lt;li&gt;Redux for state management&lt;/li&gt;&#xA;&lt;li&gt;TypeScript for type safety&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

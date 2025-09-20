@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Volatility on </title>
+    <link>//localhost:1313/tags/volatility/</link>
+    <description>Recent content in Volatility on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Apr 2024 10:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/volatility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digital Forensics: Memory Analysis</title>
+      <link>//localhost:1313/posts/sample-forensics/</link>
+      <pubDate>Fri, 05 Apr 2024 10:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/sample-forensics/</guid>
+      <description>&lt;h2 id=&#34;memory-forensics-fundamentals&#34;&gt;Memory Forensics Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;Memory forensics is a critical skill in incident response and malware analysis. This guide covers the basics of memory acquisition and analysis.&lt;/p&gt;&#xA;&lt;h3 id=&#34;tools-required&#34;&gt;Tools Required&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Volatility Framework&lt;/li&gt;&#xA;&lt;li&gt;WinDbg&lt;/li&gt;&#xA;&lt;li&gt;Rekall&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;basic-commands&#34;&gt;Basic Commands&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Identify the profile&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;volatility -f memory.dmp imageinfo&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List processes&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;volatility -f memory.dmp --profile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Win10x64 pslist&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Dump a process&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;volatility -f memory.dmp --profile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Win10x64 procdump -p &lt;span style=&#34;color:#ae81ff&#34;&gt;1234&lt;/span&gt; -D output/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;finding-artifacts&#34;&gt;Finding Artifacts&lt;/h3&gt;&#xA;&lt;p&gt;Memory analysis can reveal:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Running processes&lt;/li&gt;&#xA;&lt;li&gt;Network connections&lt;/li&gt;&#xA;&lt;li&gt;Registry keys&lt;/li&gt;&#xA;&lt;li&gt;Malware indicators&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

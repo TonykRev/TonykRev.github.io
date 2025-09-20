@@ -55,8 +55,10 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758341621">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758341621">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758345089">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758345089">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758345089">
+<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758345089">
 
 
 <link
@@ -195,377 +197,718 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <main>
         
-<div class="container">
-  <div class="author-profile-section">
-    <div class="profile-photo-container">
-      <img
-        src="//localhost:1313/images/avatar.jpg"
-        alt="Tran Quang Huy"
-        class="profile-photo"
-      />
-    </div>
-    <p class="profile-tagline"></p>
-    <div class="social-links">
-       
-      <a href="mailto:tranhuydh81@gmail.com" class="social-link" title="Email">
-        <i class="fas fa-envelope social-icon"></i>
-      </a>
-        
-      <a
-        href="https://www.facebook.com/t0nyK06"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="Facebook"
-      >
-        <i class="fab fa-facebook social-icon"></i>
-      </a>
-        
-      <a
-        href="raisingpixels"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="GitHub"
-      >
-        <i class="fab fa-github social-icon"></i>
-      </a>
-        
-      <a
-        href="https://www.instagram.com/t0nyk_"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="Instagram"
-      >
-        <i class="fab fa-instagram social-icon"></i>
-      </a>
-        
-      <a
-        href="your-linkedin-username"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="LinkedIn"
-      >
-        <i class="fab fa-linkedin social-icon"></i>
-      </a>
-        
-      <a
-        href="raisingpixels"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="X (formerly Twitter)"
-      >
-        <span class="social-icon x-icon">𝕏</span>
-      </a>
-        
-      <a
-        href="https://youtube.com/@yourusername"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="YouTube"
-      >
-        <i class="fab fa-youtube social-icon"></i>
-      </a>
-       
-    </div>
-  </div>
-
-  
-  <div class="music-section">
+<div class="homepage-container">
     
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+    <aside class="left-sidebar">
+        
+        <div class="sidebar-widget profile-widget">
+            <div class="widget-content">
+                <div class="profile-section">
+                    <div class="profile-photo-container">
+                        <img src="//localhost:1313/images/avatar.jpg" alt="Tran Quang Huy" class="profile-photo" />
+                    </div>
+                    <h3 class="profile-name">Tran Quang Huy</h3>
+                    <p class="profile-tagline"></p>
+                    <div class="social-links">
+                        
+                        
+                        <a href="mailto:tranhuydh81@gmail.com" class="social-link" title="Email">
+                            <i class="fas fa-envelope social-icon"></i>
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="raisingpixels" target="_blank" rel="noopener" class="social-link" title="GitHub">
+                            <i class="fab fa-github social-icon"></i>
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="your-linkedin-username" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin social-icon"></i>
+                        </a>
+                        
+                        
+                        
+                        <a href="raisingpixels" target="_blank" rel="noopener" class="social-link" title="X (formerly Twitter)">
+                            <span class="social-icon x-icon">𝕏</span>
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        
+        <div class="sidebar-widget music-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-music"></i> Now Playing</h3>
+            </div>
+            <div class="widget-content music-player-wrapper">
+                
 <link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
 <script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
 
 
-<div class="ap-hamburger" onclick="toggleAPlayer()">
-  <div class="hamburger-line"></div>
-  <div class="hamburger-line"></div>
-  <div class="hamburger-line"></div>
-</div>
+<div id="aplayer-sidebar" style="width: 100%; min-height: 200px; background: rgba(255,0,107,0.1); border-radius: 8px;"></div>
 
-
-<div id="aplayer" class="ap-mini"></div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const ap = new APlayer({
-    container: document.getElementById('aplayer'),
-    fixed: false,          
-    autoplay: false,
-    audio: [{
-        name: 'Ordinary',
-        artist: 'Alex Warren',
-        url: '\/music\/Ordinary.mp3',
-        cover: '\/images\/covers\/ordinary.jpg'
-      },{
-        name: 'I Love You 3000',
-        artist: 'Stephanie Poetri',
-        url: '\/music\/loveyou3000.mp3',
-        cover: '\/images\/covers\/love3000.jpg'
-      },{
-        name: 'As The World Caves In',
-        artist: 'Sarah Cothran',
-        url: '\/music\/As_World_Caves_In.mp3',
-        cover: '\/images\/covers\/worldCavesIn.jpg'
-      },{
-        name: 'Car\u0027s Outside',
-        artist: 'James Arthur',
-        url: '\/music\/Car_Outside.mp3',
-        cover: '\/images\/covers\/caroutside.jpg'
-      },{
-        name: 'HIGHEST IN THE ROOM',
-        artist: 'Travis Scott',
-        url: '\/music\/HIGHEST_IN_THE_ROOM.mp3',
-        cover: '\/images\/covers\/highest.jpg'
-      }
-    ]
-  });
+    console.log('Initializing sidebar APlayer...');
+    
+    
+    const playlist = [
+        
+        
+        {
+            name: 'Ordinary',
+            artist: 'Alex Warren',
+            url: '\/music\/Ordinary.mp3',
+            cover: '\/images\/covers\/ordinary.jpg'
+        },
+        
+        {
+            name: 'I Love You 3000',
+            artist: 'Stephanie Poetri',
+            url: '\/music\/loveyou3000.mp3',
+            cover: '\/images\/covers\/love3000.jpg'
+        },
+        
+        {
+            name: 'As The World Caves In',
+            artist: 'Sarah Cothran',
+            url: '\/music\/As_World_Caves_In.mp3',
+            cover: '\/images\/covers\/worldCavesIn.jpg'
+        },
+        
+        {
+            name: 'Car\u0027s Outside',
+            artist: 'James Arthur',
+            url: '\/music\/Car_Outside.mp3',
+            cover: '\/images\/covers\/caroutside.jpg'
+        },
+        
+        {
+            name: 'HIGHEST IN THE ROOM',
+            artist: 'Travis Scott',
+            url: '\/music\/HIGHEST_IN_THE_ROOM.mp3',
+            cover: '\/images\/covers\/highest.jpg'
+        },
+        
+        
+    ];
+    
+    console.log('Playlist:', playlist);
+    
+    if (playlist.length > 0) {
+        try {
+            const ap = new APlayer({
+                container: document.getElementById('aplayer-sidebar'),
+                fixed: false,
+                autoplay: false,
+                theme: '#FF006B',
+                loop: 'all',
+                order: 'list',
+                preload: 'none',
+                volume: 0.5,
+                mutex: true,
+                listFolded: false,
+                listMaxHeight: '150px',
+                audio: playlist
+            });
+            console.log('APlayer initialized successfully');
+        } catch (error) {
+            console.error('APlayer initialization failed:', error);
+            document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">APlayer failed to load: ' + error.message + '</p>';
+        }
+    } else {
+        document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">No playlist found!</p>';
+    }
 });
-
-
-let isAPlayerOpen = false;
-function toggleAPlayer() {
-  const hamburger = document.querySelector('.ap-hamburger');
-  const player = document.getElementById('aplayer');
-  
-  isAPlayerOpen = !isAPlayerOpen;
-  
-  if (isAPlayerOpen) {
-    hamburger.classList.add('active');
-    player.classList.add('show');
-  } else {
-    hamburger.classList.remove('active');
-    player.classList.remove('show');
-  }
-}
 </script>
+            </div>
+        </div>
 
-<style>
-:root{
-  --ap-bg:      #0f0f12;
-  --ap-bg-2:    #151518;
-  --ap-text:    #f3e3a6;   
-  --ap-muted:   #a8996b;   
-  --ap-accent:  #f1c40f;   
-  --ap-border:  #2b2b2f;
-  --ap-shadow:  rgba(0,0,0,.55);
-}
+        
+        <div class="sidebar-widget categories-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-folder"></i> Categories</h3>
+            </div>
+            <div class="widget-content">
+                <ul class="category-list">
+                    
+                    <li>
+                        <a href="/categories/ai/">
+                            <span class="category-name">ai</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/blockchain/">
+                            <span class="category-name">blockchain</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/crypto/">
+                            <span class="category-name">crypto</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/ctf/">
+                            <span class="category-name">ctf</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/forensics/">
+                            <span class="category-name">forensics</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/mobile/">
+                            <span class="category-name">mobile</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/reverse/">
+                            <span class="category-name">reverse</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/security/">
+                            <span class="category-name">security</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/tutorial/">
+                            <span class="category-name">tutorial</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/web/">
+                            <span class="category-name">web</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/web3/">
+                            <span class="category-name">web3</span>
+                            <span class="category-count">1</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
 
- 
-.ap-hamburger {
-  position: fixed;
-  top: 70px;            
-  left: 28px;           
-  width: 36px;
-  height: 36px;
-  background: var(--ap-bg);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 4px 12px var(--ap-shadow);
-  z-index: 1001;        
-  transition: all 0.3s ease;
-}
+        
+        <div class="sidebar-widget tags-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-tags"></i> Popular Tags</h3>
+            </div>
+            <div class="widget-content">
+                <div class="tag-cloud">
+                    
+                    <a href="/tags/android/" class="tag-item" data-count="1">
+                        android
+                    </a>
+                    
+                    <a href="/tags/apk/" class="tag-item" data-count="1">
+                        apk
+                    </a>
+                    
+                    <a href="/tags/computer-vision/" class="tag-item" data-count="1">
+                        computer vision
+                    </a>
+                    
+                    <a href="/tags/cryptography/" class="tag-item" data-count="1">
+                        cryptography
+                    </a>
+                    
+                    <a href="/tags/ctf/" class="tag-item" data-count="1">
+                        ctf
+                    </a>
+                    
+                    <a href="/tags/defi/" class="tag-item" data-count="1">
+                        defi
+                    </a>
+                    
+                    <a href="/tags/dfir/" class="tag-item" data-count="1">
+                        dfir
+                    </a>
+                    
+                    <a href="/tags/ethereum/" class="tag-item" data-count="1">
+                        ethereum
+                    </a>
+                    
+                    <a href="/tags/frida/" class="tag-item" data-count="1">
+                        frida
+                    </a>
+                    
+                    <a href="/tags/frontend/" class="tag-item" data-count="1">
+                        frontend
+                    </a>
+                    
+                    <a href="/tags/jadx/" class="tag-item" data-count="1">
+                        jadx
+                    </a>
+                    
+                    <a href="/tags/javascript/" class="tag-item" data-count="1">
+                        javascript
+                    </a>
+                    
+                    <a href="/tags/machine-learning/" class="tag-item" data-count="1">
+                        machine learning
+                    </a>
+                    
+                    <a href="/tags/malware/" class="tag-item" data-count="1">
+                        malware
+                    </a>
+                    
+                    <a href="/tags/memory/" class="tag-item" data-count="1">
+                        memory
+                    </a>
+                    
+                    <a href="/tags/python/" class="tag-item" data-count="1">
+                        python
+                    </a>
+                    
+                    <a href="/tags/react/" class="tag-item" data-count="1">
+                        react
+                    </a>
+                    
+                    <a href="/tags/security/" class="tag-item" data-count="1">
+                        security
+                    </a>
+                    
+                    <a href="/tags/smart-contracts/" class="tag-item" data-count="1">
+                        smart contracts
+                    </a>
+                    
+                    <a href="/tags/solidity/" class="tag-item" data-count="1">
+                        solidity
+                    </a>
+                    
+                    <a href="/tags/tensorflow/" class="tag-item" data-count="1">
+                        tensorflow
+                    </a>
+                    
+                    <a href="/tags/volatility/" class="tag-item" data-count="1">
+                        volatility
+                    </a>
+                    
+                    <a href="/tags/writeup/" class="tag-item" data-count="1">
+                        writeup
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
 
-.ap-hamburger:hover {
-  background: var(--ap-bg-2);
-  transform: translateY(-2px);
-}
+        
+        <div class="sidebar-widget stats-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-chart-bar"></i> Site Stats</h3>
+            </div>
+            <div class="widget-content">
+                <div class="stat-item">
+                    <span class="stat-label">Total Posts</span>
+                    <span class="stat-value">6</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Categories</span>
+                    <span class="stat-value">11</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tags</span>
+                    <span class="stat-value">23</span>
+                </div>
+            </div>
+        </div>
+    </aside>
 
-.hamburger-line {
-  width: 18px;
-  height: 2px;
-  background: var(--ap-text);
-  border-radius: 1px;
-  transition: all 0.3s ease;
-}
-
- 
-.ap-hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.ap-hamburger.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.ap-hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
- 
-.ap-mini{
-  position: fixed;
-  top: 110px;           
-  left: 28px;           
-  width: 200px;         
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--ap-bg);
-  box-shadow: 0 8px 24px var(--ap-shadow);
-  z-index: 1000;
-  font-family: Inter, "Noto Sans JP", "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  
-   
-  transform: translateX(-100%);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
- 
-.ap-mini.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
- 
-.aplayer .aplayer-info{
-  background: linear-gradient(135deg, #191919, #101012);
-  padding: 6px 7px;
-  height: 44px;
-  color: var(--ap-text);
-}
-
- 
-.aplayer .aplayer-music{
-  margin-left: 44px;               
-  line-height: 14px;
-}
-.aplayer .aplayer-title{
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--ap-text);
-}
-.aplayer .aplayer-author{
-  font-size: 10px;
-  color: var(--ap-muted);
-}
-
- 
-.aplayer .aplayer-pic{
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px var(--ap-shadow);
-}
-
- 
-.aplayer .aplayer-time{
-  font-size: 9px;
-  color: var(--ap-muted);
-}
-.aplayer .aplayer-icon{ 
-  width:14px; 
-  height:14px; 
-}
-.aplayer .aplayer-icon path{ 
-  fill: var(--ap-muted); 
-}
-.aplayer .aplayer-icon:hover path{ 
-  fill: var(--ap-accent); 
-}
-
- 
-.aplayer .aplayer-bar-wrap .aplayer-bar{
-  height: 2px !important;
-  background: #3c3c41 !important;
-}
-.aplayer .aplayer-bar-wrap .aplayer-played{
-  background: var(--ap-accent) !important;
-}
-
- 
-.aplayer .aplayer-list{
-  background: var(--ap-bg-2);
-  color: var(--ap-text);
-  font-size: 10px;
-  border-top: 1px solid var(--ap-border);
-  max-height: 120px;
-  overflow-y: auto;
-}
-
-.aplayer .aplayer-list li{
-  padding: 2px 6px;
-  line-height: 18px;
-  height: 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.aplayer .aplayer-list-index{ 
-  width: 12px; 
-}
-.aplayer .aplayer-list-author{ 
-  color: var(--ap-muted); 
-}
-
-.aplayer .aplayer-list li:hover{
-  background: #24242a;
-  color: var(--ap-text);
-}
-
-.aplayer .aplayer-list li.aplayer-list-light{
-  background: rgba(241,196,15,0.12);
-  color: var(--ap-text);
-  border-left: 2px solid var(--ap-accent);
-}
-
- 
-.aplayer .aplayer-list::-webkit-scrollbar {
-  width: 4px;
-}
-
-.aplayer .aplayer-list::-webkit-scrollbar-track {
-  background: var(--ap-bg);
-}
-
-.aplayer .aplayer-list::-webkit-scrollbar-thumb {
-  background: var(--ap-muted);
-  border-radius: 2px;
-}
-
- 
-.aplayer .aplayer-lrc{ 
-  display:none!important; 
-}
-
- 
-@media (max-width: 768px) {
-  .ap-mini {
-    left: 10px;
-    width: 180px;
-  }
-  
-  .ap-hamburger {
-    left: 10px;
-  }
-}
-</style>
-  </div>
-
-  <div class="filter-section">
-    <div class="filter-tags">
-      <div class="tag active">All</div>
-      
-    </div>
-  </div>
-
-  <div class="posts-list" id="posts-container">
-      
-  </div>
-
-   
+    
+    <main class="main-content">
+        
+        <section class="posts-section">
+            <div class="posts-header">
+                <h2>Latest Posts</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="recent">Recent</button>
+                    <button class="filter-tab" data-filter="popular">Popular</button>
+                </div>
+            </div>
+            
+            <div class="posts-grid">
+                
+                
+                
+                    
+                
+                
+                <article class="post-card" data-categories="Reverse Mobile">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">15</span>
+                            <span class="date-month">Apr</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/android-re.jpg" alt="Reverse Engineering Android Apps" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-reverse-engineering/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">Reverse</span>
+                            
+                            <span class="category-badge">Mobile</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-reverse-engineering/">Reverse Engineering Android Apps</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="android-reverse-engineering">Android Reverse Engineering</h2>
+<p>Learn how to analyze and understand Android applications through reverse …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#Android</span>
+                            
+                            <span class="tag-badge">#APK</span>
+                            
+                            <span class="tag-badge">#Frida</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-reverse-engineering/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card" data-categories="Forensics Security">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">05</span>
+                            <span class="date-month">Apr</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/forensics.jpg" alt="Digital Forensics: Memory Analysis" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-forensics/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">Forensics</span>
+                            
+                            <span class="category-badge">Security</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-forensics/">Digital Forensics: Memory Analysis</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="memory-forensics-fundamentals">Memory Forensics Fundamentals</h2>
+<p>Memory forensics is a critical skill in incident response and malware …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#Volatility</span>
+                            
+                            <span class="tag-badge">#Memory</span>
+                            
+                            <span class="tag-badge">#DFIR</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-forensics/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card" data-categories="Blockchain Web3">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">25</span>
+                            <span class="date-month">Mar</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/blockchain.jpg" alt="Understanding Smart Contracts" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-blockchain/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">Blockchain</span>
+                            
+                            <span class="category-badge">Web3</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-blockchain/">Understanding Smart Contracts</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="introduction-to-smart-contracts">Introduction to Smart Contracts</h2>
+<p>Smart contracts are self-executing contracts with the terms directly …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#Ethereum</span>
+                            
+                            <span class="tag-badge">#Solidity</span>
+                            
+                            <span class="tag-badge">#DeFi</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-blockchain/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card" data-categories="AI Tutorial">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">10</span>
+                            <span class="date-month">Mar</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/ai-cover.jpg" alt="Deep Learning for Image Classification" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-machine-learning/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">AI</span>
+                            
+                            <span class="category-badge">Tutorial</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-machine-learning/">Deep Learning for Image Classification</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="getting-started-with-deep-learning">Getting Started with Deep Learning</h2>
+<p>Deep learning has revolutionized how we approach computer vision …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#Machine Learning</span>
+                            
+                            <span class="tag-badge">#Python</span>
+                            
+                            <span class="tag-badge">#TensorFlow</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-machine-learning/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card" data-categories="Crypto CTF">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">20</span>
+                            <span class="date-month">Feb</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/crypto-ctf.jpg" alt="Crypto CTF 2024 Writeup" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-crypto-ctf/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">Crypto</span>
+                            
+                            <span class="category-badge">CTF</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-crypto-ctf/">Crypto CTF 2024 Writeup</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="challenge-overview">Challenge Overview</h2>
+<p>This year&rsquo;s Crypto CTF featured some interesting cryptographic puzzles that …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#Cryptography</span>
+                            
+                            <span class="tag-badge">#Security</span>
+                            
+                            <span class="tag-badge">#CTF</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-crypto-ctf/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="post-card" data-categories="Web">
+                    <div class="post-card-header">
+                        <div class="post-date">
+                            <span class="date-day">15</span>
+                            <span class="date-month">Jan</span>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="far fa-clock"></i> 1 min</span>
+                            <span><i class="far fa-comment"></i> 0</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-thumbnail">
+                        <img src="/images/react-cover.jpg" alt="Building Modern Web Apps with React" loading="lazy">
+                        <div class="thumbnail-overlay">
+                            <a href="//localhost:1313/posts/sample-web-development/" class="view-post">View Post</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="post-card-content">
+                        <div class="post-categories">
+                            
+                            <span class="category-badge">Web</span>
+                            
+                        </div>
+                        <h3 class="post-title">
+                            <a href="//localhost:1313/posts/sample-web-development/">Building Modern Web Apps with React</a>
+                        </h3>
+                        <p class="post-excerpt"><h2 id="introduction-to-modern-web-development">Introduction to Modern Web Development</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed …</p></p>
+                        <div class="post-tags">
+                            
+                            <span class="tag-badge">#React</span>
+                            
+                            <span class="tag-badge">#JavaScript</span>
+                            
+                            <span class="tag-badge">#Frontend</span>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-card-footer">
+                        <a href="//localhost:1313/posts/sample-web-development/" class="read-more-btn">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+    </main>
 </div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const postCards = document.querySelectorAll('.post-card');
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            
+            const filter = this.dataset.filter;
+            
+            postCards.forEach(card => {
+                card.style.animation = 'fadeIn 0.5s ease';
+            });
+        });
+    });
+});
+</script>
 
     </main>
 

@@ -1,0 +1,61 @@
+<!-- Load APlayer CSS & JS từ CDN -->
+<link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
+<script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+
+<!-- Container -->
+<div id="aplayer-sidebar" style="width: 100%; min-height: 200px; background: rgba(255,0,107,0.1); border-radius: 8px;"></div>
+
+<!-- Init Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    console.log('Initializing sidebar APlayer...');
+    
+    // Simple playlist for testing
+    const playlist = [
+        {{ if .Site.Data.playlist }}
+        {{ range .Site.Data.playlist }}
+        {
+            name: '{{ .name }}',
+            artist: '{{ .artist }}',
+            url: '{{ .url | relURL }}',
+            cover: '{{ .cover | relURL }}'
+        },
+        {{ end }}
+        {{ else }}
+        {
+            name: 'Test Song',
+            artist: 'Test Artist',
+            url: '/music/test.mp3',
+            cover: '/images/test.jpg'
+        }
+        {{ end }}
+    ];
+    
+    console.log('Playlist:', playlist);
+    
+    if (playlist.length > 0) {
+        try {
+            const ap = new APlayer({
+                container: document.getElementById('aplayer-sidebar'),
+                fixed: false,
+                autoplay: false,
+                theme: '#FF006B',
+                loop: 'all',
+                order: 'list',
+                preload: 'none',
+                volume: 0.5,
+                mutex: true,
+                listFolded: false,
+                listMaxHeight: '150px',
+                audio: playlist
+            });
+            console.log('APlayer initialized successfully');
+        } catch (error) {
+            console.error('APlayer initialization failed:', error);
+            document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">APlayer failed to load: ' + error.message + '</p>';
+        }
+    } else {
+        document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">No playlist found!</p>';
+    }
+});
+</script>

@@ -1,0 +1,289 @@
+/* Music Player Sidebar - Clean Modern Design */
+
+.music-player-wrapper {
+    padding: 0 !important;
+}
+
+/* Container fixes */
+#aplayer-sidebar {
+    background: transparent !important;
+    border-radius: 0 !important;
+    min-height: 300px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+#aplayer-sidebar .aplayer {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Now playing section - compact design */
+#aplayer-sidebar .aplayer .aplayer-body {
+    padding: 12px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 6px !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 60px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-pic {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    flex-shrink: 0 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-info {
+    margin-left: 10px !important;
+    flex: 1 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-info .aplayer-music {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-info .aplayer-author {
+    color: var(--text-muted) !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    opacity: 0.7 !important;
+}
+
+/* Controls - compact design */
+#aplayer-sidebar .aplayer .aplayer-controller {
+    padding: 8px 12px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-radius: 6px !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 40px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-bar-wrap {
+    margin: 0 8px !important;
+    height: 3px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 2px !important;
+    flex: 1 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-bar .aplayer-played {
+    background: var(--accent-primary) !important;
+    height: 3px !important;
+    border-radius: 2px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-time {
+    font-size: 10px !important;
+    color: var(--text-muted) !important;
+    margin: 0 4px !important;
+    white-space: nowrap !important;
+}
+
+/* Playlist area */
+#aplayer-sidebar .aplayer .aplayer-list {
+    background: transparent !important;
+    max-height: 180px !important;
+    overflow-y: auto !important;
+    border: none !important;
+    margin-top: 15px !important;
+    padding-top: 5px !important;
+}
+
+/* Playlist items - clean design */
+#aplayer-sidebar .aplayer .aplayer-list ol {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li {
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-height: 32px !important;
+    line-height: 1.3 !important;
+    border-radius: 4px !important;
+    margin: 1px 0 !important;
+    position: relative !important;
+}
+
+/* Hover effect - subtle */
+#aplayer-sidebar .aplayer .aplayer-list ol li:hover {
+    background: rgba(255, 0, 107, 0.06) !important;
+    transform: none !important;
+}
+
+/* Currently playing - NO WHITE BACKGROUND */
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light {
+    background: rgba(255, 0, 107, 0.1) !important;
+    border-left: 2px solid var(--accent-primary) !important;
+    padding-left: 6px !important;
+}
+
+/* FORCE override any white backgrounds */
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light,
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:hover,
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:active {
+    background: rgba(255, 0, 107, 0.1) !important;
+    color: inherit !important;
+}
+
+/* Track number */
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-index {
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    font-size: 10px !important;
+    min-width: 12px !important;
+    text-align: left !important;
+    flex-shrink: 0 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-index {
+    color: var(--accent-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Track title */
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-title {
+    color: var(--text-primary) !important;
+    font-weight: 400 !important;
+    font-size: 11px !important;
+    flex: 1 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+/* Track artist */
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-author {
+    color: var(--text-muted) !important;
+    font-size: 9px !important;
+    opacity: 0.7 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 70px !important;
+    flex-shrink: 0 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-author {
+    color: var(--accent-primary) !important;
+    opacity: 0.8 !important;
+    font-weight: 400 !important;
+}
+
+/* Hide current indicator dot */
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-cur {
+    display: none !important;
+}
+
+/* Buttons */
+#aplayer-sidebar .aplayer .aplayer-controller .aplayer-btn {
+    color: var(--text-primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-controller .aplayer-btn:hover {
+    color: var(--accent-primary) !important;
+    transform: scale(1.1) !important;
+}
+
+/* List toggle button */
+#aplayer-sidebar .aplayer .aplayer-list-button {
+    background: rgba(255, 0, 107, 0.1) !important;
+    border: 1px solid var(--accent-primary) !important;
+    color: var(--accent-primary) !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list-button:hover {
+    background: var(--accent-primary) !important;
+    color: white !important;
+}
+
+/* Scrollbar styling */
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 2px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-thumb {
+    background: var(--accent-primary) !important;
+    border-radius: 2px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary) !important;
+}
+
+/* Volume and additional controls */
+#aplayer-sidebar .aplayer .aplayer-volume-wrap {
+    margin-left: auto !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-volume-bar-wrap {
+    width: 60px !important;
+}
+
+/* Make sure text is readable in all states */
+#aplayer-sidebar * {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Responsive adjustments for sidebar */
+@media (max-width: 1200px) {
+    #aplayer-sidebar .aplayer .aplayer-info .aplayer-music,
+    #aplayer-sidebar .aplayer .aplayer-info .aplayer-author {
+        max-width: 140px !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-author {
+        max-width: 60px !important;
+    }
+}

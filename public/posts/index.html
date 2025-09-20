@@ -4,26 +4,26 @@
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-   - 
+  Posts - 
 </title>
 
 
 
-<meta name="description" content="" />
+<meta name="description" content="All blog posts." />
 
 
 
 <meta
   property="og:title"
-  content=""
+  content="Posts"
 />
 <meta
   property="og:description"
-  content=""
+  content="All blog posts."
 />
 <meta
   property="og:type"
-  content="article"
+  content="website"
 />
 <meta property="og:url" content="//localhost:1313/posts/" />
 <meta property="og:site_name" content="" />
@@ -32,11 +32,11 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta
   name="twitter:title"
-  content=""
+  content="Posts"
 />
 <meta
   name="twitter:description"
-  content=""
+  content="All blog posts."
 />
 
 
@@ -54,10 +54,16 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758341621">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758341621">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758344955">
 
 
+<link
+  rel="alternate"
+  type="application/rss&#43;xml"
+  href="//localhost:1313/posts/index.xml"
+/>
 
 </head>
 <body>
@@ -66,243 +72,185 @@
     
 
     
-    
-<header class="site-header">
-    <nav>
-        <div class="nav-left">
-            <a href="//localhost:1313/" class="logo"></a>
-        </div>
-
-        
-        <div class="nav-links desktop-nav">
-            
-            <a href="//localhost:1313/about/" class="nav-link ">
-                About
-            </a>
-            
-            <a href="//localhost:1313/contact/" class="nav-link ">
-                Contact
-            </a>
-            
-        </div>
-
-        
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <div class="header-controls">
-            <button class="search-toggle" title="Search posts">🔍</button>
-            <button class="theme-toggle" title="Toggle dark mode">🌙</button>
-        </div>
-    </nav>
-
-    
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-content">
-            
-            <a href="//localhost:1313/about/" class="mobile-nav-link ">
-                About
-            </a>
-            
-            <a href="//localhost:1313/contact/" class="mobile-nav-link ">
-                Contact
-            </a>
-            
-        </div>
-    </div>
-
-    
-    <div class="search-form-container" id="searchForm">
-        <div class="search-form">
-            <div class="search-input-wrapper">
-                <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off">
-                <button class="search-submit" type="button">
-                    <span>🔍</span>
-                </button>
-                <button class="search-close" type="button">
-                    <span>✕</span>
-                </button>
-            </div>
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div>
-</header>
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    if (mobileMenuToggle && mobileNav) {
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            document.body.classList.toggle('mobile-menu-open');
-        });
-
-        
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-    }
-
-    
-    const searchToggle = document.querySelector('.search-toggle');
-    const searchForm = document.getElementById('searchForm');
-    const searchClose = document.querySelector('.search-close');
-    
-    if (searchToggle && searchForm) {
-        searchToggle.addEventListener('click', function() {
-            searchForm.classList.add('active');
-            setTimeout(() => {
-                document.getElementById('searchInput').focus();
-            }, 300);
-        });
-
-        if (searchClose) {
-            searchClose.addEventListener('click', function() {
-                searchForm.classList.remove('active');
-            });
-        }
-    }
-
-    
-});
-</script>
-
-    
 
     <main>
         
+<div class="container">
+   
 
-<div class="post-overlay active">
-    <div class="post-overlay-backdrop"></div>
-    <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
-        <div class="post-overlay-header">
-            <div class="post-overlay-title">
-                <a href="/" class="overlay-site-title"></a>
-            </div>
-            <button class="post-overlay-close" aria-label="Close post" onclick="window.location.href='/'">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="post-layout">
-        <article class="post-content">
-            <header class="post-header">
-                <div class="post-meta">
-                    <span class="post-date">0001.01.01</span>
-                    <div class="reading-time-post">
-                        <span class="coffee-cups">
-                            
-                            
-                            
-                            
-                            
-                            
-                        </span>
-                        <span>0 min read</span>
-                    </div>
-                </div>
-                <h1 class="post-title"></h1>
-                
-
-                
-            </header>
-            <div class="post-body">
-                
-            </div>
-
-            
-            
-
-            
-            <nav class="post-navigation">
-                
-                <div></div>
-                
-
-                
-                <div class="nav-next">
-                    <span class="nav-label">Next →</span>
-                    <a href="//localhost:1313/home/" class="nav-title"></a>
-                </div>
-                
-            </nav>
-        </article>
-
-        <aside class="sidebar">
-            <nav class="toc">
-                <h4>Contents</h4>
-                <div id="toc-content">
-                    
-                </div>
-            </nav>
-        </aside>
-        </div>
+  <div class="posts-list" id="posts-container">
+       
+<article class="post-item">
+  <div class="post-content">
+    <div class="post-header-inline">
+      <h2 class="post-title-vaporwave">
+        <a href="//localhost:1313/posts/sample-reverse-engineering/">Reverse Engineering Android Apps</a>
+      </h2>
     </div>
+
+    <div class="post-date-with-badges">
+      <span class="post-date">2024.04.15</span>
+       
+    </div>
+
+    
+
+    <p class="post-excerpt-vaporwave">
+      Android Reverse Engineering Learn how to analyze and understand Android applications through reverse engineering techniques.
+Essential Tools JADX - Dex to Java …
+    </p>
+
+    
+    <div class="post-tags-vaporwave">
+      
+      <span class="post-tag-vaporwave">Android</span>
+      
+      <span class="post-tag-vaporwave">APK</span>
+      
+      <span class="post-tag-vaporwave">Frida</span>
+      
+      <span class="post-tag-vaporwave">Jadx</span>
+      
+    </div>
+    
+
+    <a href="//localhost:1313/posts/sample-reverse-engineering/" class="continue-reading-vaporwave">
+      Read More →
+    </a>
+  </div>
+
+  <div class="post-meta-sidebar">
+    <div class="reading-time-vaporwave">
+      <span class="coffee-cups">
+               ☕
+      </span>
+      <span>1 min</span>
+    </div>
+  </div>
+</article>
+  
+<article class="post-item">
+  <div class="post-content">
+    <div class="post-header-inline">
+      <h2 class="post-title-vaporwave">
+        <a href="//localhost:1313/posts/sample-forensics/">Digital Forensics: Memory Analysis</a>
+      </h2>
+    </div>
+
+    <div class="post-date-with-badges">
+      <span class="post-date">2024.04.05</span>
+       
+    </div>
+
+    
+
+    <p class="post-excerpt-vaporwave">
+      Memory Forensics Fundamentals Memory forensics is a critical skill in incident response and malware analysis. This guide covers the basics of memory acquisition …
+    </p>
+
+    
+    <div class="post-tags-vaporwave">
+      
+      <span class="post-tag-vaporwave">Volatility</span>
+      
+      <span class="post-tag-vaporwave">Memory</span>
+      
+      <span class="post-tag-vaporwave">DFIR</span>
+      
+      <span class="post-tag-vaporwave">Malware</span>
+      
+    </div>
+    
+
+    <a href="//localhost:1313/posts/sample-forensics/" class="continue-reading-vaporwave">
+      Read More →
+    </a>
+  </div>
+
+  <div class="post-meta-sidebar">
+    <div class="reading-time-vaporwave">
+      <span class="coffee-cups">
+               ☕
+      </span>
+      <span>1 min</span>
+    </div>
+  </div>
+</article>
+  
+<article class="post-item">
+  <div class="post-content">
+    <div class="post-header-inline">
+      <h2 class="post-title-vaporwave">
+        <a href="//localhost:1313/posts/sample-blockchain/">Understanding Smart Contracts</a>
+      </h2>
+    </div>
+
+    <div class="post-date-with-badges">
+      <span class="post-date">2024.03.25</span>
+       
+    </div>
+
+    
+
+    <p class="post-excerpt-vaporwave">
+      Introduction to Smart Contracts Smart contracts are self-executing contracts with the terms directly written into code. They run on blockchain networks like …
+    </p>
+
+    
+    <div class="post-tags-vaporwave">
+      
+      <span class="post-tag-vaporwave">Ethereum</span>
+      
+      <span class="post-tag-vaporwave">Solidity</span>
+      
+      <span class="post-tag-vaporwave">DeFi</span>
+      
+      <span class="post-tag-vaporwave">Smart Contracts</span>
+      
+    </div>
+    
+
+    <a href="//localhost:1313/posts/sample-blockchain/" class="continue-reading-vaporwave">
+      Read More →
+    </a>
+  </div>
+
+  <div class="post-meta-sidebar">
+    <div class="reading-time-vaporwave">
+      <span class="coffee-cups">
+               ☕
+      </span>
+      <span>1 min</span>
+    </div>
+  </div>
+</article>
+ 
+  </div>
+
+   
+  <div class="load-more-section">
+    <button
+      id="load-more-btn"
+      class="load-more-btn"
+      data-loaded="3"
+      data-total="6"
+    >
+      <span class="load-more-text">Load More Posts</span>
+      <span class="load-more-icon">☕</span>
+    </button>
+    <div class="load-more-loading" id="load-more-loading" style="display: none">
+      <span class="loading-text">Brewing more content...</span>
+      <div class="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  
 </div>
 
     </main>
-
-    
-    <div class="ambient-bar">
-    <div class="ambient-controls">
-        <button class="mute-toggle muted" title="Toggle ambient sounds">
-            <i class="fas fa-volume-mute"></i>
-        </button>
-        <button class="ambient-icon" data-sound="coffee" title="Coffee Shop Ambience">
-            <i class="fas fa-coffee"></i>
-        </button>
-        <button class="ambient-icon" data-sound="rain" title="Gentle Rain">
-            <i class="fas fa-cloud-rain"></i>
-        </button>
-        <button class="ambient-icon" data-sound="fireplace" title="Crackling Fireplace">
-            <i class="fas fa-fire"></i>
-        </button>
-    </div>
-
-    <div class="ambient-label">Click to start ambient sounds</div>
-
-    <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="">
-        <div class="equalizer muted">
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-        </div>
-    </div>
-</div>
 
     
 
