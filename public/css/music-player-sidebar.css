@@ -427,3 +427,128 @@
         max-width: 60px !important;
     }
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    /* Container fixes for mobile */
+    #aplayer-sidebar {
+        min-height: 250px !important;
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    #aplayer-sidebar .aplayer {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        max-height: none !important;
+    }
+    
+    /* Compact mobile layout */
+    #aplayer-sidebar .aplayer .aplayer-body {
+        padding: 12px !important;
+        min-height: 70px !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    
+    /* Top row: album art + info */
+    #aplayer-sidebar .aplayer .aplayer-body > div:first-child {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-pic {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 4px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-info {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-info .aplayer-music {
+        font-size: 12px !important;
+        margin-bottom: 2px !important;
+        max-width: none !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-info .aplayer-author {
+        font-size: 10px !important;
+        max-width: none !important;
+    }
+    
+    /* Controls row */
+    #aplayer-sidebar .aplayer .aplayer-controller {
+        padding: 0 !important;
+        gap: 8px !important;
+        min-height: 30px !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-bar-wrap {
+        flex: 1 !important;
+        margin: 0 4px !important;
+        max-width: none !important;
+        min-width: 80px !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-time {
+        font-size: 8px !important;
+        min-width: 30px !important;
+        text-align: center !important;
+    }
+    
+    /* Mobile playlist */
+    #aplayer-sidebar .aplayer .aplayer-list {
+        max-height: 150px !important;
+        margin-top: 8px !important;
+        padding-top: 6px !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-list ol li {
+        padding: 4px 6px !important;
+        min-height: 28px !important;
+        gap: 6px !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-index {
+        font-size: 9px !important;
+        min-width: 10px !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-title {
+        font-size: 10px !important;
+        max-width: calc(100% - 50px) !important;
+    }
+    
+    #aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-author {
+        font-size: 8px !important;
+        max-width: 50px !important;
+    }
+    
+    /* Mobile buttons */
+    #aplayer-sidebar .aplayer .aplayer-controller .aplayer-btn {
+        font-size: 11px !important;
+        padding: 2px !important;
+        margin: 0 1px !important;
+    }
+    
+    /* Volume control adjustments */
+    #aplayer-sidebar .aplayer .aplayer-volume-bar-wrap {
+        width: 40px !important;
+    }
+    
+    /* List toggle button */
+    #aplayer-sidebar .aplayer .aplayer-list-button {
+        padding: 2px 6px !important;
+        font-size: 10px !important;
+        border-radius: 3px !important;
+    }
+}

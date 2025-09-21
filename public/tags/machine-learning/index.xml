@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Machine Learning on </title>
-    <link>//localhost:1313/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on </description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 10 Mar 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Deep Learning for Image Classification</title>
-      <link>//localhost:1313/posts/sample-machine-learning/</link>
-      <pubDate>Sun, 10 Mar 2024 10:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/sample-machine-learning/</guid>
-      <description>&lt;h2 id=&#34;getting-started-with-deep-learning&#34;&gt;Getting Started with Deep Learning&lt;/h2&gt;&#xA;&lt;p&gt;Deep learning has revolutionized how we approach computer vision problems. In this tutorial, we&amp;rsquo;ll build an image classifier from scratch.&lt;/p&gt;&#xA;&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Python 3.8+&lt;/li&gt;&#xA;&lt;li&gt;TensorFlow 2.0&lt;/li&gt;&#xA;&lt;li&gt;NumPy and Pandas&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;building-the-model&#34;&gt;Building the Model&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tensorflow &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; tf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tensorflow &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; keras&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; keras&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Sequential([&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keras&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;layers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Conv2D(&lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;, (&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;), activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;),&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keras&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;layers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;MaxPooling2D(),&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keras&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;layers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Flatten(),&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keras&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;layers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Dense(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;])&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s dive into the implementation details&amp;hellip;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on</title><link>/tags/machine-learning/</link><description>Recent content in Machine Learning on</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 10 Mar 2024 10:00:00 +0000</lastBuildDate><atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Deep Learning for Image Classification</title><link>/posts/sample-machine-learning/</link><pubDate>Sun, 10 Mar 2024 10:00:00 +0000</pubDate><guid>/posts/sample-machine-learning/</guid><description>&lt;h2 id="getting-started-with-deep-learning"&gt;Getting Started with Deep Learning&lt;/h2&gt;
+&lt;p&gt;Deep learning has revolutionized how we approach computer vision problems. In this tutorial, we&amp;rsquo;ll build an image classifier from scratch.&lt;/p&gt;
+&lt;h3 id="prerequisites"&gt;Prerequisites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Python 3.8+&lt;/li&gt;
+&lt;li&gt;TensorFlow 2.0&lt;/li&gt;
+&lt;li&gt;NumPy and Pandas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="building-the-model"&gt;Building the Model&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; tensorflow &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; tensorflow &lt;span style="color:#f92672"&gt;import&lt;/span&gt; keras
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;model &lt;span style="color:#f92672"&gt;=&lt;/span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Sequential([
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Conv2D(&lt;span style="color:#ae81ff"&gt;32&lt;/span&gt;, (&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;), activation&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;MaxPooling2D(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Flatten(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Dense(&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;, activation&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s dive into the implementation details&amp;hellip;&lt;/p&gt;</description></item></channel></rss>

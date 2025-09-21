@@ -1,19 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Web3 on </title>
-    <link>//localhost:1313/categories/web3/</link>
-    <description>Recent content in Web3 on </description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 25 Mar 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/categories/web3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Understanding Smart Contracts</title>
-      <link>//localhost:1313/posts/sample-blockchain/</link>
-      <pubDate>Mon, 25 Mar 2024 10:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/sample-blockchain/</guid>
-      <description>&lt;h2 id=&#34;introduction-to-smart-contracts&#34;&gt;Introduction to Smart Contracts&lt;/h2&gt;&#xA;&lt;p&gt;Smart contracts are self-executing contracts with the terms directly written into code. They run on blockchain networks like Ethereum.&lt;/p&gt;&#xA;&lt;h3 id=&#34;writing-your-first-contract&#34;&gt;Writing Your First Contract&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;pragma solidity&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;^&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;contract&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;HelloWorld&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; message;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;constructor&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        message &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, Blockchain!&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;updateMessage&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;memory&lt;/span&gt; newMessage) &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        message &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; newMessage;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Immutability&lt;/li&gt;&#xA;&lt;li&gt;Decentralization&lt;/li&gt;&#xA;&lt;li&gt;Gas fees&lt;/li&gt;&#xA;&lt;li&gt;Security considerations&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web3 on</title><link>/categories/web3/</link><description>Recent content in Web3 on</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 25 Mar 2024 10:00:00 +0000</lastBuildDate><atom:link href="/categories/web3/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding Smart Contracts</title><link>/posts/sample-blockchain/</link><pubDate>Mon, 25 Mar 2024 10:00:00 +0000</pubDate><guid>/posts/sample-blockchain/</guid><description>&lt;h2 id="introduction-to-smart-contracts"&gt;Introduction to Smart Contracts&lt;/h2&gt;
+&lt;p&gt;Smart contracts are self-executing contracts with the terms directly written into code. They run on blockchain networks like Ethereum.&lt;/p&gt;
+&lt;h3 id="writing-your-first-contract"&gt;Writing Your First Contract&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-solidity" data-lang="solidity"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;pragma solidity&lt;/span&gt; &lt;span style="color:#f92672"&gt;^&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;contract&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;HelloWorld&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;string&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;public&lt;/span&gt; message;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;constructor&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; message &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Hello, Blockchain!&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;updateMessage&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;memory&lt;/span&gt; newMessage) &lt;span style="color:#66d9ef"&gt;public&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; message &lt;span style="color:#f92672"&gt;=&lt;/span&gt; newMessage;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="key-concepts"&gt;Key Concepts&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Immutability&lt;/li&gt;
+&lt;li&gt;Decentralization&lt;/li&gt;
+&lt;li&gt;Gas fees&lt;/li&gt;
+&lt;li&gt;Security considerations&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

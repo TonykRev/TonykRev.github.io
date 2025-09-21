@@ -1,578 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta name="generator" content="Hugo 0.150.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
-   - 
-</title>
-
-
-
-<meta name="description" content="Your site description" />
-
-
-
-<meta
-  property="og:title"
-  content=""
-/>
-<meta
-  property="og:description"
-  content="Your site description"
-/>
-<meta
-  property="og:type"
-  content="website"
-/>
-<meta property="og:url" content="//localhost:1313/" />
-<meta property="og:site_name" content="" />
-
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta
-  name="twitter:title"
-  content=""
-/>
-<meta
-  name="twitter:description"
-  content="Your site description"
-/>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
-  rel="stylesheet"
-/>
-
-
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/top-nav.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/click-effects.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/cyberpunk-tech.css?v=1758457031">
-<link rel="stylesheet" href="//localhost:1313/css/performance-optimize.css?v=1758457031">
-
-
-<link
-  rel="alternate"
-  type="application/rss&#43;xml"
-  href="//localhost:1313/index.xml"
-/>
-
-
-<style>
-:root {
-  --cursor-default: url('/images/cursor/hello-kitty.png') 6 0, auto;
-  --cursor-pointer: url('/images/cursor/hello-kitty.png') 6 0, pointer;
-}
-html, body { cursor: var(--cursor-default); }
-a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
- 
-input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
-</style>
-
-
-
-</head>
-<body>
-    
-
-    
-<header class="site-header">
-    <nav>
-        <div class="nav-left">
-            <a href="//localhost:1313/" class="logo"></a>
-        </div>
-
-        
-        <div class="nav-links desktop-nav">
-            
-            <a href="//localhost:1313/" class="nav-link active">
-                
-                <i class="fas fa-home nav-icon"></i>
-                
-                <span class="nav-text">Home</span>
-            </a>
-            
-            <a href="//localhost:1313/about/" class="nav-link ">
-                
-                <i class="fas fa-user nav-icon"></i>
-                
-                <span class="nav-text">About</span>
-            </a>
-            
-            <a href="//localhost:1313/archives/" class="nav-link ">
-                
-                <i class="fas fa-archive nav-icon"></i>
-                
-                <span class="nav-text">Archives</span>
-            </a>
-            
-            <a href="//localhost:1313/achievements/" class="nav-link ">
-                
-                <i class="fas fa-trophy nav-icon"></i>
-                
-                <span class="nav-text">Achievements</span>
-            </a>
-            
-        </div>
-
-        
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-
-        <div class="header-controls">
-            <button class="search-toggle" title="Search posts">🔍</button>
-            <button class="theme-toggle" title="Toggle dark mode">🌙</button>
-        </div>
-    </nav>
-
-    
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-content">
-            
-            <a href="//localhost:1313/" class="mobile-nav-link active">
-                
-                <i class="fas fa-home nav-icon"></i>
-                
-                <span class="nav-text">Home</span>
-            </a>
-            
-            <a href="//localhost:1313/about/" class="mobile-nav-link ">
-                
-                <i class="fas fa-user nav-icon"></i>
-                
-                <span class="nav-text">About</span>
-            </a>
-            
-            <a href="//localhost:1313/archives/" class="mobile-nav-link ">
-                
-                <i class="fas fa-archive nav-icon"></i>
-                
-                <span class="nav-text">Archives</span>
-            </a>
-            
-            <a href="//localhost:1313/achievements/" class="mobile-nav-link ">
-                
-                <i class="fas fa-trophy nav-icon"></i>
-                
-                <span class="nav-text">Achievements</span>
-            </a>
-            
-        </div>
-    </div>
-
-    
-    <div class="search-form-container" id="searchForm">
-        <div class="search-form">
-            <div class="search-input-wrapper">
-                <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off">
-                <button class="search-submit" type="button">
-                    <span>🔍</span>
-                </button>
-                <button class="search-close" type="button">
-                    <span>✕</span>
-                </button>
-            </div>
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div>
-</header>
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    if (mobileMenuToggle && mobileNav) {
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            document.body.classList.toggle('mobile-menu-open');
-        });
-
-        
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-    }
-
-    
-    const searchToggle = document.querySelector('.search-toggle');
-    const searchForm = document.getElementById('searchForm');
-    const searchClose = document.querySelector('.search-close');
-    
-    if (searchToggle && searchForm) {
-        searchToggle.addEventListener('click', function() {
-            searchForm.classList.add('active');
-            setTimeout(() => {
-                document.getElementById('searchInput').focus();
-            }, 300);
-        });
-
-        if (searchClose) {
-            searchClose.addEventListener('click', function() {
-                searchForm.classList.remove('active');
-            });
-        }
-    }
-
-    
-    
-    
-    const header = document.querySelector('.site-header');
-    if (header) {
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            
-            if (scrollTop > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScrollTop = scrollTop;
-        }, { passive: true });
-        
-        
-        document.body.classList.add('has-sticky-header');
-    }
-});</script>
-</script>
-
-
-    <main>
-        
-<div class="homepage-container">
-    
-    <aside class="left-sidebar cyber-container">
-        
-        <div class="sidebar-widget profile-widget">
-            <div class="widget-header">
-                <h3><i class="fas fa-user"></i> Profile</h3>
-            </div>
-            <div class="widget-content">
-                <div class="profile-section">
-                    <div class="profile-photo-container">
-                        <img src="//localhost:1313/images/avatar.jpg" alt="Tran Quang Huy" class="profile-photo" />
-                    </div>
-                    <h3 class="profile-name holo-text">Tran Quang Huy</h3>
-                    <p class="profile-nickname">a.k.a tonyk</p>
-                    <p class="profile-tagline"></p>
-                    <div class="social-links">
-                        
-                        
-                        <a href="mailto:tranhuydh81@gmail.com" class="social-link" title="Email">
-                            <i class="fas fa-envelope social-icon"></i>
-                        </a>
-                        
-                        
-                        
-                        <a href="https://www.facebook.com/t0nyK06" target="_blank" rel="noopener" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                        </a>
-                        
-                        
-                        
-                        <a href="https://github.com/raisingpixels" target="_blank" rel="noopener" class="social-link" title="GitHub">
-                            <i class="fab fa-github social-icon"></i>
-                        </a>
-                        
-                        
-                        
-                        <a href="https://www.instagram.com/t0nyk_" target="_blank" rel="noopener" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                        </a>
-                        
-                        
-                        
-                        <a href="https://linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin social-icon"></i>
-                        </a>
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="sidebar-widget music-widget">
-            <div class="widget-header">
-                <h3><i class="fas fa-music"></i> Now Playing</h3>
-            </div>
-            <div class="widget-content music-player-wrapper">
-                
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" onload="console.log('APlayer loaded successfully')" onerror="console.error('APlayer failed to load')"></script>
-
-
-<style>
- 
- 
-.aplayer .aplayer-list ol li,
-.aplayer .aplayer-list ol li:hover,
-.aplayer .aplayer-list ol li:active,
-.aplayer .aplayer-list ol li:focus,
-.aplayer .aplayer-list ol li.aplayer-list-light,
-.aplayer .aplayer-list ol li.aplayer-list-light:hover,
-.aplayer .aplayer-list ol li.aplayer-list-light:active,
-.aplayer .aplayer-list ol li.aplayer-list-light:focus,
-.aplayer .aplayer-list ol li.aplayer-list-playing,
-.aplayer .aplayer-list ol li.aplayer-list-playing:hover {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
- 
-.aplayer,
-.aplayer *,
-.aplayer::before,
-.aplayer::after,
-.aplayer *::before,
-.aplayer *::after {
-    border-color: transparent !important;
-    border-top-color: transparent !important;
-    border-bottom-color: transparent !important;
-    border-left-color: transparent !important;
-    border-right-color: transparent !important;
-}
-
- 
-.aplayer .aplayer-body,
-.aplayer .aplayer-controller,
-.aplayer .aplayer-list,
-.aplayer .aplayer-bar,
-.aplayer .aplayer-bar-wrap,
-.aplayer .aplayer-loaded,
-.aplayer .aplayer-played,
-.aplayer .aplayer-thumb {
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
- 
-.aplayer .aplayer-body::before,
-.aplayer .aplayer-body::after,
-.aplayer .aplayer-controller::before,
-.aplayer .aplayer-controller::after,
-.aplayer .aplayer-list::before,
-.aplayer .aplayer-list::after {
-    display: none !important;
-    border: none !important;
-    background: transparent !important;
-}
-
- 
-.aplayer .aplayer-list ol li:hover {
-    background: rgba(0, 212, 255, 0.05) !important;
-    border-left: 1px solid rgba(0, 212, 255, 0.4) !important;
-    padding-left: 13px !important;
-}
-
- 
-.aplayer .aplayer-list ol li.aplayer-list-light {
-    background: rgba(0, 212, 255, 0.08) !important;
-    border-left: 2px solid #00D4FF !important;
-    padding-left: 12px !important;
-}
-
- 
-.aplayer .aplayer-list ol li .aplayer-list-title,
-.aplayer .aplayer-list ol li .aplayer-list-author,
-.aplayer .aplayer-list ol li .aplayer-list-index {
-    color: #ffffff !important;
-    background: transparent !important;
-}
-
- 
-.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title {
-    color: #ffffff !important;
-    font-weight: 600 !important;
-}
-
-.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-index {
-    color: #00D4FF !important;
-    font-weight: 700 !important;
-}
-
- 
-#aplayer-sidebar,
-#aplayer-sidebar *,
-#aplayer-sidebar::before,
-#aplayer-sidebar::after,
-#aplayer-sidebar *::before,
-#aplayer-sidebar *::after {
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
- 
-[class*="aplayer"],
-[class*="aplayer"] *,
-[id*="aplayer"],
-[id*="aplayer"] * {
-    border-color: transparent !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-</style>
-
-
-<div id="aplayer-sidebar" style="width: 100%; min-height: 200px; background: rgba(255,0,107,0.1); border-radius: 8px;"></div>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    console.log('Initializing sidebar APlayer...');
-    
-    
-    if (typeof APlayer === 'undefined') {
-        console.error('APlayer is not loaded! Showing fallback...');
-        const container = document.getElementById('aplayer-sidebar');
-        if (container) {
-            container.innerHTML = `
+<!doctype html><html lang=en><head><meta name=generator content="Hugo 0.150.0"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>-</title><meta name=description content="Your site description"><meta property="og:title" content><meta property="og:description" content="Your site description"><meta property="og:type" content="website"><meta property="og:url" content="/"><meta property="og:site_name" content><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content><meta name=twitter:description content="Your site description"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css><link rel=stylesheet href="/css/style.css?v=1758475171"><link rel=stylesheet href="/css/navigation-fix.css?v=1758475171"><link rel=stylesheet href="/css/sidebar-layout.css?v=1758475171"><link rel=stylesheet href="/css/music-player-sidebar.css?v=1758475171"><link rel=stylesheet href="/css/top-nav.css?v=1758475171"><link rel=stylesheet href="/css/click-effects.css?v=1758475171"><link rel=stylesheet href="/css/cyberpunk-tech.css?v=1758475171"><link rel=stylesheet href="/css/performance-optimize.css?v=1758475171"><link rel=alternate type=application/rss+xml href=/index.xml><style>:root{--cursor-default:url('/images/cursor/hello-kitty.png') 6 0, auto;--cursor-pointer:url('/images/cursor/hello-kitty.png') 6 0, pointer}html,body{cursor:var(--cursor-default)}a,button,[role=button],.nav-link,.mobile-nav-link,.read-more-btn,.view-post{cursor:var(--cursor-pointer)}input[type=submit],.filter-tab,.view-post,.read-more-btn{cursor:var(--cursor-pointer)}</style></head><body><header class=site-header><nav><div class=nav-left><a href=/ class=logo></a></div><div class="nav-links desktop-nav"><a href=/ class="nav-link active"><i class="fas fa-home nav-icon"></i>
+<span class=nav-text>Home</span>
+</a><a href=/about/ class=nav-link><i class="fas fa-user nav-icon"></i>
+<span class=nav-text>About</span>
+</a><a href=/archives/ class=nav-link><i class="fas fa-archive nav-icon"></i>
+<span class=nav-text>Archives</span>
+</a><a href=/achievements/ class=nav-link><i class="fas fa-trophy nav-icon"></i>
+<span class=nav-text>Achievements</span></a></div><button class=mobile-menu-toggle id=mobileMenuToggle>
+<span class=hamburger-line></span>
+<span class=hamburger-line></span>
+<span class=hamburger-line></span></button><div class=header-controls><button class=search-toggle title="Search posts">🔍</button>
+<button class=theme-toggle title="Toggle dark mode">🌙</button></div></nav><div class=mobile-nav id=mobileNav><div class=mobile-nav-content><a href=/ class="mobile-nav-link active"><i class="fas fa-home nav-icon"></i>
+<span class=nav-text>Home</span>
+</a><a href=/about/ class=mobile-nav-link><i class="fas fa-user nav-icon"></i>
+<span class=nav-text>About</span>
+</a><a href=/archives/ class=mobile-nav-link><i class="fas fa-archive nav-icon"></i>
+<span class=nav-text>Archives</span>
+</a><a href=/achievements/ class=mobile-nav-link><i class="fas fa-trophy nav-icon"></i>
+<span class=nav-text>Achievements</span></a></div></div><div class=search-form-container id=searchForm><div class=search-form><div class=search-input-wrapper><input type=text id=searchInput placeholder="Search posts..." autocomplete=off>
+<button class=search-submit type=button>
+<span>🔍</span>
+</button>
+<button class=search-close type=button>
+<span>✕</span></button></div><div class=search-results id=searchResults></div></div></div></header><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("mobileMenuToggle"),t=document.getElementById("mobileNav");e&&t&&(e.addEventListener("click",function(){this.classList.toggle("active"),t.classList.toggle("active"),document.body.classList.toggle("mobile-menu-open")}),document.addEventListener("click",function(n){!e.contains(n.target)&&!t.contains(n.target)&&(e.classList.remove("active"),t.classList.remove("active"),document.body.classList.remove("mobile-menu-open"))}),window.addEventListener("resize",function(){window.innerWidth>768&&(e.classList.remove("active"),t.classList.remove("active"),document.body.classList.remove("mobile-menu-open"))}));const o=document.querySelector(".search-toggle"),n=document.getElementById("searchForm"),i=document.querySelector(".search-close");o&&n&&(o.addEventListener("click",function(){n.classList.add("active"),setTimeout(()=>{document.getElementById("searchInput").focus()},300)}),i&&i.addEventListener("click",function(){n.classList.remove("active")}));const s=document.querySelector(".site-header");if(s){let e=0;window.addEventListener("scroll",function(){const t=window.pageYOffset||document.documentElement.scrollTop;t>50?s.classList.add("scrolled"):s.classList.remove("scrolled"),e=t},{passive:!0}),document.body.classList.add("has-sticky-header")}})</script></script><main><div class=homepage-container><aside class="left-sidebar cyber-container"><div class="sidebar-widget profile-widget"><div class=widget-header><h3><i class="fas fa-user"></i> Profile</h3></div><div class=widget-content><div class=profile-section><div class=profile-photo-container><img src=/images/avatar.jpg alt="Tran Quang Huy" class=profile-photo></div><h3 class="profile-name holo-text">Tran Quang Huy</h3><p class=profile-nickname>a.k.a tonyk</p><p class=profile-tagline></p><div class=social-links><a href=mailto:tranhuydh81@gmail.com class=social-link title=Email><i class="fas fa-envelope social-icon"></i>
+</a><a href=https://www.facebook.com/t0nyK06 target=_blank rel=noopener class=social-link title=Facebook><i class="fab fa-facebook social-icon"></i>
+</a><a href=https://github.com/raisingpixels target=_blank rel=noopener class=social-link title=GitHub><i class="fab fa-github social-icon"></i>
+</a><a href=https://www.instagram.com/t0nyk_ target=_blank rel=noopener class=social-link title=Instagram><i class="fab fa-instagram social-icon"></i>
+</a><a href=https://linkedin.com/in/your-linkedin-username target=_blank rel=noopener class=social-link title=LinkedIn><i class="fab fa-linkedin social-icon"></i></a></div></div></div></div><div class="sidebar-widget music-widget"><div class=widget-header><h3><i class="fas fa-music"></i> Now Playing</h3></div><div class="widget-content music-player-wrapper"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css><script src=https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js onload='console.log("APlayer loaded successfully")' onerror='console.error("APlayer failed to load")'></script><style>.aplayer .aplayer-list ol li,.aplayer .aplayer-list ol li:hover,.aplayer .aplayer-list ol li:active,.aplayer .aplayer-list ol li:focus,.aplayer .aplayer-list ol li.aplayer-list-light,.aplayer .aplayer-list ol li.aplayer-list-light:hover,.aplayer .aplayer-list ol li.aplayer-list-light:active,.aplayer .aplayer-list ol li.aplayer-list-light:focus,.aplayer .aplayer-list ol li.aplayer-list-playing,.aplayer .aplayer-list ol li.aplayer-list-playing:hover{background:0 0!important;background-color:transparent!important;color:#fff!important;border:none!important;border-top:none!important;border-bottom:none!important;border-left:none!important;border-right:none!important;box-shadow:none!important;outline:none!important}.aplayer,.aplayer *,.aplayer::before,.aplayer::after,.aplayer *::before,.aplayer *::after{border-color:transparent!important;border-top-color:transparent!important;border-bottom-color:transparent!important;border-left-color:transparent!important;border-right-color:transparent!important}.aplayer .aplayer-body,.aplayer .aplayer-controller,.aplayer .aplayer-list,.aplayer .aplayer-bar,.aplayer .aplayer-bar-wrap,.aplayer .aplayer-loaded,.aplayer .aplayer-played,.aplayer .aplayer-thumb{border:none!important;border-top:none!important;border-bottom:none!important;border-left:none!important;border-right:none!important;box-shadow:none!important;outline:none!important}.aplayer .aplayer-body::before,.aplayer .aplayer-body::after,.aplayer .aplayer-controller::before,.aplayer .aplayer-controller::after,.aplayer .aplayer-list::before,.aplayer .aplayer-list::after{display:none!important;border:none!important;background:0 0!important}.aplayer .aplayer-list ol li:hover{background:rgba(0,212,255,5%)!important;border-left:1px solid rgba(0,212,255,.4)!important;padding-left:13px!important}.aplayer .aplayer-list ol li.aplayer-list-light{background:rgba(0,212,255,8%)!important;border-left:2px solid #00d4ff!important;padding-left:12px!important}.aplayer .aplayer-list ol li .aplayer-list-title,.aplayer .aplayer-list ol li .aplayer-list-author,.aplayer .aplayer-list ol li .aplayer-list-index{color:#fff!important;background:0 0!important}.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title{color:#fff!important;font-weight:600!important}.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-index{color:#00d4ff!important;font-weight:700!important}#aplayer-sidebar,#aplayer-sidebar *,#aplayer-sidebar::before,#aplayer-sidebar::after,#aplayer-sidebar *::before,#aplayer-sidebar *::after{border:none!important;border-top:none!important;border-bottom:none!important;border-left:none!important;border-right:none!important;box-shadow:none!important;outline:none!important}[class*=aplayer],[class*=aplayer] *,[id*=aplayer],[id*=aplayer] *{border-color:transparent!important;box-shadow:none!important;outline:none!important}</style><div id=aplayer-sidebar style=width:100%;min-height:200px;background:rgba(255,0,107,.1);border-radius:8px></div><script>document.addEventListener("DOMContentLoaded",function(){if(console.log("Initializing sidebar APlayer..."),typeof APlayer=="undefined"){console.error("APlayer is not loaded! Showing fallback...");const e=document.getElementById("aplayer-sidebar");e&&(e.innerHTML=`
                 <div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.8); background: rgba(0,212,255,0.1); border-radius: 8px;">
                     <i class="fas fa-music" style="font-size: 24px; margin-bottom: 10px; color: #00D4FF;"></i>
                     <p style="margin: 0; font-size: 14px;">Music Player Loading...</p>
                     <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.7;">Check your connection</p>
                 </div>
-            `;
-        }
-        return;
-    }
-    
-    
-    const playlist = [
-        
-        
-        {
-            name: 'Ordinary',
-            artist: 'Alex Warren',
-            url: '\/music\/Ordinary.mp3',
-            cover: '\/images\/covers\/ordinary.jpg'
-        },
-        
-        {
-            name: 'I Love You 3000',
-            artist: 'Stephanie Poetri',
-            url: '\/music\/loveyou3000.mp3',
-            cover: '\/images\/covers\/love3000.jpg'
-        },
-        
-        {
-            name: 'As The World Caves In',
-            artist: 'Sarah Cothran',
-            url: '\/music\/As_World_Caves_In.mp3',
-            cover: '\/images\/covers\/worldCavesIn.jpg'
-        },
-        
-        {
-            name: 'Car\u0027s Outside',
-            artist: 'James Arthur',
-            url: '\/music\/Car_Outside.mp3',
-            cover: '\/images\/covers\/caroutside.jpg'
-        },
-        
-        {
-            name: 'HIGHEST IN THE ROOM',
-            artist: 'Travis Scott',
-            url: '\/music\/HIGHEST_IN_THE_ROOM.mp3',
-            cover: '\/images\/covers\/highest.jpg'
-        },
-        
-        
-    ];
-    
-    console.log('Playlist:', playlist);
-    
-    if (playlist.length > 0) {
-        try {
-        const ap = new APlayer({
-            container: document.getElementById('aplayer-sidebar'),
-            fixed: false,
-            autoplay: false,
-            theme: '#00D4FF',
-            loop: 'all',
-            order: 'list',
-            preload: 'none',
-            volume: 0.5,
-            mutex: true,
-            listFolded: false,
-            listMaxHeight: '150px',
-            audio: playlist
-        });
-        console.log('APlayer initialized successfully');
-        
-        
-        setTimeout(() => {
-            console.log('🔥 Applying NUCLEAR layout fixes...');
-            
-            const aplayer = document.querySelector('#aplayer-sidebar .aplayer');
-            if (!aplayer) return;
-            
-            
-            const body = aplayer.querySelector('.aplayer-body');
-            const controller = aplayer.querySelector('.aplayer-controller');
-            const list = aplayer.querySelector('.aplayer-list');
-            
-            if (body && controller && list) {
-                console.log('🎯 Found all elements, restructuring...');
-                
-                
-                const horizontalContainer = document.createElement('div');
-                horizontalContainer.className = 'aplayer-horizontal-layout';
-                horizontalContainer.style.cssText = `
+            `);return}const e=[{name:"Ordinary",artist:"Alex Warren",url:"/music/Ordinary.mp3",cover:"/images/covers/ordinary.jpg"},{name:"I Love You 3000",artist:"Stephanie Poetri",url:"/music/loveyou3000.mp3",cover:"/images/covers/love3000.jpg"},{name:"As The World Caves In",artist:"Sarah Cothran",url:"/music/As_World_Caves_In.mp3",cover:"/images/covers/worldCavesIn.jpg"},{name:"Car's Outside",artist:"James Arthur",url:"/music/Car_Outside.mp3",cover:"/images/covers/caroutside.jpg"},{name:"HIGHEST IN THE ROOM",artist:"Travis Scott",url:"/music/HIGHEST_IN_THE_ROOM.mp3",cover:"/images/covers/highest.jpg"}];if(console.log("Playlist:",e),e.length>0)try{const t=new APlayer({container:document.getElementById("aplayer-sidebar"),fixed:!1,autoplay:!1,theme:"#00D4FF",loop:"all",order:"list",preload:"none",volume:.5,mutex:!0,listFolded:!1,listMaxHeight:"150px",audio:e});console.log("APlayer initialized successfully"),setTimeout(()=>{console.log("🔥 Applying NUCLEAR layout fixes...");const e=document.querySelector("#aplayer-sidebar .aplayer");if(!e)return;const t=e.querySelector(".aplayer-body"),n=e.querySelector(".aplayer-controller"),s=e.querySelector(".aplayer-list");if(t&&n&&s){console.log("🎯 Found all elements, restructuring...");const a=document.createElement("div");a.className="aplayer-horizontal-layout",a.style.cssText=`
                     display: flex !important;
                     align-items: center !important;
                     justify-content: space-between !important;
@@ -583,54 +42,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     margin-bottom: 10px !important;
                     border: none !important;
                     box-shadow: none !important;
-                `;
-                
-                
-                const leftSide = document.createElement('div');
-                leftSide.className = 'aplayer-left-side';
-                leftSide.style.cssText = `
+                `;const r=document.createElement("div");r.className="aplayer-left-side",r.style.cssText=`
                     display: flex !important;
                     align-items: center !important;
                     gap: 10px !important;
                     flex: 1 !important;
                     min-width: 0 !important;
-                `;
-                
-                
-                const rightSide = document.createElement('div');
-                rightSide.className = 'aplayer-right-side';
-                rightSide.style.cssText = `
+                `;const i=document.createElement("div");i.className="aplayer-right-side",i.style.cssText=`
                     display: flex !important;
                     align-items: center !important;
                     gap: 8px !important;
                     flex-shrink: 0 !important;
                     max-width: 160px !important;
-                `;
-                
-                
-                const pic = body.querySelector('.aplayer-pic');
-                const info = body.querySelector('.aplayer-info');
-                if (pic && info) {
-                    
-                    pic.style.cssText = `
+                `;const l=t.querySelector(".aplayer-pic"),c=t.querySelector(".aplayer-info");if(l&&c){l.style.cssText=`
                         width: 45px !important;
                         height: 45px !important;
                         border-radius: 6px !important;
                         border: 1px solid rgba(255, 255, 255, 0.2) !important;
                         flex-shrink: 0 !important;
-                    `;
-                    
-                    
-                    info.style.cssText = `
+                    `,c.style.cssText=`
                         flex: 1 !important;
                         overflow: hidden !important;
                         margin: 0 !important;
-                    `;
-                    
-                    
-                    const title = info.querySelector('.aplayer-music');
-                    if (title) {
-                        title.style.cssText = `
+                    `;const e=c.querySelector(".aplayer-music");e&&(e.style.cssText=`
                             color: #ffffff !important;
                             font-size: 13px !important;
                             font-weight: 500 !important;
@@ -639,13 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             white-space: nowrap !important;
                             overflow: hidden !important;
                             text-overflow: ellipsis !important;
-                        `;
-                    }
-                    
-                    
-                    const author = info.querySelector('.aplayer-author');
-                    if (author) {
-                        author.style.cssText = `
+                        `);const t=c.querySelector(".aplayer-author");t&&(t.style.cssText=`
                             color: rgba(255, 255, 255, 0.7) !important;
                             font-size: 11px !important;
                             margin: 0 !important;
@@ -653,31 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             white-space: nowrap !important;
                             overflow: hidden !important;
                             text-overflow: ellipsis !important;
-                        `;
-                    }
-                    
-                    leftSide.appendChild(pic);
-                    leftSide.appendChild(info);
-                }
-                
-                
-                const playBtn = controller.querySelector('.aplayer-btn-play');
-                const barWrap = controller.querySelector('.aplayer-bar-wrap');
-                const time = controller.querySelector('.aplayer-time');
-                const volumeWrap = controller.querySelector('.aplayer-volume-wrap');
-                
-                if (playBtn) {
-                    playBtn.style.cssText = `
+                        `),r.appendChild(l),r.appendChild(c)}const d=n.querySelector(".aplayer-btn-play"),o=n.querySelector(".aplayer-bar-wrap"),u=n.querySelector(".aplayer-time"),h=n.querySelector(".aplayer-volume-wrap");if(d&&(d.style.cssText=`
                         font-size: 12px !important;
                         padding: 4px !important;
                         margin-right: 5px !important;
                         color: #ffffff !important;
-                    `;
-                    rightSide.appendChild(playBtn);
-                }
-                
-                if (barWrap) {
-                    barWrap.style.cssText = `
+                    `,i.appendChild(d)),o){o.style.cssText=`
                         flex: 1 !important;
                         max-width: 80px !important;
                         height: 3px !important;
@@ -685,783 +94,100 @@ document.addEventListener("DOMContentLoaded", function () {
                         background: rgba(255, 255, 255, 0.1) !important;
                         border-radius: 2px !important;
                         border: none !important;
-                    `;
-                    
-                    
-                    const progressBar = barWrap.querySelector('.aplayer-bar');
-                    if (progressBar) {
-                        progressBar.style.cssText = `
+                    `;const e=o.querySelector(".aplayer-bar");e&&(e.style.cssText=`
                             border: none !important;
                             box-shadow: none !important;
                             background: transparent !important;
-                        `;
-                    }
-                    
-                    const loadedBar = barWrap.querySelector('.aplayer-loaded');
-                    if (loadedBar) {
-                        loadedBar.style.cssText = `
+                        `);const t=o.querySelector(".aplayer-loaded");t&&(t.style.cssText=`
                             border: none !important;
                             box-shadow: none !important;
-                        `;
-                    }
-                    
-                    const playedBar = barWrap.querySelector('.aplayer-played');
-                    if (playedBar) {
-                        playedBar.style.cssText = `
+                        `);const n=o.querySelector(".aplayer-played");n&&(n.style.cssText=`
                             border: none !important;
                             box-shadow: none !important;
-                        `;
-                    }
-                    
-                    const thumb = barWrap.querySelector('.aplayer-thumb');
-                    if (thumb) {
-                        thumb.style.cssText = `
+                        `);const s=o.querySelector(".aplayer-thumb");s&&(s.style.cssText=`
                             border: none !important;
                             box-shadow: none !important;
                             background: #FF006B !important;
-                        `;
-                    }
-                    
-                    rightSide.appendChild(barWrap);
-                }
-                
-                if (time) {
-                    time.style.cssText = `
+                        `),i.appendChild(o)}u&&(u.style.cssText=`
                         font-size: 9px !important;
                         color: rgba(255, 255, 255, 0.6) !important;
                         margin: 0 2px !important;
                         white-space: nowrap !important;
                         min-width: 35px !important;
-                    `;
-                    rightSide.appendChild(time);
-                }
-                
-                
-                if (volumeWrap) {
-                    volumeWrap.style.display = 'none !important';
-                }
-                
-                
-                horizontalContainer.appendChild(leftSide);
-                horizontalContainer.appendChild(rightSide);
-                
-                
-                const parent = body.parentNode;
-                parent.insertBefore(horizontalContainer, body);
-                parent.removeChild(body);
-                
-                
-                if (list) {
-                    list.style.cssText = `
+                    `,i.appendChild(u)),h&&(h.style.display="none !important"),a.appendChild(r),a.appendChild(i);const m=t.parentNode;m.insertBefore(a,t),m.removeChild(t),s&&(s.style.cssText=`
                         margin-top: 10px !important;
                         padding-top: 8px !important;
                         border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
                         background: transparent !important;
                         max-height: 180px !important;
-                    `;
-                }
-                
-                
-                const allElements = aplayer.querySelectorAll('*');
-                allElements.forEach(el => {
-                    const computedStyle = window.getComputedStyle(el);
-                    if (computedStyle.borderColor === 'rgb(255, 255, 255)' || 
-                        computedStyle.borderTopColor === 'rgb(255, 255, 255)' ||
-                        computedStyle.borderBottomColor === 'rgb(255, 255, 255)' ||
-                        computedStyle.borderLeftColor === 'rgb(255, 255, 255)' ||
-                        computedStyle.borderRightColor === 'rgb(255, 255, 255)') {
-                        el.style.border = 'none !important';
-                        el.style.boxShadow = 'none !important';
-                    }
-                });
-                
-                
-                const elementsToClean = [
-                    '.aplayer', '.aplayer-body', '.aplayer-controller', 
-                    '.aplayer-bar', '.aplayer-bar-wrap', '.aplayer-loaded',
-                    '.aplayer-played', '.aplayer-thumb', '.aplayer-time',
-                    '.aplayer-btn', '.aplayer-btn-play', '.aplayer-volume-wrap'
-                ];
-                
-                elementsToClean.forEach(selector => {
-                    const elements = aplayer.querySelectorAll(selector);
-                    elements.forEach(el => {
-                        el.style.border = 'none !important';
-                        el.style.boxShadow = 'none !important';
-                        el.style.outline = 'none !important';
-                    });
-                });
-                
-                console.log('✅ NUCLEAR layout transformation completed!');
-                console.log('🚫 All white borders/lines eliminated!');
-            }
-        }, 500);
-        } catch (error) {
-            console.error('APlayer initialization failed:', error);
-            document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">APlayer failed to load: ' + error.message + '</p>';
-        }
-    } else {
-        document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">No playlist found!</p>';
-    }
-});
-</script>
-            </div>
-        </div>
-
-        
-        <div class="sidebar-widget categories-widget">
-            <div class="widget-header">
-                <h3><i class="fas fa-folder-open"></i> Categories</h3>
-            </div>
-            <div class="widget-content">
-                
-                <ul class="category-list">
-                    
-                    <li>
-                        <a href="/categories/ai/" class="category-link">
-                            <span class="category-name">Ai</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/blockchain/" class="category-link">
-                            <span class="category-name">Blockchain</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/crypto/" class="category-link">
-                            <span class="category-name">Crypto</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/ctf/" class="category-link">
-                            <span class="category-name">Ctf</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/forensics/" class="category-link">
-                            <span class="category-name">Forensics</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/mobile/" class="category-link">
-                            <span class="category-name">Mobile</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/reverse/" class="category-link">
-                            <span class="category-name">Reverse</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/security/" class="category-link">
-                            <span class="category-name">Security</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/tutorial/" class="category-link">
-                            <span class="category-name">Tutorial</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/web/" class="category-link">
-                            <span class="category-name">Web</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="/categories/web3/" class="category-link">
-                            <span class="category-name">Web3</span>
-                            <span class="category-count">1</span>
-                        </a>
-                    </li>
-                    
-                </ul>
-                
-            </div>
-        </div>
-
-        
-        <div class="sidebar-widget tags-widget">
-            <div class="widget-header">
-                <h3><i class="fas fa-hashtag"></i> Popular Tags</h3>
-            </div>
-            <div class="widget-content">
-                
-                <div class="tag-cloud">
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/apk/" class="tag-item" data-count="1">
-                        #APK<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/ctf/" class="tag-item" data-count="1">
-                        #CTF<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/frida/" class="tag-item" data-count="1">
-                        #Frida<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/jadx/" class="tag-item" data-count="1">
-                        #Jadx<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/machine-learning/" class="tag-item" data-count="1">
-                        #Machine Learning<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/malware/" class="tag-item" data-count="1">
-                        #Malware<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/python/" class="tag-item" data-count="1">
-                        #Python<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/react/" class="tag-item" data-count="1">
-                        #React<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/defi/" class="tag-item" data-count="1">
-                        #DeFi<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/memory/" class="tag-item" data-count="1">
-                        #Memory<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/security/" class="tag-item" data-count="1">
-                        #Security<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/solidity/" class="tag-item" data-count="1">
-                        #Solidity<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/ethereum/" class="tag-item" data-count="1">
-                        #Ethereum<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/frontend/" class="tag-item" data-count="1">
-                        #Frontend<span class="tag-count">1</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="//localhost:1313/tags/smart-contracts/" class="tag-item" data-count="1">
-                        #Smart Contracts<span class="tag-count">1</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-
-        
-        <div class="sidebar-widget stats-widget">
-            <div class="widget-header">
-                <h3><i class="fas fa-chart-line"></i> Site Statistics</h3>
-            </div>
-            <div class="widget-content">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-value">6</span>
-                            <span class="stat-label">Posts</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-folder-open"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-value">11</span>
-                            <span class="stat-label">Categories</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-hashtag"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-value">23</span>
-                            <span class="stat-label">Tags</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-value">2025</span>
-                            <span class="stat-label">Since</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    
-    <main class="main-content">
-        
-        <section class="posts-section">
-            <div class="posts-header">
-                <h2 class="glitch-text" data-text="Latest Posts">Latest Posts</h2>
-                <div class="filter-tabs">
-                    <button class="filter-tab active" data-filter="all">All</button>
-                    <button class="filter-tab" data-filter="recent">Recent</button>
-                    <button class="filter-tab" data-filter="popular">Popular</button>
-                </div>
-            </div>
-            
-            <div class="posts-grid">
-                
-                
-                
-                    
-                
-                
-                <article class="post-card" data-categories="Reverse Mobile">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">15</span>
-                            <span class="date-month">Apr</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/android-re.jpg" alt="Reverse Engineering Android Apps" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-reverse-engineering/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">Reverse</span>
-                            
-                            <span class="category-badge">Mobile</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-reverse-engineering/">Reverse Engineering Android Apps</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="android-reverse-engineering">Android Reverse Engineering</h2>
-<p>Learn how to analyze and understand Android applications through reverse …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#Android</span>
-                            
-                            <span class="tag-badge">#APK</span>
-                            
-                            <span class="tag-badge">#Frida</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-reverse-engineering/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card" data-categories="Forensics Security">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">05</span>
-                            <span class="date-month">Apr</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/forensics.jpg" alt="Digital Forensics: Memory Analysis" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-forensics/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">Forensics</span>
-                            
-                            <span class="category-badge">Security</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-forensics/">Digital Forensics: Memory Analysis</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="memory-forensics-fundamentals">Memory Forensics Fundamentals</h2>
-<p>Memory forensics is a critical skill in incident response and malware …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#Volatility</span>
-                            
-                            <span class="tag-badge">#Memory</span>
-                            
-                            <span class="tag-badge">#DFIR</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-forensics/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card" data-categories="Blockchain Web3">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">25</span>
-                            <span class="date-month">Mar</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/blockchain.jpg" alt="Understanding Smart Contracts" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-blockchain/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">Blockchain</span>
-                            
-                            <span class="category-badge">Web3</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-blockchain/">Understanding Smart Contracts</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="introduction-to-smart-contracts">Introduction to Smart Contracts</h2>
-<p>Smart contracts are self-executing contracts with the terms directly …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#Ethereum</span>
-                            
-                            <span class="tag-badge">#Solidity</span>
-                            
-                            <span class="tag-badge">#DeFi</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-blockchain/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card" data-categories="AI Tutorial">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">10</span>
-                            <span class="date-month">Mar</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/ai-cover.jpg" alt="Deep Learning for Image Classification" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-machine-learning/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">AI</span>
-                            
-                            <span class="category-badge">Tutorial</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-machine-learning/">Deep Learning for Image Classification</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="getting-started-with-deep-learning">Getting Started with Deep Learning</h2>
-<p>Deep learning has revolutionized how we approach computer vision …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#Machine Learning</span>
-                            
-                            <span class="tag-badge">#Python</span>
-                            
-                            <span class="tag-badge">#TensorFlow</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-machine-learning/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card" data-categories="Crypto CTF">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">20</span>
-                            <span class="date-month">Feb</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/crypto-ctf.jpg" alt="Crypto CTF 2024 Writeup" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-crypto-ctf/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">Crypto</span>
-                            
-                            <span class="category-badge">CTF</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-crypto-ctf/">Crypto CTF 2024 Writeup</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="challenge-overview">Challenge Overview</h2>
-<p>This year&rsquo;s Crypto CTF featured some interesting cryptographic puzzles that …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#Cryptography</span>
-                            
-                            <span class="tag-badge">#Security</span>
-                            
-                            <span class="tag-badge">#CTF</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-crypto-ctf/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card" data-categories="Web">
-                    <div class="post-card-header">
-                        <div class="post-date">
-                            <span class="date-day">15</span>
-                            <span class="date-month">Jan</span>
-                        </div>
-                        <div class="post-stats">
-                            <span><i class="far fa-clock"></i> 1 min</span>
-                            <span><i class="far fa-comment"></i> 0</span>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-thumbnail">
-                        <img src="/images/react-cover.jpg" alt="Building Modern Web Apps with React" loading="lazy">
-                        <div class="thumbnail-overlay">
-                            <a href="//localhost:1313/posts/sample-web-development/" class="view-post">View Post</a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="post-card-content">
-                        <div class="post-categories">
-                            
-                            <span class="category-badge">Web</span>
-                            
-                        </div>
-                        <h3 class="post-title">
-                            <a href="//localhost:1313/posts/sample-web-development/">Building Modern Web Apps with React</a>
-                        </h3>
-                        <p class="post-excerpt"><h2 id="introduction-to-modern-web-development">Introduction to Modern Web Development</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed …</p></p>
-                        <div class="post-tags">
-                            
-                            <span class="tag-badge">#React</span>
-                            
-                            <span class="tag-badge">#JavaScript</span>
-                            
-                            <span class="tag-badge">#Frontend</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="post-card-footer">
-                        <a href="//localhost:1313/posts/sample-web-development/" class="read-more-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-            </div>
-        </section>
-    </main>
-</div>
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    const postCards = document.querySelectorAll('.post-card');
-    
-    filterTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            
-            filterTabs.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            
-            
-            const filter = this.dataset.filter;
-            
-            postCards.forEach(card => {
-                card.style.animation = 'fadeIn 0.5s ease';
-            });
-        });
-    });
-});
-</script>
-
-    </main>
-
-    
-    <div class="ambient-bar">
-    <div class="ambient-controls">
-        <button class="mute-toggle muted" title="Toggle ambient sounds">
-            <i class="fas fa-volume-mute"></i>
-        </button>
-        <button class="ambient-icon" data-sound="coffee" title="Coffee Shop Ambience">
-            <i class="fas fa-coffee"></i>
-        </button>
-        <button class="ambient-icon" data-sound="rain" title="Gentle Rain">
-            <i class="fas fa-cloud-rain"></i>
-        </button>
-        <button class="ambient-icon" data-sound="fireplace" title="Crackling Fireplace">
-            <i class="fas fa-fire"></i>
-        </button>
-    </div>
-
-    <div class="ambient-label">Click to start ambient sounds</div>
-
-    <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
-        <div class="equalizer muted">
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-            <div class="equalizer-bar"></div>
-            
-        </div>
-    </div>
-</div>
-
-    
-
-    
-    <script src="//localhost:1313/js/main.js"></script>
-    <script src="//localhost:1313/js/click-effects.js?v=1758457031"></script>
-    <script src="//localhost:1313/js/cyberpunk-effects.js?v=1758457031"></script>
-    
-    
-    <script src="//localhost:1313/js/master-effects.js?v=1758457031"></script>
-</body>
-</html>
+                    `);const f=e.querySelectorAll("*");f.forEach(e=>{const t=window.getComputedStyle(e);(t.borderColor==="rgb(255, 255, 255)"||t.borderTopColor==="rgb(255, 255, 255)"||t.borderBottomColor==="rgb(255, 255, 255)"||t.borderLeftColor==="rgb(255, 255, 255)"||t.borderRightColor==="rgb(255, 255, 255)")&&(e.style.border="none !important",e.style.boxShadow="none !important")});const p=[".aplayer",".aplayer-body",".aplayer-controller",".aplayer-bar",".aplayer-bar-wrap",".aplayer-loaded",".aplayer-played",".aplayer-thumb",".aplayer-time",".aplayer-btn",".aplayer-btn-play",".aplayer-volume-wrap"];p.forEach(t=>{const n=e.querySelectorAll(t);n.forEach(e=>{e.style.border="none !important",e.style.boxShadow="none !important",e.style.outline="none !important"})}),console.log("✅ NUCLEAR layout transformation completed!"),console.log("🚫 All white borders/lines eliminated!")}},500)}catch(e){console.error("APlayer initialization failed:",e),document.getElementById("aplayer-sidebar").innerHTML='<p style="color: red;">APlayer failed to load: '+e.message+"</p>"}else document.getElementById("aplayer-sidebar").innerHTML='<p style="color: red;">No playlist found!</p>'})</script></div></div><div class="sidebar-widget categories-widget"><div class=widget-header><h3><i class="fas fa-folder-open"></i> Categories</h3></div><div class=widget-content><ul class=category-list><li><a href=/categories/ai/ class=category-link><span class=category-name>Ai</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/blockchain/ class=category-link><span class=category-name>Blockchain</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/crypto/ class=category-link><span class=category-name>Crypto</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/ctf/ class=category-link><span class=category-name>Ctf</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/forensics/ class=category-link><span class=category-name>Forensics</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/mobile/ class=category-link><span class=category-name>Mobile</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/reverse/ class=category-link><span class=category-name>Reverse</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/security/ class=category-link><span class=category-name>Security</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/tutorial/ class=category-link><span class=category-name>Tutorial</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/web/ class=category-link><span class=category-name>Web</span>
+<span class=category-count>1</span></a></li><li><a href=/categories/web3/ class=category-link><span class=category-name>Web3</span>
+<span class=category-count>1</span></a></li></ul></div></div><div class="sidebar-widget tags-widget"><div class=widget-header><h3><i class="fas fa-hashtag"></i> Popular Tags</h3></div><div class=widget-content><div class=tag-cloud><a href=/tags/javascript/ class=tag-item data-count=1>#JavaScript<span class=tag-count>1</span>
+</a><a href=/tags/memory/ class=tag-item data-count=1>#Memory<span class=tag-count>1</span>
+</a><a href=/tags/smart-contracts/ class=tag-item data-count=1>#Smart Contracts<span class=tag-count>1</span>
+</a><a href=/tags/tensorflow/ class=tag-item data-count=1>#TensorFlow<span class=tag-count>1</span>
+</a><a href=/tags/volatility/ class=tag-item data-count=1>#Volatility<span class=tag-count>1</span>
+</a><a href=/tags/cryptography/ class=tag-item data-count=1>#Cryptography<span class=tag-count>1</span>
+</a><a href=/tags/ctf/ class=tag-item data-count=1>#CTF<span class=tag-count>1</span>
+</a><a href=/tags/frida/ class=tag-item data-count=1>#Frida<span class=tag-count>1</span>
+</a><a href=/tags/python/ class=tag-item data-count=1>#Python<span class=tag-count>1</span>
+</a><a href=/tags/android/ class=tag-item data-count=1>#Android<span class=tag-count>1</span>
+</a><a href=/tags/computer-vision/ class=tag-item data-count=1>#Computer Vision<span class=tag-count>1</span>
+</a><a href=/tags/defi/ class=tag-item data-count=1>#DeFi<span class=tag-count>1</span>
+</a><a href=/tags/dfir/ class=tag-item data-count=1>#DFIR<span class=tag-count>1</span>
+</a><a href=/tags/ethereum/ class=tag-item data-count=1>#Ethereum<span class=tag-count>1</span>
+</a><a href=/tags/machine-learning/ class=tag-item data-count=1>#Machine Learning<span class=tag-count>1</span></a></div></div></div><div class="sidebar-widget stats-widget"><div class=widget-header><h3><i class="fas fa-chart-line"></i> Site Statistics</h3></div><div class=widget-content><div class=stats-grid><div class=stat-item><div class=stat-icon><i class="fas fa-file-alt"></i></div><div class=stat-info><span class=stat-value>6</span>
+<span class=stat-label>Posts</span></div></div><div class=stat-item><div class=stat-icon><i class="fas fa-folder-open"></i></div><div class=stat-info><span class=stat-value>11</span>
+<span class=stat-label>Categories</span></div></div><div class=stat-item><div class=stat-icon><i class="fas fa-hashtag"></i></div><div class=stat-info><span class=stat-value>23</span>
+<span class=stat-label>Tags</span></div></div><div class=stat-item><div class=stat-icon><i class="fas fa-calendar-alt"></i></div><div class=stat-info><span class=stat-value>2025</span>
+<span class=stat-label>Since</span></div></div></div></div></div></aside><main class=main-content><section class=posts-section><div class=posts-header><h2 class=glitch-text data-text="Latest Posts">Latest Posts</h2><div class=filter-tabs><button class="filter-tab active" data-filter=all>All</button>
+<button class=filter-tab data-filter=recent>Recent</button>
+<button class=filter-tab data-filter=popular>Popular</button></div></div><div class=posts-grid><article class=post-card data-categories="Reverse Mobile"><div class=post-card-header><div class=post-date><span class=date-day>15</span>
+<span class=date-month>Apr</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/android-re.jpg alt="Reverse Engineering Android Apps" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-reverse-engineering/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>Reverse</span>
+<span class=category-badge>Mobile</span></div><h3 class=post-title><a href=/posts/sample-reverse-engineering/>Reverse Engineering Android Apps</a></h3><p class=post-excerpt><h2 id=android-reverse-engineering>Android Reverse Engineering</h2><p>Learn how to analyze and understand Android applications through reverse …</p></p><div class=post-tags><span class=tag-badge>#Android</span>
+<span class=tag-badge>#APK</span>
+<span class=tag-badge>#Frida</span></div></div><div class=post-card-footer><a href=/posts/sample-reverse-engineering/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article><article class=post-card data-categories="Forensics Security"><div class=post-card-header><div class=post-date><span class=date-day>05</span>
+<span class=date-month>Apr</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/forensics.jpg alt="Digital Forensics: Memory Analysis" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-forensics/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>Forensics</span>
+<span class=category-badge>Security</span></div><h3 class=post-title><a href=/posts/sample-forensics/>Digital Forensics: Memory Analysis</a></h3><p class=post-excerpt><h2 id=memory-forensics-fundamentals>Memory Forensics Fundamentals</h2><p>Memory forensics is a critical skill in incident response and malware …</p></p><div class=post-tags><span class=tag-badge>#Volatility</span>
+<span class=tag-badge>#Memory</span>
+<span class=tag-badge>#DFIR</span></div></div><div class=post-card-footer><a href=/posts/sample-forensics/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article><article class=post-card data-categories="Blockchain Web3"><div class=post-card-header><div class=post-date><span class=date-day>25</span>
+<span class=date-month>Mar</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/blockchain.jpg alt="Understanding Smart Contracts" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-blockchain/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>Blockchain</span>
+<span class=category-badge>Web3</span></div><h3 class=post-title><a href=/posts/sample-blockchain/>Understanding Smart Contracts</a></h3><p class=post-excerpt><h2 id=introduction-to-smart-contracts>Introduction to Smart Contracts</h2><p>Smart contracts are self-executing contracts with the terms directly …</p></p><div class=post-tags><span class=tag-badge>#Ethereum</span>
+<span class=tag-badge>#Solidity</span>
+<span class=tag-badge>#DeFi</span></div></div><div class=post-card-footer><a href=/posts/sample-blockchain/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article><article class=post-card data-categories="AI Tutorial"><div class=post-card-header><div class=post-date><span class=date-day>10</span>
+<span class=date-month>Mar</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/ai-cover.jpg alt="Deep Learning for Image Classification" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-machine-learning/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>AI</span>
+<span class=category-badge>Tutorial</span></div><h3 class=post-title><a href=/posts/sample-machine-learning/>Deep Learning for Image Classification</a></h3><p class=post-excerpt><h2 id=getting-started-with-deep-learning>Getting Started with Deep Learning</h2><p>Deep learning has revolutionized how we approach computer vision …</p></p><div class=post-tags><span class=tag-badge>#Machine Learning</span>
+<span class=tag-badge>#Python</span>
+<span class=tag-badge>#TensorFlow</span></div></div><div class=post-card-footer><a href=/posts/sample-machine-learning/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article><article class=post-card data-categories="Crypto CTF"><div class=post-card-header><div class=post-date><span class=date-day>20</span>
+<span class=date-month>Feb</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/crypto-ctf.jpg alt="Crypto CTF 2024 Writeup" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-crypto-ctf/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>Crypto</span>
+<span class=category-badge>CTF</span></div><h3 class=post-title><a href=/posts/sample-crypto-ctf/>Crypto CTF 2024 Writeup</a></h3><p class=post-excerpt><h2 id=challenge-overview>Challenge Overview</h2><p>This year&rsquo;s Crypto CTF featured some interesting cryptographic puzzles that …</p></p><div class=post-tags><span class=tag-badge>#Cryptography</span>
+<span class=tag-badge>#Security</span>
+<span class=tag-badge>#CTF</span></div></div><div class=post-card-footer><a href=/posts/sample-crypto-ctf/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article><article class=post-card data-categories=Web><div class=post-card-header><div class=post-date><span class=date-day>15</span>
+<span class=date-month>Jan</span></div><div class=post-stats><span><i class="far fa-clock"></i> 1 min</span>
+<span><i class="far fa-comment"></i> 0</span></div></div><div class=post-thumbnail><img src=/images/react-cover.jpg alt="Building Modern Web Apps with React" loading=lazy><div class=thumbnail-overlay><a href=/posts/sample-web-development/ class=view-post>View Post</a></div></div><div class=post-card-content><div class=post-categories><span class=category-badge>Web</span></div><h3 class=post-title><a href=/posts/sample-web-development/>Building Modern Web Apps with React</a></h3><p class=post-excerpt><h2 id=introduction-to-modern-web-development>Introduction to Modern Web Development</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed …</p></p><div class=post-tags><span class=tag-badge>#React</span>
+<span class=tag-badge>#JavaScript</span>
+<span class=tag-badge>#Frontend</span></div></div><div class=post-card-footer><a href=/posts/sample-web-development/ class=read-more-btn>Read More <i class="fas fa-arrow-right"></i></a></div></article></div></section></main></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".filter-tab"),t=document.querySelectorAll(".post-card");e.forEach(n=>{n.addEventListener("click",function(){e.forEach(e=>e.classList.remove("active")),this.classList.add("active");const n=this.dataset.filter;t.forEach(e=>{e.style.animation="fadeIn 0.5s ease"})})})})</script></main><div class=ambient-bar><div class=ambient-controls><button class="mute-toggle muted" title="Toggle ambient sounds">
+<i class="fas fa-volume-mute"></i>
+</button>
+<button class=ambient-icon data-sound=coffee title="Coffee Shop Ambience">
+<i class="fas fa-coffee"></i>
+</button>
+<button class=ambient-icon data-sound=rain title="Gentle Rain">
+<i class="fas fa-cloud-rain"></i>
+</button>
+<button class=ambient-icon data-sound=fireplace title="Crackling Fireplace">
+<i class="fas fa-fire"></i></button></div><div class=ambient-label>Click to start ambient sounds</div><div class=volume-container><input type=range class=volume-slider min=0 max=1 step=0.1 value=0.5><div class="equalizer muted"><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div><div class=equalizer-bar></div></div></div></div><script src=/js/main.js></script><script src="/js/click-effects.js?v=1758475171"></script><script src="/js/cyberpunk-effects.js?v=1758475171"></script><script src="/js/master-effects.js?v=1758475171"></script></body></html>
