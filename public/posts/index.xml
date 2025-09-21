@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on</title><link>/posts/</link><description>Recent content in Posts on</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 15 Apr 2024 10:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse Engineering Android Apps</title><link>/posts/sample-reverse-engineering/</link><pubDate>Mon, 15 Apr 2024 10:00:00 +0000</pubDate><guid>/posts/sample-reverse-engineering/</guid><description>&lt;h2 id="android-reverse-engineering"&gt;Android Reverse Engineering&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on TonyK's Tech Blog</title><link>https://tonykrev.github.io/posts/</link><description>Recent content in Posts on TonyK's Tech Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 15 Apr 2024 10:00:00 +0000</lastBuildDate><atom:link href="https://tonykrev.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse Engineering Android Apps</title><link>https://tonykrev.github.io/posts/reverse-engineering-android-apps/</link><pubDate>Mon, 15 Apr 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/reverse-engineering-android-apps/</guid><description>&lt;h2 id="android-reverse-engineering"&gt;Android Reverse Engineering&lt;/h2&gt;
 &lt;p&gt;Learn how to analyze and understand Android applications through reverse engineering techniques.&lt;/p&gt;
 &lt;h3 id="essential-tools"&gt;Essential Tools&lt;/h3&gt;
 &lt;ol&gt;
@@ -25,7 +25,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;this&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;secretFunction&lt;/span&gt;();
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;});
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Digital Forensics: Memory Analysis</title><link>/posts/sample-forensics/</link><pubDate>Fri, 05 Apr 2024 10:00:00 +0000</pubDate><guid>/posts/sample-forensics/</guid><description>&lt;h2 id="memory-forensics-fundamentals"&gt;Memory Forensics Fundamentals&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Digital Forensics: Memory Analysis</title><link>https://tonykrev.github.io/posts/digital-forensics-memory-analysis/</link><pubDate>Fri, 05 Apr 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/digital-forensics-memory-analysis/</guid><description>&lt;h2 id="memory-forensics-fundamentals"&gt;Memory Forensics Fundamentals&lt;/h2&gt;
 &lt;p&gt;Memory forensics is a critical skill in incident response and malware analysis. This guide covers the basics of memory acquisition and analysis.&lt;/p&gt;
 &lt;h3 id="tools-required"&gt;Tools Required&lt;/h3&gt;
 &lt;ul&gt;
@@ -49,7 +49,7 @@
 &lt;li&gt;Network connections&lt;/li&gt;
 &lt;li&gt;Registry keys&lt;/li&gt;
 &lt;li&gt;Malware indicators&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Understanding Smart Contracts</title><link>/posts/sample-blockchain/</link><pubDate>Mon, 25 Mar 2024 10:00:00 +0000</pubDate><guid>/posts/sample-blockchain/</guid><description>&lt;h2 id="introduction-to-smart-contracts"&gt;Introduction to Smart Contracts&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Understanding Smart Contracts</title><link>https://tonykrev.github.io/posts/understanding-smart-contracts/</link><pubDate>Mon, 25 Mar 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/understanding-smart-contracts/</guid><description>&lt;h2 id="introduction-to-smart-contracts"&gt;Introduction to Smart Contracts&lt;/h2&gt;
 &lt;p&gt;Smart contracts are self-executing contracts with the terms directly written into code. They run on blockchain networks like Ethereum.&lt;/p&gt;
 &lt;h3 id="writing-your-first-contract"&gt;Writing Your First Contract&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-solidity" data-lang="solidity"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;pragma solidity&lt;/span&gt; &lt;span style="color:#f92672"&gt;^&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;.&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;
@@ -71,7 +71,7 @@
 &lt;li&gt;Decentralization&lt;/li&gt;
 &lt;li&gt;Gas fees&lt;/li&gt;
 &lt;li&gt;Security considerations&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Deep Learning for Image Classification</title><link>/posts/sample-machine-learning/</link><pubDate>Sun, 10 Mar 2024 10:00:00 +0000</pubDate><guid>/posts/sample-machine-learning/</guid><description>&lt;h2 id="getting-started-with-deep-learning"&gt;Getting Started with Deep Learning&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Deep Learning for Image Classification</title><link>https://tonykrev.github.io/posts/deep-learning-for-image-classification/</link><pubDate>Sun, 10 Mar 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/deep-learning-for-image-classification/</guid><description>&lt;h2 id="getting-started-with-deep-learning"&gt;Getting Started with Deep Learning&lt;/h2&gt;
 &lt;p&gt;Deep learning has revolutionized how we approach computer vision problems. In this tutorial, we&amp;rsquo;ll build an image classifier from scratch.&lt;/p&gt;
 &lt;h3 id="prerequisites"&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -89,7 +89,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Flatten(),
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; keras&lt;span style="color:#f92672"&gt;.&lt;/span&gt;layers&lt;span style="color:#f92672"&gt;.&lt;/span&gt;Dense(&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;, activation&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s dive into the implementation details&amp;hellip;&lt;/p&gt;</description></item><item><title>Crypto CTF 2024 Writeup</title><link>/posts/sample-crypto-ctf/</link><pubDate>Tue, 20 Feb 2024 10:00:00 +0000</pubDate><guid>/posts/sample-crypto-ctf/</guid><description>&lt;h2 id="challenge-overview"&gt;Challenge Overview&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s dive into the implementation details&amp;hellip;&lt;/p&gt;</description></item><item><title>Crypto CTF 2024 Writeup</title><link>https://tonykrev.github.io/posts/crypto-ctf-2024-writeup/</link><pubDate>Tue, 20 Feb 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/crypto-ctf-2024-writeup/</guid><description>&lt;h2 id="challenge-overview"&gt;Challenge Overview&lt;/h2&gt;
 &lt;p&gt;This year&amp;rsquo;s Crypto CTF featured some interesting cryptographic puzzles that tested our understanding of various encryption schemes.&lt;/p&gt;
 &lt;h3 id="rsa-challenge"&gt;RSA Challenge&lt;/h3&gt;
 &lt;p&gt;The first challenge involved breaking a weak RSA implementation where the primes were too close together.&lt;/p&gt;
@@ -98,7 +98,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; e &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;65537&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# Solution code here&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="elliptic-curve-mystery"&gt;Elliptic Curve Mystery&lt;/h3&gt;
-&lt;p&gt;Another fascinating challenge involved elliptic curve cryptography with a twist.&lt;/p&gt;</description></item><item><title>Building Modern Web Apps with React</title><link>/posts/sample-web-development/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate><guid>/posts/sample-web-development/</guid><description>&lt;h2 id="introduction-to-modern-web-development"&gt;Introduction to Modern Web Development&lt;/h2&gt;
+&lt;p&gt;Another fascinating challenge involved elliptic curve cryptography with a twist.&lt;/p&gt;</description></item><item><title>Building Modern Web Apps with React</title><link>https://tonykrev.github.io/posts/building-modern-web-apps-with-react/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate><guid>https://tonykrev.github.io/posts/building-modern-web-apps-with-react/</guid><description>&lt;h2 id="introduction-to-modern-web-development"&gt;Introduction to Modern Web Development&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
 &lt;h3 id="key-technologies"&gt;Key Technologies&lt;/h3&gt;
 &lt;ul&gt;
