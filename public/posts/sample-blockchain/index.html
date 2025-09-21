@@ -54,9 +54,28 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/top-nav.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/click-effects.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/cyberpunk-tech.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/performance-optimize.css?v=1758457031">
+
+
+
+
+<style>
+:root {
+  --cursor-default: url('/images/cursor/hello-kitty.png') 6 0, auto;
+  --cursor-pointer: url('/images/cursor/hello-kitty.png') 6 0, pointer;
+}
+html, body { cursor: var(--cursor-default); }
+a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
+ 
+input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
+</style>
 
 
 
@@ -67,6 +86,188 @@
     
 
     
+<header class="site-header">
+    <nav>
+        <div class="nav-left">
+            <a href="//localhost:1313/" class="logo"></a>
+        </div>
+
+        
+        <div class="nav-links desktop-nav">
+            
+            <a href="//localhost:1313/" class="nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="//localhost:1313/about/" class="nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
+            </a>
+            
+        </div>
+
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="header-controls">
+            <button class="search-toggle" title="Search posts">🔍</button>
+            <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            
+            <a href="//localhost:1313/" class="mobile-nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <a href="//localhost:1313/about/" class="mobile-nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="mobile-nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="mobile-nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
+            </a>
+            
+        </div>
+    </div>
+
+    
+    <div class="search-form-container" id="searchForm">
+        <div class="search-form">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off">
+                <button class="search-submit" type="button">
+                    <span>🔍</span>
+                </button>
+                <button class="search-close" type="button">
+                    <span>✕</span>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-open');
+        });
+
+        
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+    }
+
+    
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchForm = document.getElementById('searchForm');
+    const searchClose = document.querySelector('.search-close');
+    
+    if (searchToggle && searchForm) {
+        searchToggle.addEventListener('click', function() {
+            searchForm.classList.add('active');
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 300);
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchForm.classList.remove('active');
+            });
+        }
+    }
+
+    
+    
+    
+    const header = document.querySelector('.site-header');
+    if (header) {
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+        
+        
+        document.body.classList.add('has-sticky-header');
+    }
+});</script>
+</script>
+
 
     <main>
         
@@ -182,6 +383,12 @@
 
     
 
+    
     <script src="//localhost:1313/js/main.js"></script>
+    <script src="//localhost:1313/js/click-effects.js?v=1758457031"></script>
+    <script src="//localhost:1313/js/cyberpunk-effects.js?v=1758457031"></script>
+    
+    
+    <script src="//localhost:1313/js/master-effects.js?v=1758457031"></script>
 </body>
 </html>

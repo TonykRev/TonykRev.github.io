@@ -1,0 +1,198 @@
+/* 🚀 PERFORMANCE OPTIMIZATION - Make website smooth and fast */
+
+/* GPU Acceleration for all animated elements */
+.cyber-container,
+.aplayer,
+.post-card,
+.social-link,
+.nav-links a,
+.filter-tab,
+.tag-item,
+.category-list a {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    /* Disable parallax and auto-playing animations */
+    .cyber-grid-overlay,
+    .matrix-rain,
+    .tech-particle,
+    .tech-icon,
+    .data-stream {
+        display: none !important;
+    }
+}
+
+/* Optimize fonts and text rendering */
+body, * {
+    font-display: swap;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize images */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Reduce repaints with contain property */
+.post-card,
+.sidebar-widget,
+.aplayer {
+    contain: layout style paint;
+}
+
+/* Optimize scroll performance */
+.left-sidebar,
+.posts-grid {
+    scroll-behavior: auto; /* Disable smooth scrolling for better performance */
+}
+
+/* Reduce shadow complexity */
+.post-card,
+.sidebar-widget,
+.social-link {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Optimize hover transitions */
+a, button, .clickable {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Batch DOM updates */
+.posts-grid {
+    contain: layout;
+}
+
+/* Optimize blend modes */
+.cyber-container::before {
+    mix-blend-mode: normal !important;
+}
+
+/* Reduce animation frequency for better performance */
+@keyframes optimizedPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Use transform instead of changing properties that cause reflow */
+.social-link:hover,
+.filter-tab:hover,
+.category-list a:hover {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Optimize background attachments */
+body {
+    background-attachment: scroll !important; /* Fixed causes performance issues */
+}
+
+/* Memory management for large lists */
+.category-list,
+.tag-cloud {
+    contain: layout style;
+}
+
+/* Optimize matrix rain for better performance */
+.matrix-column {
+    will-change: transform;
+    contain: layout style paint;
+}
+
+/* Reduce particle count on lower-end devices */
+@media (max-width: 768px) {
+    .tech-particle,
+    .cursor-trail-enhanced {
+        display: none !important;
+    }
+    
+    .matrix-column:nth-child(n+6) {
+        display: none !important;
+    }
+}
+
+/* Optimize scroll performance with hardware acceleration */
+.left-sidebar::-webkit-scrollbar-thumb {
+    will-change: background;
+}
+
+/* Prevent layout thrashing */
+.post-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Optimize filter operations */
+.posts-grid .post-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.posts-grid .post-card.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+/* Critical CSS loading optimization */
+.sidebar-widget:nth-child(n+4) {
+    transform: translateZ(0);
+    will-change: auto;
+}
+
+/* Reduce paint area */
+.thumbnail-overlay {
+    will-change: opacity;
+}
+
+/* Optimize gradients */
+.widget-header,
+.post-thumbnail {
+    background-attachment: scroll !important;
+}
+
+/* Battery and performance friendly animations */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    .cyber-grid-overlay {
+        animation-play-state: paused !important;
+    }
+    
+    .matrix-column {
+        animation-duration: 8s !important;
+    }
+    
+    .tech-particle {
+        animation-duration: 20s !important;
+    }
+}
+
+/* Optimize click effects for mobile */
+@media (pointer: coarse) {
+    .cursor-trail-enhanced {
+        display: none !important;
+    }
+    
+    .click-ripple {
+        animation-duration: 0.3s !important;
+    }
+}

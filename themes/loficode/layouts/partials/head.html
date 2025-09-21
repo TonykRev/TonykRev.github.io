@@ -60,6 +60,10 @@
 <link rel="stylesheet" href="{{ "css/navigation-fix.css" | absLangURL }}?v={{ now.Unix }}">
 <link rel="stylesheet" href="{{ "css/sidebar-layout.css" | absLangURL }}?v={{ now.Unix }}">
 <link rel="stylesheet" href="{{ "css/music-player-sidebar.css" | absLangURL }}?v={{ now.Unix }}">
+<link rel="stylesheet" href="{{ "css/top-nav.css" | absLangURL }}?v={{ now.Unix }}">
+<link rel="stylesheet" href="{{ "css/click-effects.css" | absLangURL }}?v={{ now.Unix }}">
+<link rel="stylesheet" href="{{ "css/cyberpunk-tech.css" | absLangURL }}?v={{ now.Unix }}">
+<link rel="stylesheet" href="{{ "css/performance-optimize.css" | absLangURL }}?v={{ now.Unix }}">
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}
@@ -69,3 +73,18 @@
   href="{{ .Permalink | safeURL }}"
 />
 {{ end -}}
+
+{{ with .Site.Params.cursor }}
+{{ if .enabled }}
+<style>
+:root {
+  --cursor-default: url('{{ .default | relURL }}') {{ or .hotspot_x 0 }} {{ or .hotspot_y 0 }}, auto;
+  --cursor-pointer: url('{{ (or .pointer .default) | relURL }}') {{ or .hotspot_x 0 }} {{ or .hotspot_y 0 }}, pointer;
+}
+html, body { cursor: var(--cursor-default); }
+a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
+/* Optional: tweak other interactive elements */
+input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
+</style>
+{{ end }}
+{{ end }}

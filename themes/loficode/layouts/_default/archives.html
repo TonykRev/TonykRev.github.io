@@ -1,0 +1,374 @@
+{{ define "main" }}
+<div class="archives-page">
+    <div class="page-header">
+        <h1 class="page-title">📁 Archives</h1>
+        <p class="page-description">All posts organized by date and category</p>
+    </div>
+
+    <div class="archives-stats">
+        <div class="stat-card">
+            <h3>{{ len (where .Site.RegularPages "Section" "posts") }}</h3>
+            <p>Total Posts</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ len .Site.Taxonomies.categories }}</h3>
+            <p>Categories</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ len .Site.Taxonomies.tags }}</h3>
+            <p>Tags</p>
+        </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Posts</button>
+            <button class="filter-tab" data-filter="recent">Recent</button>
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            <button class="filter-tab" data-filter="{{ $name | urlize }}">{{ $name }}</button>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Posts by Year -->
+    <div class="archives-timeline">
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ range $posts.GroupByDate "2006" }}
+        <div class="year-section">
+            <h2 class="year-title">{{ .Key }}</h2>
+            <div class="year-posts">
+                {{ range .Pages }}
+                <article class="archive-item" data-categories="{{ delimit .Params.categories " " | lower }}" data-date="{{ .Date.Format "2006-01-02" }}">
+                    <div class="archive-date">
+                        <span class="date-day">{{ .Date.Format "02" }}</span>
+                        <span class="date-month">{{ .Date.Format "Jan" }}</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            {{ range .Params.categories }}
+                            <span class="category-tag">{{ . }}</span>
+                            {{ end }}
+                            <span class="reading-time">{{ .ReadingTime }} min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        <p class="archive-summary">{{ .Summary | truncate 120 }}</p>
+                        <div class="archive-tags">
+                            {{ range first 3 .Params.tags }}
+                            <span class="tag-item">#{{ . }}</span>
+                            {{ end }}
+                        </div>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- Search functionality -->
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
+        <div id="searchResults" class="search-results"></div>
+    </div>
+</div>
+
+<style>
+.archives-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--btn-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.page-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.archives-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin: 0 0 0.5rem;
+}
+
+.stat-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tab {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.year-section {
+    margin-bottom: 3rem;
+}
+
+.year-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.archive-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.archive-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    border-color: var(--accent-primary);
+}
+
+.archive-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--accent-primary);
+    border-radius: 8px;
+    color: white;
+    min-width: 60px;
+    height: fit-content;
+}
+
+.date-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.archive-content {
+    flex: 1;
+}
+
+.archive-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.category-tag {
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 0, 107, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    color: var(--accent-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.reading-time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.archive-title {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.archive-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.archive-title a:hover {
+    color: var(--accent-primary);
+}
+
+.archive-summary {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.archive-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.search-section {
+    margin-top: 3rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 0, 107, 0.1);
+}
+
+@media (max-width: 768px) {
+    .archives-page {
+        padding: 1rem;
+    }
+    
+    .archive-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .archive-date {
+        align-self: flex-start;
+    }
+    
+    .filter-tabs {
+        justify-content: flex-start;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const archiveItems = document.querySelectorAll('.archive-item');
+    const searchInput = document.getElementById('searchInput');
+    
+    // Filter functionality
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            
+            archiveItems.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'flex';
+                } else if (filter === 'recent') {
+                    // Show posts from last 30 days
+                    const itemDate = new Date(item.dataset.date);
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                    item.style.display = itemDate > thirtyDaysAgo ? 'flex' : 'none';
+                } else {
+                    const categories = item.dataset.categories;
+                    item.style.display = categories.includes(filter) ? 'flex' : 'none';
+                }
+            });
+        });
+    });
+    
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        archiveItems.forEach(item => {
+            const title = item.querySelector('.archive-title').textContent.toLowerCase();
+            const summary = item.querySelector('.archive-summary').textContent.toLowerCase();
+            const categories = item.dataset.categories;
+            
+            const matches = title.includes(searchTerm) || 
+                          summary.includes(searchTerm) || 
+                          categories.includes(searchTerm);
+            
+            item.style.display = matches ? 'flex' : 'none';
+        });
+    });
+});
+</script>
+{{ end }}

@@ -4,22 +4,26 @@
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-   - 
+  About Me - 
 </title>
 
 
 
-<meta name="description" content="" />
+<meta name="description" content="Hello, I&rsquo;m Tran Quang Huy! 👋
+Security Researcher | Reverse Engineering Enthusiast
+Welcome to my digital space! I&rsquo;m a passionate cybersecurity …" />
 
 
 
 <meta
   property="og:title"
-  content=""
+  content="About Me"
 />
 <meta
   property="og:description"
-  content=""
+  content="Hello, I&rsquo;m Tran Quang Huy! 👋
+Security Researcher | Reverse Engineering Enthusiast
+Welcome to my digital space! I&rsquo;m a passionate cybersecurity …"
 />
 <meta
   property="og:type"
@@ -32,11 +36,13 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta
   name="twitter:title"
-  content=""
+  content="About Me"
 />
 <meta
   name="twitter:description"
-  content=""
+  content="Hello, I&rsquo;m Tran Quang Huy! 👋
+Security Researcher | Reverse Engineering Enthusiast
+Welcome to my digital space! I&rsquo;m a passionate cybersecurity …"
 />
 
 
@@ -54,9 +60,28 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/top-nav.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/click-effects.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/cyberpunk-tech.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/performance-optimize.css?v=1758457031">
+
+
+
+
+<style>
+:root {
+  --cursor-default: url('/images/cursor/hello-kitty.png') 6 0, auto;
+  --cursor-pointer: url('/images/cursor/hello-kitty.png') 6 0, pointer;
+}
+html, body { cursor: var(--cursor-default); }
+a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
+ 
+input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
+</style>
 
 
 
@@ -67,7 +92,6 @@
     
 
     
-    
 <header class="site-header">
     <nav>
         <div class="nav-left">
@@ -77,12 +101,32 @@
         
         <div class="nav-links desktop-nav">
             
-            <a href="//localhost:1313/about/" class="nav-link active">
-                About
+            <a href="//localhost:1313/" class="nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="nav-link ">
-                Contact
+            <a href="//localhost:1313/about/" class="nav-link active">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -104,12 +148,32 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
             
-            <a href="//localhost:1313/about/" class="mobile-nav-link active">
-                About
+            <a href="//localhost:1313/" class="mobile-nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="mobile-nav-link ">
-                Contact
+            <a href="//localhost:1313/about/" class="mobile-nav-link active">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="mobile-nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="mobile-nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -185,10 +249,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-});
+    
+    
+    const header = document.querySelector('.site-header');
+    if (header) {
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+        
+        
+        document.body.classList.add('has-sticky-header');
+    }
+});</script>
 </script>
 
-    
 
     <main>
         
@@ -208,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <article class="post-content">
             <header class="post-header">
                 <div class="post-meta">
-                    <span class="post-date">0001.01.01</span>
+                    <span class="post-date">2024.01.01</span>
                     <div class="reading-time-post">
                         <span class="coffee-cups">
                             
@@ -216,18 +301,74 @@ document.addEventListener('DOMContentLoaded', function() {
                             
                             
                             
+                                
                             
+                                
+                            
+                            ☕☕
                         </span>
-                        <span>0 min read</span>
+                        <span>2 min read</span>
                     </div>
                 </div>
-                <h1 class="post-title"></h1>
+                <h1 class="post-title">About Me</h1>
                 
 
                 
             </header>
             <div class="post-body">
-                
+                <h1 id="hello-im-tran-quang-huy-">Hello, I&rsquo;m Tran Quang Huy! 👋</h1>
+<h2 id="security-researcher--reverse-engineering-enthusiast">Security Researcher | Reverse Engineering Enthusiast</h2>
+<p>Welcome to my digital space! I&rsquo;m a passionate cybersecurity professional with a deep love for reverse engineering, malware analysis, and CTF competitions.</p>
+<h2 id="-what-i-do">🛡️ What I Do</h2>
+<ul>
+<li><strong>Security Research</strong>: Investigating vulnerabilities and security flaws in software systems</li>
+<li><strong>Reverse Engineering</strong>: Dissecting binaries, understanding malware behavior, and analyzing Android applications</li>
+<li><strong>CTF Player</strong>: Competing in Capture The Flag competitions, specializing in Crypto, Forensics, and Reverse Engineering challenges</li>
+<li><strong>Malware Analysis</strong>: Static and dynamic analysis of malicious software</li>
+<li><strong>Android Security</strong>: Mobile application security testing and analysis</li>
+</ul>
+<h2 id="-specializations">🎯 Specializations</h2>
+<h3 id="technical-skills">Technical Skills</h3>
+<ul>
+<li><strong>Languages</strong>: Python, C/C++, JavaScript, Assembly, Solidity</li>
+<li><strong>Tools</strong>: IDA Pro, Ghidra, Frida, Volatility, Wireshark, Burp Suite</li>
+<li><strong>Platforms</strong>: Linux, Windows, Android</li>
+<li><strong>Areas</strong>: Cryptography, Digital Forensics, Web3 Security, Smart Contract Auditing</li>
+</ul>
+<h3 id="ctf-experience">CTF Experience</h3>
+<ul>
+<li>Regular participant in major CTF competitions</li>
+<li>Writeups for crypto, forensics, and reverse engineering challenges</li>
+<li>Active in the cybersecurity community</li>
+</ul>
+<h2 id="-beyond-security">🎵 Beyond Security</h2>
+<p>When I&rsquo;m not diving deep into binaries or solving crypto challenges, you&rsquo;ll find me:</p>
+<ul>
+<li>Listening to lofi music while coding (hence the theme!)</li>
+<li>Exploring new technologies and frameworks</li>
+<li>Writing technical blog posts and tutorials</li>
+<li>Contributing to open-source security tools</li>
+</ul>
+<h2 id="-mission">🌟 Mission</h2>
+<p>I believe in making cybersecurity knowledge accessible to everyone. Through this blog, I share:</p>
+<ul>
+<li>Detailed writeups of CTF challenges</li>
+<li>Tutorials on reverse engineering techniques</li>
+<li>Security research findings</li>
+<li>Tools and scripts for the community</li>
+</ul>
+<h2 id="-lets-connect">📫 Let&rsquo;s Connect!</h2>
+<p>I&rsquo;m always excited to discuss cybersecurity, collaborate on projects, or help fellow security enthusiasts. Feel free to reach out!</p>
+<ul>
+<li>🐙 <strong>GitHub</strong>: <a href="https://github.com/raisingpixels">@raisingpixels</a></li>
+<li>📧 <strong>Email</strong>: <a href="mailto:tranhuydh81@gmail.com">tranhuydh81@gmail.com</a></li>
+<li>📱 <strong>Instagram</strong>: <a href="https://www.instagram.com/t0nyk_">@t0nyk_</a></li>
+<li>👥 <strong>Facebook</strong>: <a href="https://www.facebook.com/t0nyK06">Profile</a></li>
+</ul>
+<hr>
+<p><em>&ldquo;The best way to learn security is to break things (legally and ethically, of course!)&rdquo;</em> - Me, probably.</p>
+<p>Thanks for visiting, and happy hacking! 🚀</p>
+
             </div>
 
             
@@ -238,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <div class="nav-previous">
                     <span class="nav-label">← Previous</span>
-                    <a href="//localhost:1313/archivements/" class="nav-title"></a>
+                    <a href="//localhost:1313/achievements/" class="nav-title">Achievements</a>
                 </div>
                 
 
@@ -282,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="ambient-label">Click to start ambient sounds</div>
 
     <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="">
+        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
         <div class="equalizer muted">
             
             <div class="equalizer-bar"></div>
@@ -307,6 +448,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    
     <script src="//localhost:1313/js/main.js"></script>
+    <script src="//localhost:1313/js/click-effects.js?v=1758457031"></script>
+    <script src="//localhost:1313/js/cyberpunk-effects.js?v=1758457031"></script>
+    
+    
+    <script src="//localhost:1313/js/master-effects.js?v=1758457031"></script>
 </body>
 </html>

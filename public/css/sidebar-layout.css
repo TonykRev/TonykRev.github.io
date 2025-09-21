@@ -1,24 +1,33 @@
-/* Homepage Container Layout */
+/* Homepage Container Layout - Optimized for alignment */
 .homepage-container {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem 2rem; /* Reduced top padding for better alignment */
     min-height: 100vh;
+    align-items: start; /* Align items to top */
 }
 
-/* Left Sidebar Styling */
+/* 📜 Left Sidebar - Aligned with Posts Section */
 .left-sidebar {
     position: sticky;
-    top: 80px;
-    height: fit-content;
+    top: 80px; /* Reduced to align with posts section */
+    height: calc(100vh - 100px); /* Adjusted height */
     max-height: calc(100vh - 100px);
-    overflow-y: auto;
+    overflow-y: scroll !important; /* Force scrollbar to always show */
+    overflow-x: hidden;
+    padding-right: 15px; /* More space for scrollbar */
+    box-sizing: border-box;
+    /* Ensure all content is visible */
+    display: flex;
+    flex-direction: column;
+    /* Force minimum content height to trigger scrollbar */
+    min-height: calc(100vh - 100px);
 }
 
-/* Sidebar Widget Base Styles */
+/* Sidebar Widget Base Styles - Optimized for flex layout */
 .sidebar-widget {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
@@ -27,6 +36,8 @@
     overflow: hidden;
     box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(10px);
+    flex-shrink: 0; /* Prevent widgets from shrinking */
+    width: 100%; /* Ensure full width */
 }
 
 .widget-header {
@@ -165,7 +176,9 @@
 }
 
 .music-widget .aplayer .aplayer-list {
+    height: 200px !important; /* Increased height to show all 5 songs */
     max-height: 200px !important;
+    overflow: visible !important; /* Show all content */
 }
 
 /* Override any aplayer CSS that might be hiding it */
@@ -180,8 +193,10 @@
 .music-widget .aplayer {
     display: flex !important;
     flex-direction: column !important;
-    min-height: 300px !important;
-    max-height: none !important;
+    height: 280px !important; /* Increased to accommodate all songs */
+    min-height: 280px !important;
+    max-height: 280px !important;
+    overflow: visible !important; /* Allow content to show */
 }
 
 .music-widget .aplayer .aplayer-body {
@@ -244,11 +259,17 @@
     font-weight: 600;
 }
 
-/* Tags Widget */
+/* Tags Widget - Let sidebar handle scrolling */
+.tags-widget .widget-content {
+    /* Remove max-height to let sidebar scroll naturally */
+    padding-right: 5px;
+}
+
 .tag-cloud {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    padding-bottom: 5px; /* Prevent cut-off */
 }
 
 .tag-item {
@@ -278,13 +299,47 @@
 .tag-item[data-count="4"] { font-size: 0.95rem; }
 .tag-item[data-count="5"] { font-size: 1rem; font-weight: 500; }
 
-/* Stats Widget */
+/* Stats Widget - Enhanced for better display */
+.stats-widget .widget-content {
+    max-height: none; /* Allow full height */
+    padding: 1rem 1.2rem; /* More padding for readability */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
 .stat-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(0, 212, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    margin-bottom: 0.5rem;
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .stat-item:last-child {
@@ -311,9 +366,10 @@
 
 /* No hero section - sidebar aligns with posts */
 
-/* Posts Section */
+/* Posts Section - Aligned with sidebar */
 .posts-section {
     padding: 0;
+    margin-top: 0; /* Ensure alignment */
 }
 
 .posts-header {
@@ -623,25 +679,61 @@
     .homepage-container {
         grid-template-columns: 1fr;
         gap: 0;
+        padding: 1rem;
     }
     
     .left-sidebar {
         position: static;
         max-height: none;
+        overflow-y: visible;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 2rem;
+        padding-right: 0;
     }
     
     .music-widget {
         grid-column: 1 / -1;
     }
+    
+    /* Reset individual widget scrolling on tablet */
+    .tags-widget .widget-content,
+    .categories-widget .widget-content {
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 768px) {
+    .homepage-container {
+        padding: 0.5rem;
+    }
+    
     .left-sidebar {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Mobile: Reduce stats grid to single column */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.8rem;
+    }
+    
+    /* Mobile: Smaller widgets */
+    .widget-content {
+        padding: 0.8rem;
+    }
+    
+    .widget-header {
+        padding: 0.8rem 1rem;
     }
     
     .posts-grid {
@@ -659,21 +751,123 @@
     }
 }
 
-/* Scrollbar Styling for Sidebar */
+/* 🌊 Enhanced Sidebar Scrollbar - Always Visible */
+.left-sidebar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #00D4FF rgba(0, 0, 0, 0.1); /* Firefox */
+}
+
 .left-sidebar::-webkit-scrollbar {
-    width: 6px;
+    width: 12px; /* Wider for better visibility */
+    display: block !important; /* Force display */
 }
 
 .left-sidebar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .left-sidebar::-webkit-scrollbar-thumb {
-    background: var(--accent-primary);
-    border-radius: 3px;
+    background: linear-gradient(135deg, #00D4FF 0%, #66FFCC 50%, #0099CC 100%);
+    border-radius: 6px;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 40px; /* Larger minimum thumb size */
+    box-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
 }
 
 .left-sidebar::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-secondary);
+    background: linear-gradient(135deg, #00B8E6 0%, #43E97B 50%, #0088BB 100%);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.1);
+    border-color: rgba(0, 212, 255, 0.8);
+}
+
+/* Scrollbar corner */
+.left-sidebar::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Force scrollbar visibility */
+.left-sidebar::-webkit-scrollbar-track:vertical {
+    display: block !important;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb:vertical {
+    display: block !important;
+}
+
+/* Scrollbar for individual widgets */
+.tags-widget .widget-content::-webkit-scrollbar,
+.categories-widget .widget-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tags-widget .widget-content::-webkit-scrollbar-track,
+.categories-widget .widget-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+}
+
+.tags-widget .widget-content::-webkit-scrollbar-thumb,
+.categories-widget .widget-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.6);
+    border-radius: 2px;
+}
+
+.tags-widget .widget-content::-webkit-scrollbar-thumb:hover,
+.categories-widget .widget-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.8);
+}
+
+/* No content states */
+.no-content {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 2rem 1rem;
+    opacity: 0.7;
+}
+
+/* 📝 Ensure proper spacing for complete sidebar scrolling */
+.sidebar-widget:last-child {
+    margin-bottom: 3rem !important; /* Extra space at bottom for full scrolling */
+}
+
+/* Add padding to sidebar bottom for complete scroll and force scrollbar */
+.left-sidebar::after {
+    content: '';
+    display: block;
+    height: 50px; /* Larger height to ensure scrollbar appears */
+    flex-shrink: 0;
+}
+
+/* Force sidebar content to be taller than viewport */
+.left-sidebar {
+    /* Add minimum content height to always show scrollbar */
+}
+
+.sidebar-widget {
+    /* Ensure widgets have minimum height */
+    min-height: 100px;
+}
+
+/* Prevent text overflow in widget titles */
+.widget-header h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Categories Widget - Let sidebar handle scrolling */
+.categories-widget .widget-content {
+    /* Remove max-height to let sidebar scroll naturally */
+    padding-right: 5px;
+}
+
+/* Better spacing for category list */
+.category-list {
+    padding-bottom: 5px; /* Prevent cut-off */
 }

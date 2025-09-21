@@ -9,7 +9,20 @@
         <div class="nav-links desktop-nav">
             {{ range .Site.Menus.main }}
             <a href="{{ .URL | absLangURL }}" class="nav-link {{ if eq .URL $.RelPermalink }}active{{ end }}">
-                {{ .Name }}
+                {{ if eq .Name "Home" }}
+                <i class="fas fa-home nav-icon"></i>
+                {{ else if eq .Name "About" }}
+                <i class="fas fa-user nav-icon"></i>
+                {{ else if eq .Name "Archives" }}
+                <i class="fas fa-archive nav-icon"></i>
+                {{ else if eq .Name "Achievements" }}
+                <i class="fas fa-trophy nav-icon"></i>
+                {{ else if eq .Name "Contact" }}
+                <i class="fas fa-envelope nav-icon"></i>
+                {{ else }}
+                <i class="fas fa-circle nav-icon"></i>
+                {{ end }}
+                <span class="nav-text">{{ .Name }}</span>
             </a>
             {{ end }}
         </div>
@@ -32,7 +45,20 @@
         <div class="mobile-nav-content">
             {{ range .Site.Menus.main }}
             <a href="{{ .URL | absLangURL }}" class="mobile-nav-link {{ if eq .URL $.RelPermalink }}active{{ end }}">
-                {{ .Name }}
+                {{ if eq .Name "Home" }}
+                <i class="fas fa-home nav-icon"></i>
+                {{ else if eq .Name "About" }}
+                <i class="fas fa-user nav-icon"></i>
+                {{ else if eq .Name "Archives" }}
+                <i class="fas fa-archive nav-icon"></i>
+                {{ else if eq .Name "Achievements" }}
+                <i class="fas fa-trophy nav-icon"></i>
+                {{ else if eq .Name "Contact" }}
+                <i class="fas fa-envelope nav-icon"></i>
+                {{ else }}
+                <i class="fas fa-circle nav-icon"></i>
+                {{ end }}
+                <span class="nav-text">{{ .Name }}</span>
             </a>
             {{ end }}
         </div>
@@ -108,5 +134,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Theme toggle is handled by main.js
-});
+    
+    // Enhanced sticky header effects
+    const header = document.querySelector('.site-header');
+    if (header) {
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for enhanced effects
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+        
+        // Mark body as having sticky header
+        document.body.classList.add('has-sticky-header');
+    }
+});</script>
 </script>

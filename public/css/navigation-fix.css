@@ -1,34 +1,79 @@
-/* Navigation Fix - Prevent About/Contact text overlapping */
+/* Enhanced Navigation with Icons and Better Layout */
 
 nav {
-    grid-template-columns: minmax(0, 1fr) auto auto !important;
-    gap: 1.2rem !important;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center !important;
+    padding: 1rem 2rem !important;
+    gap: 2rem !important;
 }
 
 .nav-links {
-    gap: 1.2rem !important;
-    white-space: nowrap !important;
-    flex-wrap: nowrap !important;
+    display: flex !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
 }
 
 .nav-links a {
-    padding: 0.5rem 0.7rem !important;
-    white-space: nowrap !important;
-    min-width: max-content !important;
-    font-size: 0.95rem !important;
-    line-height: 1.2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1rem 1.2rem !important;
+    text-decoration: none !important;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 12px !important;
+    min-width: 80px !important;
+    font-weight: 500 !important;
 }
 
-.header-controls {
-    gap: 0.8rem !important;
-    flex-shrink: 0 !important;
+.nav-links a:hover {
+    background: rgba(0, 212, 255, 0.1) !important;
+    color: var(--accent-primary) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px var(--glow-color) !important;
+}
+
+.nav-links a.active {
+    background: var(--accent-primary) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px var(--glow-color) !important;
+}
+
+.nav-icon {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.nav-text {
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-weight: 600 !important;
+}
+
+.nav-left {
+    position: absolute !important;
+    left: 2rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 .logo {
-    max-width: 45% !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+}
+
+.header-controls {
+    position: absolute !important;
+    right: 2rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    gap: 0.8rem !important;
 }
 
 @media (max-width: 768px) {
@@ -36,6 +81,52 @@ nav {
     .desktop-nav {
         display: none !important;
     }
+    
+    nav {
+        justify-content: space-between !important;
+        padding: 0.8rem 1rem !important;
+    }
+    
+    .nav-left {
+        position: static !important;
+        transform: none !important;
+    }
+    
+    .header-controls {
+        position: static !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile navigation links with icons */
+.mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    padding: 1rem 1.5rem !important;
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background: var(--accent-primary) !important;
+    color: white !important;
+}
+
+.mobile-nav-link .nav-icon {
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+.mobile-nav-link .nav-text {
+    font-size: 1rem !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-weight: 500 !important;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

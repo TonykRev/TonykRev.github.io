@@ -1,0 +1,250 @@
+/* Top Navigation Bar */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 20, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    z-index: 1000;
+    padding: 0;
+    height: 60px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    position: relative;
+    min-width: 80px;
+}
+
+.nav-item:hover {
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+}
+
+.nav-item.active {
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #00D4FF 0%, #66FFCC 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.nav-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Add top padding to account for fixed top nav */
+body {
+    padding-top: 60px;
+}
+
+/* Adjust header position to work with top nav */
+.site-header {
+    top: 0;
+    position: relative;
+    z-index: 999; /* Lower than top nav */
+}
+
+/* Ensure top nav is always visible and stays on top */
+.top-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(20, 20, 30, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Enhanced top nav styling with ocean blue theme */
+.top-nav:hover {
+    background: rgba(20, 20, 30, 1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Mobile responsive enhancements */
+@media (max-width: 768px) {
+    .nav-items {
+        gap: 0.8rem;
+    }
+    
+    .nav-item {
+        min-width: 55px;
+        padding: 6px 10px;
+    }
+    
+    .nav-icon {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+    
+    .nav-text {
+        font-size: 0.7rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    /* Ensure body padding adjusts for mobile */
+    body {
+        padding-top: 60px !important;
+    }
+    
+    /* Add better touch targets */
+    .nav-item {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-items {
+        gap: 0.5rem;
+    }
+    
+    .nav-item {
+        min-width: 50px;
+        padding: 4px 8px;
+    }
+    
+    .nav-text {
+        font-size: 0.65rem;
+    }
+}
+
+/* Light theme integration with ocean blue */
+[data-theme="light"] .top-nav {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3) !important;
+}
+
+[data-theme="light"] .nav-item {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="light"] .nav-item:hover,
+[data-theme="light"] .nav-item.active {
+    color: #0099CC !important;
+    background: rgba(0, 153, 204, 0.1) !important;
+}
+
+[data-theme="light"] .nav-item.active::after {
+    background: linear-gradient(90deg, #0099CC 0%, #00D4FF 100%) !important;
+}
+
+/* 🚀 NAVIGATION ENHANCEMENT FEATURES */
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 80px !important; /* Account for fixed top nav */
+}
+
+/* Add entrance animation for top nav */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.top-nav {
+    animation: slideDown 0.5s ease-out !important;
+}
+
+/* Add pulse animation for active nav items */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.nav-item.active .nav-icon {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Enhanced hover effects with glow */
+.nav-item:hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.nav-item:hover .nav-icon {
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* Prevent layout shift on page load */
+.nav-container {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Ensure top nav works with all viewport sizes */
+@media (max-width: 1200px) {
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Ultra-wide screen support */
+@media (min-width: 1400px) {
+    .nav-container {
+        max-width: 1400px;
+    }
+}

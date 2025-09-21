@@ -26,30 +26,38 @@
 
 /* Now playing section - compact design */
 #aplayer-sidebar .aplayer .aplayer-body {
-    padding: 12px !important;
+    padding: 15px !important;
     background: rgba(255, 255, 255, 0.05) !important;
     border-radius: 6px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    min-height: 80px !important;
+}
+
+/* Top row container for album art and song info */
+#aplayer-sidebar .aplayer .aplayer-body > div:first-child {
     display: flex !important;
     align-items: center !important;
-    min-height: 60px !important;
+    gap: 10px !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-pic {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 4px !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 6px !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     flex-shrink: 0 !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-info {
-    margin-left: 10px !important;
     flex: 1 !important;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    margin: 0 !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-info .aplayer-music {
@@ -74,24 +82,26 @@
     opacity: 0.7 !important;
 }
 
-/* Controls - compact design */
+/* Controls integrated into body */
 #aplayer-sidebar .aplayer .aplayer-controller {
-    padding: 8px 12px !important;
-    background: rgba(255, 255, 255, 0.03) !important;
-    border-radius: 6px !important;
-    margin-bottom: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    min-height: 40px !important;
+    gap: 10px !important;
+    min-height: 35px !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-bar-wrap {
-    margin: 0 8px !important;
+    margin: 0 5px !important;
     height: 3px !important;
     background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 2px !important;
     flex: 1 !important;
+    max-width: 120px !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-bar .aplayer-played {
@@ -101,20 +111,25 @@
 }
 
 #aplayer-sidebar .aplayer .aplayer-time {
-    font-size: 10px !important;
+    font-size: 9px !important;
     color: var(--text-muted) !important;
-    margin: 0 4px !important;
+    margin: 0 2px !important;
     white-space: nowrap !important;
+    min-width: 35px !important;
 }
 
-/* Playlist area */
+/* Playlist area - Only vertical scroll */
 #aplayer-sidebar .aplayer .aplayer-list {
     background: transparent !important;
     max-height: 180px !important;
     overflow-y: auto !important;
+    overflow-x: hidden !important; /* Hide horizontal scroll */
     border: none !important;
-    margin-top: 15px !important;
-    padding-top: 5px !important;
+    margin-top: 5px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* Playlist items - clean design */
@@ -137,27 +152,97 @@
     border-radius: 4px !important;
     margin: 1px 0 !important;
     position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important; /* Prevent overflow */
 }
 
-/* Hover effect - subtle */
-#aplayer-sidebar .aplayer .aplayer-list ol li:hover {
-    background: rgba(255, 0, 107, 0.06) !important;
-    transform: none !important;
-}
-
-/* Currently playing - NO WHITE BACKGROUND */
-#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light {
-    background: rgba(255, 0, 107, 0.1) !important;
-    border-left: 2px solid var(--accent-primary) !important;
-    padding-left: 6px !important;
-}
-
-/* FORCE override any white backgrounds */
+/* COMPLETE OVERRIDE - NO WHITE BACKGROUNDS EVER */
+#aplayer-sidebar .aplayer .aplayer-list ol li,
+#aplayer-sidebar .aplayer .aplayer-list ol li:hover,
+#aplayer-sidebar .aplayer .aplayer-list ol li:active,
+#aplayer-sidebar .aplayer .aplayer-list ol li:focus,
 #aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light,
 #aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:hover,
-#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:active {
-    background: rgba(255, 0, 107, 0.1) !important;
-    color: inherit !important;
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:active,
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light:focus {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+}
+
+/* Subtle hover effect */
+#aplayer-sidebar .aplayer .aplayer-list ol li:hover {
+    background: rgba(0, 212, 255, 0.03) !important;
+    border-left: 1px solid rgba(0, 212, 255, 0.3) !important;
+    padding-left: 7px !important;
+}
+
+/* Currently playing - minimal highlight */
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light {
+    background: rgba(0, 212, 255, 0.06) !important;
+    border-left: 2px solid var(--accent-primary) !important;
+    padding-left: 6px !important;
+    position: relative !important;
+}
+
+/* Playing song indicator dot */
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light::after {
+    content: '♪' !important;
+    position: absolute !important;
+    right: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: var(--accent-primary) !important;
+    font-size: 0.8rem !important;
+    animation: musicNote 2s ease-in-out infinite !important;
+}
+
+@keyframes musicNote {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* AGGRESSIVE OVERRIDE - Kill all white backgrounds */
+#aplayer-sidebar .aplayer .aplayer-list ol li *,
+#aplayer-sidebar .aplayer .aplayer-list ol li *:hover,
+#aplayer-sidebar .aplayer .aplayer-list ol li *:active,
+#aplayer-sidebar .aplayer .aplayer-list ol li *:focus {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Ensure text remains visible */
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-title,
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-author,
+#aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-index {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+
+/* Playing song text colors */
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-author {
+    color: var(--text-secondary) !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-index {
+    color: var(--accent-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Kill any potential white overlay */
+#aplayer-sidebar .aplayer .aplayer-list ol li::before,
+#aplayer-sidebar .aplayer .aplayer-list ol li::after {
+    background: transparent !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light::before {
+    background: transparent !important;
 }
 
 /* Track number */
@@ -175,7 +260,27 @@
     font-weight: 600 !important;
 }
 
-/* Track title */
+/* Custom scrollbar for playlist - Ocean Blue Theme */
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 2px !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.5) !important;
+    border-radius: 2px !important;
+    transition: background 0.3s ease !important;
+}
+
+#aplayer-sidebar .aplayer .aplayer-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.8) !important;
+}
+
+/* Track title - Prevent horizontal overflow */
 #aplayer-sidebar .aplayer .aplayer-list ol li .aplayer-list-title {
     color: var(--text-primary) !important;
     font-weight: 400 !important;
@@ -186,6 +291,8 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     margin: 0 !important;
+    max-width: calc(100% - 40px) !important; /* Reserve space for index and controls */
+    min-width: 0 !important; /* Allow shrinking */
 }
 
 #aplayer-sidebar .aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title {
@@ -220,11 +327,44 @@
 #aplayer-sidebar .aplayer .aplayer-controller .aplayer-btn {
     color: var(--text-primary) !important;
     transition: all 0.2s ease !important;
+    font-size: 12px !important;
+    padding: 3px !important;
+    margin: 0 2px !important;
 }
 
 #aplayer-sidebar .aplayer .aplayer-controller .aplayer-btn:hover {
     color: var(--accent-primary) !important;
-    transform: scale(1.1) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Make the entire controls container more compact */
+#aplayer-sidebar .aplayer .aplayer-controller {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Ensure controls stay on same row as album info */
+#aplayer-sidebar .aplayer .aplayer-body {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+/* Left side: album art + song info */
+#aplayer-sidebar .aplayer .aplayer-body > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+/* Right side: compact controls */
+#aplayer-sidebar .aplayer .aplayer-controller {
+    flex-shrink: 0 !important;
+    max-width: 140px !important;
 }
 
 /* List toggle button */

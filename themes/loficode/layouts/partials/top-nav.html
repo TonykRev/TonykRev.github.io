@@ -1,0 +1,25 @@
+<!-- Top Navigation Bar -->
+<nav class="top-nav">
+    <div class="nav-container">
+        <div class="nav-items">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL | absLangURL }}" class="nav-item {{ if eq .URL $.RelPermalink }}active{{ end }}" title="{{ .Name }}">
+                {{ if eq .Name "Home" }}
+                <i class="fas fa-home nav-icon"></i>
+                {{ else if eq .Name "About" }}
+                <i class="fas fa-user nav-icon"></i>
+                {{ else if eq .Name "Archives" }}
+                <i class="fas fa-archive nav-icon"></i>
+                {{ else if eq .Name "Achievements" }}
+                <i class="fas fa-trophy nav-icon"></i>
+                {{ else if eq .Name "Contact" }}
+                <i class="fas fa-envelope nav-icon"></i>
+                {{ else }}
+                <i class="fas fa-circle nav-icon"></i>
+                {{ end }}
+                <span class="nav-text">{{ .Name }}</span>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</nav>

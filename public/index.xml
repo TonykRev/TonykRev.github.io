@@ -51,32 +51,25 @@
       <description>&lt;h2 id=&#34;introduction-to-modern-web-development&#34;&gt;Introduction to Modern Web Development&lt;/h2&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-technologies&#34;&gt;Key Technologies&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;React.js for UI components&lt;/li&gt;&#xA;&lt;li&gt;Redux for state management&lt;/li&gt;&#xA;&lt;li&gt;TypeScript for type safety&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
+      <title>About Me</title>
       <link>//localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/about/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;hello-im-tran-quang-huy-&#34;&gt;Hello, I&amp;rsquo;m Tran Quang Huy! 👋&lt;/h1&gt;&#xA;&lt;h2 id=&#34;security-researcher--reverse-engineering-enthusiast&#34;&gt;Security Researcher | Reverse Engineering Enthusiast&lt;/h2&gt;&#xA;&lt;p&gt;Welcome to my digital space! I&amp;rsquo;m a passionate cybersecurity professional with a deep love for reverse engineering, malware analysis, and CTF competitions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-what-i-do&#34;&gt;🛡️ What I Do&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security Research&lt;/strong&gt;: Investigating vulnerabilities and security flaws in software systems&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reverse Engineering&lt;/strong&gt;: Dissecting binaries, understanding malware behavior, and analyzing Android applications&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CTF Player&lt;/strong&gt;: Competing in Capture The Flag competitions, specializing in Crypto, Forensics, and Reverse Engineering challenges&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Malware Analysis&lt;/strong&gt;: Static and dynamic analysis of malicious software&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Android Security&lt;/strong&gt;: Mobile application security testing and analysis&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-specializations&#34;&gt;🎯 Specializations&lt;/h2&gt;&#xA;&lt;h3 id=&#34;technical-skills&#34;&gt;Technical Skills&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Languages&lt;/strong&gt;: Python, C/C++, JavaScript, Assembly, Solidity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tools&lt;/strong&gt;: IDA Pro, Ghidra, Frida, Volatility, Wireshark, Burp Suite&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Platforms&lt;/strong&gt;: Linux, Windows, Android&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Areas&lt;/strong&gt;: Cryptography, Digital Forensics, Web3 Security, Smart Contract Auditing&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;ctf-experience&#34;&gt;CTF Experience&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Regular participant in major CTF competitions&lt;/li&gt;&#xA;&lt;li&gt;Writeups for crypto, forensics, and reverse engineering challenges&lt;/li&gt;&#xA;&lt;li&gt;Active in the cybersecurity community&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-beyond-security&#34;&gt;🎵 Beyond Security&lt;/h2&gt;&#xA;&lt;p&gt;When I&amp;rsquo;m not diving deep into binaries or solving crypto challenges, you&amp;rsquo;ll find me:&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
-      <link>//localhost:1313/archivements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/archivements/</guid>
-      <description></description>
+      <title>Achievements</title>
+      <link>//localhost:1313/achievements/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/achievements/</guid>
+      <description>&lt;p&gt;Showcase of accomplishments, certifications, and milestones.&lt;/p&gt;</description>
     </item>
     <item>
-      <title></title>
+      <title>Archives</title>
       <link>//localhost:1313/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/archives/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
-      <link>//localhost:1313/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/contact/</guid>
-      <description></description>
+      <description>&lt;p&gt;Browse all posts organized by date and category.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

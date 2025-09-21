@@ -8,9 +8,7 @@
     <div class="reading-progress"></div>
     {{ end }}
 
-    {{ if not (eq .Type "posts") }}
     {{ partial "header.html" . }}
-    {{ end }}
 
     <main>
         {{ block "main" . }}{{ end }}
@@ -20,6 +18,12 @@
     {{ partial "ambient-bar.html" . }}
     {{ end }}
 
+    <!-- 📜 Original JS Files -->
     <script src="{{ "js/main.js" | absLangURL }}"></script>
+    <script src="{{ "js/click-effects.js" | absLangURL }}?v={{ now.Unix }}"></script>
+    <script src="{{ "js/cyberpunk-effects.js" | absLangURL }}?v={{ now.Unix }}"></script>
+    
+    <!-- 🌟 Master Effects System - Only Particles & Click Effects -->
+    <script src="{{ "js/master-effects.js" | absLangURL }}?v={{ now.Unix }}"></script>
 </body>
 </html>

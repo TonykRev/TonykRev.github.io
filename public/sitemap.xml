@@ -135,12 +135,13 @@
     <lastmod>2024-01-15T10:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/about/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/archivements/</loc>
+    <loc>//localhost:1313/achievements/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/archives/</loc>
-  </url><url>
-    <loc>//localhost:1313/contact/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/home/</loc>
   </url>

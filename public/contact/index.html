@@ -54,9 +54,28 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/top-nav.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/click-effects.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/cyberpunk-tech.css?v=1758452601">
+<link rel="stylesheet" href="//localhost:1313/css/performance-optimize.css?v=1758452601">
+
+
+
+
+<style>
+:root {
+  --cursor-default: url('/images/cursor/hello-kitty.png') 6 0, auto;
+  --cursor-pointer: url('/images/cursor/hello-kitty.png') 6 0, pointer;
+}
+html, body { cursor: var(--cursor-default); }
+a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
+ 
+input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
+</style>
 
 
 
@@ -77,12 +96,32 @@
         
         <div class="nav-links desktop-nav">
             
-            <a href="//localhost:1313/about/" class="nav-link ">
-                About
+            <a href="//localhost:1313/" class="nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="nav-link active">
-                Contact
+            <a href="//localhost:1313/about/" class="nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -104,12 +143,32 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
             
-            <a href="//localhost:1313/about/" class="mobile-nav-link ">
-                About
+            <a href="//localhost:1313/" class="mobile-nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="mobile-nav-link active">
-                Contact
+            <a href="//localhost:1313/about/" class="mobile-nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="mobile-nav-link ">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="mobile-nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -245,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <div class="nav-next">
                     <span class="nav-label">Next →</span>
-                    <a href="//localhost:1313/archives/" class="nav-title"></a>
+                    <a href="//localhost:1313/archives/" class="nav-title">Archives</a>
                 </div>
                 
             </nav>
@@ -285,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="ambient-label">Click to start ambient sounds</div>
 
     <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="">
+        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
         <div class="equalizer muted">
             
             <div class="equalizer-bar"></div>
@@ -310,6 +369,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    
     <script src="//localhost:1313/js/main.js"></script>
+    <script src="//localhost:1313/js/click-effects.js?v=1758452601"></script>
+    <script src="//localhost:1313/js/cyberpunk-effects.js?v=1758452601"></script>
+    
+    
+    <script src="//localhost:1313/js/master-effects.js?v=1758452601"></script>
 </body>
 </html>

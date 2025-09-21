@@ -1,0 +1,218 @@
+/* 🎨 CLICK EFFECTS CSS - Animations for mouse interactions */
+
+/* 💫 Ripple Effect Animation (gentler) */
+@keyframes rippleEffect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* ✨ Particle Move Animation (gentler) */
+@keyframes particleMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--end-x) - 50px), calc(var(--end-y) - 50px)) scale(0.3);
+        opacity: 0;
+    }
+}
+
+/* 🌟 Enhanced Falling Trail Animation */
+@keyframes fallingTrail {
+    0% {
+        transform: translateY(0px) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.8;
+        transform: translateY(10px) scale(0.9) rotate(45deg);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(var(--fall-distance)) scale(0.7) rotate(90deg);
+    }
+    75% {
+        opacity: 0.3;
+        transform: translateY(calc(var(--fall-distance) * 1.5)) scale(0.5) rotate(135deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(calc(var(--fall-distance) * 2)) scale(0.2) rotate(180deg);
+    }
+}
+
+/* 🐱 Cute Hello Kitty Cursor (Smaller & Prettier) */
+body, html {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPCEtLSBNYWluIGhlYWQgLS0+CjxjaXJjbGUgY3g9IjEwIiBjeT0iMTEiIHI9IjgiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KPCEtLSBFYXJzIC0tPgo8ZWxsaXBzZSBjeD0iNiIgY3k9IjUiIHJ4PSIyLjUiIHJ5PSI0IiByb3RhdGU9Ii0yNSIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNiIvPgo8ZWxsaXBzZSBjeD0iMTQiIGN5PSI1IiByeD0iMi41IiByeT0iNCIgcm90YXRlPSIyNSIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNiIvPgo8IS0tIEV5ZXMgLS0+CjxjaXJjbGUgY3g9IjcuNSIgY3k9IjkuNSIgcj0iMSIgZmlsbD0iIzAwMDAwMCIvPgo8Y2lyY2xlIGN4PSIxMi41IiBjeT0iOS41IiByPSIxIiBmaWxsPSIjMDAwMDAwIi8+CjwhLS0gTm9zZSAtLT4KPGVsbGlwc2UgY3g9IjEwIiBjeT0iMTIiIHJ4PSIwLjgiIHJ5PSIwLjUiIGZpbGw9IiNGRjAwNkIiLz4KPCEtLSBXaGlza2VycyAtLT4KPGxpbmUgeDE9IjQiIHkxPSIxMSIgeDI9IjYuNSIgeTI9IjExIiBzdHJva2U9IiNGRjAwNkIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjEzLjUiIHkxPSIxMSIgeDI9IjE2IiB5Mj0iMTEiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iNCIgeTE9IjEyLjUiIHgyPSI2IiB5Mj0iMTIuNSIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIxNCIgeTE9IjEyLjUiIHgyPSIxNiIgeTI9IjEyLjUiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8IS0tIEJvdyAtLT4KPHBhdGggZD0iTTggNCBRIDEwIDIgMTIgNCBRIDEwIDUuNSA4IDQiIGZpbGw9IiNGRjAwNkIiLz4KPC9zdmc+'), auto;
+}
+
+/* Special cursors for interactive elements */
+a, button, .clickable {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPCEtLSBNYWluIGhlYWQgKGJpZ2dlciBmb3IgaG92ZXIpIC0tPgo8Y2lyY2xlIGN4PSIxMCIgY3k9IjExIiByPSI4IiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiNGRjAwNkIiIHN0cm9rZS13aWR0aD0iMS4yIi8+CjwhLS0gRWFycyAtLT4KPGVsbGlwc2UgY3g9IjYiIGN5PSI1IiByeD0iMi41IiByeT0iNCIgcm90YXRlPSItMjUiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KPGVsbGlwc2UgY3g9IjE0IiBjeT0iNSIgcng9IjIuNSIgcnk9IjQiIHJvdGF0ZT0iMjUiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KPCEtLSBFeWVzIChiaWdnZXIpIC0tPgo8Y2lyY2xlIGN4PSI3LjUiIGN5PSI5LjUiIHI9IjEuMiIgZmlsbD0iIzAwMDAwMCIvPgo8Y2lyY2xlIGN4PSIxMi41IiBjeT0iOS41IiByPSIxLjIiIGZpbGw9IiMwMDAwMDAiLz4KPCEtLSBTbWlsZSAtLT4KPHBhdGggZD0iTTcgMTMgUSAxMCAxNSAxMyAxMyIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwhLS0gTm9zZSAtLT4KPGVsbGlwc2UgY3g9IjEwIiBjeT0iMTEuNSIgcng9IjAuOCIgcnk9IjAuNSIgZmlsbD0iI0ZGMDA2QiIvPgo8IS0tIFdoaXNrZXJzIC0tPgo8bGluZSB4MT0iNCIgeTE9IjExIiB4Mj0iNi41IiB5Mj0iMTEiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iMTMuNSIgeTE9IjExIiB4Mj0iMTYiIHkyPSIxMSIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwhLS0gQm93IChiaWdnZXIpIC0tPgo8cGF0aCBkPSJNNyA0IFEgMTAgMS41IDEzIDQgUSAxMCA2IDcgNCIgZmlsbD0iI0ZGMDA2QiIvPgo8L3N2Zz4='), pointer;
+}
+
+input, textarea {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMSIgcj0iOCIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuOCIvPgo8ZWxsaXBzZSBjeD0iNiIgY3k9IjUiIHJ4PSIyLjUiIHJ5PSI0IiByb3RhdGU9Ii0yNSIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNiIvPgo8ZWxsaXBzZSBjeD0iMTQiIGN5PSI1IiByeD0iMi41IiByeT0iNCIgcm90YXRlPSIyNSIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRkYwMDZCIiBzdHJva2Utd2lkdGg9IjAuNiIvPgo8Y2lyY2xlIGN4PSI3LjUiIGN5PSI5LjUiIHI9IjEiIGZpbGw9IiMwMDAwMDAiLz4KPGNpcmNsZSBjeD0iMTIuNSIgY3k9IjkuNSIgcj0iMSIgZmlsbD0iIzAwMDAwMCIvPgo8bGluZSB4MT0iOSIgeTE9IjEyLjUiIHgyPSIxMSIgeTI9IjEyLjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGVsbGlwc2UgY3g9IjEwIiBjeT0iMTIiIHJ4PSIwLjgiIHJ5PSIwLjUiIGZpbGw9IiNGRjAwNkIiLz4KPGxpbmUgeDE9IjQiIHkxPSIxMSIgeDI9IjYuNSIgeTI9IjExIiBzdHJva2U9IiNGRjAwNkIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjEzLjUiIHkxPSIxMSIgeDI9IjE2IiB5Mj0iMTEiIHN0cm9rZT0iI0ZGMDA2QiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNOCA0IFEgMTAgMiAxMiA0IFEgMTAgNS41IDggNCIgZmlsbD0iI0ZGMDA2QiIvPgo8L3N2Zz4='), text;
+}
+
+/* 🌟 Enhanced Cursor Trail Particles (Performance Optimized) */
+.cursor-trail-enhanced {
+    background: rgba(255, 0, 107, 0.8) !important;
+    box-shadow: 0 0 6px rgba(255, 0, 107, 0.6);
+    border-radius: 50%;
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Hardware acceleration */
+    backface-visibility: hidden;
+}
+
+/* Performance optimizations */
+* {
+    box-sizing: border-box;
+}
+
+/* Reduce repaints */
+.aplayer, .aplayer * {
+    will-change: auto;
+    transform: translateZ(0);
+}
+
+/* 🎯 Hover Effects for Interactive Elements */
+a, button, .clickable {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+a:hover, button:hover, .clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Special Hover for Music Player Controls */
+.aplayer-btn:hover {
+    background: rgba(255, 0, 107, 0.1) !important;
+    transform: scale(1.1);
+}
+
+.aplayer-list ol li:hover {
+    background: rgba(255, 0, 107, 0.05) !important;
+    transform: translateX(3px);
+    transition: all 0.2s ease;
+}
+
+/* 🌈 Glow Effects */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 0, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 107, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 0, 107, 0.3);
+    }
+}
+
+/* 🎵 Music Player Glow */
+.aplayer.aplayer-play {
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* 📱 Mobile Optimizations */
+@media (max-width: 768px) {
+    .cursor-trail {
+        display: none; /* Ẩn trail trên mobile */
+    }
+    
+    /* Touch feedback cho mobile */
+    a:active, button:active, .clickable:active {
+        transform: scale(0.95);
+        background: rgba(255, 0, 107, 0.1);
+    }
+}
+
+/* 🎯 Special Effects for Navigation */
+.top-nav a:hover {
+    color: #FF006B !important;
+    text-shadow: 0 0 8px rgba(255, 0, 107, 0.6);
+}
+
+.top-nav a:hover i {
+    transform: scale(1.2) rotate(5deg);
+    transition: all 0.3s ease;
+}
+
+/* 🌟 Profile Social Links Effects */
+.profile-social a:hover {
+    background: rgba(255, 0, 107, 0.2) !important;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 107, 0.4);
+}
+
+/* 🎪 Page Load Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content, .sidebar {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.sidebar {
+    animation-delay: 0.2s;
+}
+
+/* 🌈 Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 🎨 Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF006B, #E91E63);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #E91E63, #FF006B);
+}
+
+/* 🔮 Selection Color */
+::selection {
+    background: rgba(255, 0, 107, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(255, 0, 107, 0.3);
+    color: #ffffff;
+}

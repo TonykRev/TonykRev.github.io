@@ -1,28 +1,36 @@
 {{ define "main" }}
 <div class="homepage-container">
     <!-- Left Sidebar -->
-    <aside class="left-sidebar">
+    <aside class="left-sidebar cyber-container">
         <!-- Profile Widget -->
         <div class="sidebar-widget profile-widget">
+            <div class="widget-header">
+                <h3><i class="fas fa-user"></i> Profile</h3>
+            </div>
             <div class="widget-content">
                 <div class="profile-section">
                     <div class="profile-photo-container">
                         <img src="{{ .Site.Params.Author.image | absURL }}" alt="{{ .Site.Params.Author.name }}" class="profile-photo" />
                     </div>
-                    <h3 class="profile-name">{{ .Site.Params.Author.name }}</h3>
+                    <h3 class="profile-name holo-text">{{ .Site.Params.Author.name }}</h3>
+                    <p class="profile-nickname">a.k.a tonyk</p>
                     <p class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</p>
                     <div class="social-links">
                         {{ range $name, $url := .Site.Params.Social }}
                         {{ if eq $name "github" }}
-                        <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="GitHub">
+                        <a href="https://github.com/{{ $url }}" target="_blank" rel="noopener" class="social-link" title="GitHub">
                             <i class="fab fa-github social-icon"></i>
                         </a>
-                        {{ else if eq $name "twitter" }}
-                        <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="X (formerly Twitter)">
-                            <span class="social-icon x-icon">𝕏</span>
+                        {{ else if eq $name "instagram" }}
+                        <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram social-icon"></i>
+                        </a>
+                        {{ else if eq $name "facebook" }}
+                        <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook social-icon"></i>
                         </a>
                         {{ else if eq $name "linkedin" }}
-                        <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+                        <a href="https://linkedin.com/in/{{ $url }}" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
                             <i class="fab fa-linkedin social-icon"></i>
                         </a>
                         {{ else if eq $name "email" }}
@@ -49,55 +57,91 @@
         <!-- Categories Widget -->
         <div class="sidebar-widget categories-widget">
             <div class="widget-header">
-                <h3><i class="fas fa-folder"></i> Categories</h3>
+                <h3><i class="fas fa-folder-open"></i> Categories</h3>
             </div>
             <div class="widget-content">
+                {{ if .Site.Taxonomies.categories }}
                 <ul class="category-list">
                     {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
                     <li>
-                        <a href="/categories/{{ $name | urlize }}/">
-                            <span class="category-name">{{ $name }}</span>
+                        <a href="/categories/{{ $name | urlize }}/" class="category-link">
+                            <span class="category-name">{{ $name | title }}</span>
                             <span class="category-count">{{ len $taxonomy }}</span>
                         </a>
                     </li>
                     {{ end }}
                 </ul>
+                {{ else }}
+                <p class="no-content">No categories yet</p>
+                {{ end }}
             </div>
         </div>
 
         <!-- Tags Widget -->
         <div class="sidebar-widget tags-widget">
             <div class="widget-header">
-                <h3><i class="fas fa-tags"></i> Popular Tags</h3>
+                <h3><i class="fas fa-hashtag"></i> Popular Tags</h3>
             </div>
             <div class="widget-content">
+                {{ if .Site.Taxonomies.tags }}
                 <div class="tag-cloud">
-                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                    <a href="/tags/{{ $name | urlize }}/" class="tag-item" data-count="{{ len $taxonomy }}">
-                        {{ $name }}
+                    {{ range first 15 (sort .Site.Taxonomies.tags "Count" "desc") }}
+                    {{ $name := .Page.Title }}
+                    {{ $count := len .Pages }}
+                    <a href="{{ .Page.Permalink }}" class="tag-item" data-count="{{ $count }}">
+                        #{{ $name }}<span class="tag-count">{{ $count }}</span>
                     </a>
                     {{ end }}
                 </div>
+                {{ else }}
+                <p class="no-content">No tags yet</p>
+                {{ end }}
             </div>
         </div>
 
         <!-- Stats Widget -->
         <div class="sidebar-widget stats-widget">
             <div class="widget-header">
-                <h3><i class="fas fa-chart-bar"></i> Site Stats</h3>
+                <h3><i class="fas fa-chart-line"></i> Site Statistics</h3>
             </div>
             <div class="widget-content">
-                <div class="stat-item">
-                    <span class="stat-label">Total Posts</span>
-                    <span class="stat-value">{{ len (where .Site.RegularPages "Type" "posts") }}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Categories</span>
-                    <span class="stat-value">{{ len .Site.Taxonomies.categories }}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Tags</span>
-                    <span class="stat-value">{{ len .Site.Taxonomies.tags }}</span>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">{{ len (where .Site.RegularPages "Section" "posts") }}</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">{{ len .Site.Taxonomies.categories }}</span>
+                            <span class="stat-label">Categories</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">{{ len .Site.Taxonomies.tags }}</span>
+                            <span class="stat-label">Tags</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">{{ dateFormat "2006" now }}</span>
+                            <span class="stat-label">Since</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,7 +152,7 @@
         <!-- Posts Grid -->
         <section class="posts-section">
             <div class="posts-header">
-                <h2>Latest Posts</h2>
+                <h2 class="glitch-text" data-text="Latest Posts">Latest Posts</h2>
                 <div class="filter-tabs">
                     <button class="filter-tab active" data-filter="all">All</button>
                     <button class="filter-tab" data-filter="recent">Recent</button>

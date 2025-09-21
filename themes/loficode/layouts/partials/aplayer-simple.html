@@ -1,14 +1,160 @@
-<!-- Load APlayer CSS & JS từ CDN -->
-<link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
-<script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+<!-- Load APlayer with fallback -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" onload="console.log('APlayer loaded successfully')" onerror="console.error('APlayer failed to load')"></script>
+
+<!-- NUCLEAR OPTION: ELIMINATE ALL WHITE LINES AND BORDERS -->
+<style>
+/* 🚫 NUCLEAR ANTI-WHITE-LINES SYSTEM 🚫 */
+/* Remove ALL white/light backgrounds */
+.aplayer .aplayer-list ol li,
+.aplayer .aplayer-list ol li:hover,
+.aplayer .aplayer-list ol li:active,
+.aplayer .aplayer-list ol li:focus,
+.aplayer .aplayer-list ol li.aplayer-list-light,
+.aplayer .aplayer-list ol li.aplayer-list-light:hover,
+.aplayer .aplayer-list ol li.aplayer-list-light:active,
+.aplayer .aplayer-list ol li.aplayer-list-light:focus,
+.aplayer .aplayer-list ol li.aplayer-list-playing,
+.aplayer .aplayer-list ol li.aplayer-list-playing:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 🚫 KILL ALL APLAYER WHITE BORDERS UNIVERSALLY 🚫 */
+.aplayer,
+.aplayer *,
+.aplayer::before,
+.aplayer::after,
+.aplayer *::before,
+.aplayer *::after {
+    border-color: transparent !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+}
+
+/* Specific APlayer element overrides */
+.aplayer .aplayer-body,
+.aplayer .aplayer-controller,
+.aplayer .aplayer-list,
+.aplayer .aplayer-bar,
+.aplayer .aplayer-bar-wrap,
+.aplayer .aplayer-loaded,
+.aplayer .aplayer-played,
+.aplayer .aplayer-thumb {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Remove any white separators */
+.aplayer .aplayer-body::before,
+.aplayer .aplayer-body::after,
+.aplayer .aplayer-controller::before,
+.aplayer .aplayer-controller::after,
+.aplayer .aplayer-list::before,
+.aplayer .aplayer-list::after {
+    display: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Hover effect - very subtle */
+.aplayer .aplayer-list ol li:hover {
+    background: rgba(0, 212, 255, 0.05) !important;
+    border-left: 1px solid rgba(0, 212, 255, 0.4) !important;
+    padding-left: 13px !important;
+}
+
+/* Currently playing - subtle highlight with ocean blue */
+.aplayer .aplayer-list ol li.aplayer-list-light {
+    background: rgba(0, 212, 255, 0.08) !important;
+    border-left: 2px solid #00D4FF !important;
+    padding-left: 12px !important;
+}
+
+/* Ensure all text is readable */
+.aplayer .aplayer-list ol li .aplayer-list-title,
+.aplayer .aplayer-list ol li .aplayer-list-author,
+.aplayer .aplayer-list ol li .aplayer-list-index {
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+/* Playing song gets ocean blue accent color */
+.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-title {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-index {
+    color: #00D4FF !important;
+    font-weight: 700 !important;
+}
+
+/* 💀 EXTRA NUCLEAR: Remove white borders from EVERYTHING 💀 */
+#aplayer-sidebar,
+#aplayer-sidebar *,
+#aplayer-sidebar::before,
+#aplayer-sidebar::after,
+#aplayer-sidebar *::before,
+#aplayer-sidebar *::after {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Even more aggressive approach */
+[class*="aplayer"],
+[class*="aplayer"] *,
+[id*="aplayer"],
+[id*="aplayer"] * {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+</style>
 
 <!-- Container -->
 <div id="aplayer-sidebar" style="width: 100%; min-height: 200px; background: rgba(255,0,107,0.1); border-radius: 8px;"></div>
 
-<!-- Init Script -->
+<!-- Init Script with fallback -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     console.log('Initializing sidebar APlayer...');
+    
+    // Check if APlayer is available
+    if (typeof APlayer === 'undefined') {
+        console.error('APlayer is not loaded! Showing fallback...');
+        const container = document.getElementById('aplayer-sidebar');
+        if (container) {
+            container.innerHTML = `
+                <div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.8); background: rgba(0,212,255,0.1); border-radius: 8px;">
+                    <i class="fas fa-music" style="font-size: 24px; margin-bottom: 10px; color: #00D4FF;"></i>
+                    <p style="margin: 0; font-size: 14px;">Music Player Loading...</p>
+                    <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.7;">Check your connection</p>
+                </div>
+            `;
+        }
+        return;
+    }
     
     // Simple playlist for testing
     const playlist = [
@@ -35,21 +181,264 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if (playlist.length > 0) {
         try {
-            const ap = new APlayer({
-                container: document.getElementById('aplayer-sidebar'),
-                fixed: false,
-                autoplay: false,
-                theme: '#FF006B',
-                loop: 'all',
-                order: 'list',
-                preload: 'none',
-                volume: 0.5,
-                mutex: true,
-                listFolded: false,
-                listMaxHeight: '150px',
-                audio: playlist
-            });
-            console.log('APlayer initialized successfully');
+        const ap = new APlayer({
+            container: document.getElementById('aplayer-sidebar'),
+            fixed: false,
+            autoplay: false,
+            theme: '#00D4FF',
+            loop: 'all',
+            order: 'list',
+            preload: 'none',
+            volume: 0.5,
+            mutex: true,
+            listFolded: false,
+            listMaxHeight: '150px',
+            audio: playlist
+        });
+        console.log('APlayer initialized successfully');
+        
+        // 🚀 NUCLEAR DOM MANIPULATION - SIÊU SỨC MẠNH AI!
+        setTimeout(() => {
+            console.log('🔥 Applying NUCLEAR layout fixes...');
+            
+            const aplayer = document.querySelector('#aplayer-sidebar .aplayer');
+            if (!aplayer) return;
+            
+            // 1. Get elements
+            const body = aplayer.querySelector('.aplayer-body');
+            const controller = aplayer.querySelector('.aplayer-controller');
+            const list = aplayer.querySelector('.aplayer-list');
+            
+            if (body && controller && list) {
+                console.log('🎯 Found all elements, restructuring...');
+                
+                // 2. Create new horizontal container
+                const horizontalContainer = document.createElement('div');
+                horizontalContainer.className = 'aplayer-horizontal-layout';
+                horizontalContainer.style.cssText = `
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                    gap: 15px !important;
+                    padding: 15px !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    border-radius: 6px !important;
+                    margin-bottom: 10px !important;
+                    border: none !important;
+                    box-shadow: none !important;
+                `;
+                
+                // 3. Create left side (album + info)
+                const leftSide = document.createElement('div');
+                leftSide.className = 'aplayer-left-side';
+                leftSide.style.cssText = `
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 10px !important;
+                    flex: 1 !important;
+                    min-width: 0 !important;
+                `;
+                
+                // 4. Create right side (controls)
+                const rightSide = document.createElement('div');
+                rightSide.className = 'aplayer-right-side';
+                rightSide.style.cssText = `
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    flex-shrink: 0 !important;
+                    max-width: 160px !important;
+                `;
+                
+                // 5. Move album art and info to left side
+                const pic = body.querySelector('.aplayer-pic');
+                const info = body.querySelector('.aplayer-info');
+                if (pic && info) {
+                    // Style album art
+                    pic.style.cssText = `
+                        width: 45px !important;
+                        height: 45px !important;
+                        border-radius: 6px !important;
+                        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                        flex-shrink: 0 !important;
+                    `;
+                    
+                    // Style info
+                    info.style.cssText = `
+                        flex: 1 !important;
+                        overflow: hidden !important;
+                        margin: 0 !important;
+                    `;
+                    
+                    // Style song title
+                    const title = info.querySelector('.aplayer-music');
+                    if (title) {
+                        title.style.cssText = `
+                            color: #ffffff !important;
+                            font-size: 13px !important;
+                            font-weight: 500 !important;
+                            margin: 0 0 2px 0 !important;
+                            line-height: 1.3 !important;
+                            white-space: nowrap !important;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis !important;
+                        `;
+                    }
+                    
+                    // Style artist
+                    const author = info.querySelector('.aplayer-author');
+                    if (author) {
+                        author.style.cssText = `
+                            color: rgba(255, 255, 255, 0.7) !important;
+                            font-size: 11px !important;
+                            margin: 0 !important;
+                            line-height: 1.3 !important;
+                            white-space: nowrap !important;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis !important;
+                        `;
+                    }
+                    
+                    leftSide.appendChild(pic);
+                    leftSide.appendChild(info);
+                }
+                
+                // 6. Move controls to right side and make compact
+                const playBtn = controller.querySelector('.aplayer-btn-play');
+                const barWrap = controller.querySelector('.aplayer-bar-wrap');
+                const time = controller.querySelector('.aplayer-time');
+                const volumeWrap = controller.querySelector('.aplayer-volume-wrap');
+                
+                if (playBtn) {
+                    playBtn.style.cssText = `
+                        font-size: 12px !important;
+                        padding: 4px !important;
+                        margin-right: 5px !important;
+                        color: #ffffff !important;
+                    `;
+                    rightSide.appendChild(playBtn);
+                }
+                
+                if (barWrap) {
+                    barWrap.style.cssText = `
+                        flex: 1 !important;
+                        max-width: 80px !important;
+                        height: 3px !important;
+                        margin: 0 5px !important;
+                        background: rgba(255, 255, 255, 0.1) !important;
+                        border-radius: 2px !important;
+                        border: none !important;
+                    `;
+                    
+                    // Remove white borders/lines from progress bar elements
+                    const progressBar = barWrap.querySelector('.aplayer-bar');
+                    if (progressBar) {
+                        progressBar.style.cssText = `
+                            border: none !important;
+                            box-shadow: none !important;
+                            background: transparent !important;
+                        `;
+                    }
+                    
+                    const loadedBar = barWrap.querySelector('.aplayer-loaded');
+                    if (loadedBar) {
+                        loadedBar.style.cssText = `
+                            border: none !important;
+                            box-shadow: none !important;
+                        `;
+                    }
+                    
+                    const playedBar = barWrap.querySelector('.aplayer-played');
+                    if (playedBar) {
+                        playedBar.style.cssText = `
+                            border: none !important;
+                            box-shadow: none !important;
+                        `;
+                    }
+                    
+                    const thumb = barWrap.querySelector('.aplayer-thumb');
+                    if (thumb) {
+                        thumb.style.cssText = `
+                            border: none !important;
+                            box-shadow: none !important;
+                            background: #FF006B !important;
+                        `;
+                    }
+                    
+                    rightSide.appendChild(barWrap);
+                }
+                
+                if (time) {
+                    time.style.cssText = `
+                        font-size: 9px !important;
+                        color: rgba(255, 255, 255, 0.6) !important;
+                        margin: 0 2px !important;
+                        white-space: nowrap !important;
+                        min-width: 35px !important;
+                    `;
+                    rightSide.appendChild(time);
+                }
+                
+                // Hide volume control to save space
+                if (volumeWrap) {
+                    volumeWrap.style.display = 'none !important';
+                }
+                
+                // 7. Assemble horizontal container
+                horizontalContainer.appendChild(leftSide);
+                horizontalContainer.appendChild(rightSide);
+                
+                // 8. Replace original body and controller
+                const parent = body.parentNode;
+                parent.insertBefore(horizontalContainer, body);
+                parent.removeChild(body);
+                
+                // 9. Style the list with better separation
+                if (list) {
+                    list.style.cssText = `
+                        margin-top: 10px !important;
+                        padding-top: 8px !important;
+                        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+                        background: transparent !important;
+                        max-height: 180px !important;
+                    `;
+                }
+                
+                // 10. Remove ALL white borders/lines from the entire APlayer
+                const allElements = aplayer.querySelectorAll('*');
+                allElements.forEach(el => {
+                    const computedStyle = window.getComputedStyle(el);
+                    if (computedStyle.borderColor === 'rgb(255, 255, 255)' || 
+                        computedStyle.borderTopColor === 'rgb(255, 255, 255)' ||
+                        computedStyle.borderBottomColor === 'rgb(255, 255, 255)' ||
+                        computedStyle.borderLeftColor === 'rgb(255, 255, 255)' ||
+                        computedStyle.borderRightColor === 'rgb(255, 255, 255)') {
+                        el.style.border = 'none !important';
+                        el.style.boxShadow = 'none !important';
+                    }
+                });
+                
+                // Extra nuclear approach - remove borders from common APlayer classes
+                const elementsToClean = [
+                    '.aplayer', '.aplayer-body', '.aplayer-controller', 
+                    '.aplayer-bar', '.aplayer-bar-wrap', '.aplayer-loaded',
+                    '.aplayer-played', '.aplayer-thumb', '.aplayer-time',
+                    '.aplayer-btn', '.aplayer-btn-play', '.aplayer-volume-wrap'
+                ];
+                
+                elementsToClean.forEach(selector => {
+                    const elements = aplayer.querySelectorAll(selector);
+                    elements.forEach(el => {
+                        el.style.border = 'none !important';
+                        el.style.boxShadow = 'none !important';
+                        el.style.outline = 'none !important';
+                    });
+                });
+                
+                console.log('✅ NUCLEAR layout transformation completed!');
+                console.log('🚫 All white borders/lines eliminated!');
+            }
+        }, 500);
         } catch (error) {
             console.error('APlayer initialization failed:', error);
             document.getElementById('aplayer-sidebar').innerHTML = '<p style="color: red;">APlayer failed to load: ' + error.message + '</p>';

@@ -3,6 +3,18 @@ theme = "loficode"
 [params]
   description = "Your site description"
 
+  # Ambient sounds defaults
+  [params.ambient_sounds]
+    default_volume = 0.5
+
+  # Custom cursor configuration
+  [params.cursor]
+    enabled = true
+    default = "/images/cursor/hello-kitty.png"
+    pointer = "/images/cursor/hello-kitty.png"
+    hotspot_x = 6
+    hotspot_y = 0
+
   # Thông tin tác giả
   [params.author]
     name  = "Tran Quang Huy"
@@ -17,21 +29,30 @@ theme = "loficode"
 
   # Social links
   [params.social]
-    github   = "raisingpixels"
-    twitter  = "raisingpixels"
-    linkedin = "your-linkedin-username"
-    email    = "tranhuydh81@gmail.com"
-    youtube  = "https://youtube.com/@yourusername"
+    github    = "raisingpixels"
     instagram = "https://www.instagram.com/t0nyk_"
     facebook  = "https://www.facebook.com/t0nyK06"
+    linkedin  = "your-linkedin-username"
+    email     = "tranhuydh81@gmail.com"
 
 # Navigation menu
+[[menu.main]]
+  name = "Home"
+  url  = "/"
+  weight = 5
+
 [[menu.main]]
   name = "About"
   url  = "/about/"
   weight = 10
 
 [[menu.main]]
-  name = "Contact"
-  url  = "/contact/"
+  name = "Archives"
+  url  = "/archives/"
+  weight = 15
+
+[[menu.main]]
+  name = "Achievements"
+  url  = "/achievements/"
   weight = 20
+

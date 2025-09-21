@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-   - 
+  Archives - 
 </title>
 
 
 
-<meta name="description" content="" />
+<meta name="description" content="Browse all posts organized by date and category." />
 
 
 
 <meta
   property="og:title"
-  content=""
+  content="Archives"
 />
 <meta
   property="og:description"
-  content=""
+  content="Browse all posts organized by date and category."
 />
 <meta
   property="og:type"
@@ -32,11 +32,11 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta
   name="twitter:title"
-  content=""
+  content="Archives"
 />
 <meta
   name="twitter:description"
-  content=""
+  content="Browse all posts organized by date and category."
 />
 
 
@@ -54,9 +54,28 @@
 />
 
 
-<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758344955">
-<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758344955">
+<link rel="stylesheet" href="//localhost:1313/css/style.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/navigation-fix.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/sidebar-layout.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/music-player-sidebar.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/top-nav.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/click-effects.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/cyberpunk-tech.css?v=1758457031">
+<link rel="stylesheet" href="//localhost:1313/css/performance-optimize.css?v=1758457031">
+
+
+
+
+<style>
+:root {
+  --cursor-default: url('/images/cursor/hello-kitty.png') 6 0, auto;
+  --cursor-pointer: url('/images/cursor/hello-kitty.png') 6 0, pointer;
+}
+html, body { cursor: var(--cursor-default); }
+a, button, [role="button"], .nav-link, .mobile-nav-link, .read-more-btn, .view-post { cursor: var(--cursor-pointer); }
+ 
+input[type="submit"], .filter-tab, .view-post, .read-more-btn { cursor: var(--cursor-pointer); }
+</style>
 
 
 
@@ -67,7 +86,6 @@
     
 
     
-    
 <header class="site-header">
     <nav>
         <div class="nav-left">
@@ -77,12 +95,32 @@
         
         <div class="nav-links desktop-nav">
             
-            <a href="//localhost:1313/about/" class="nav-link ">
-                About
+            <a href="//localhost:1313/" class="nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="nav-link ">
-                Contact
+            <a href="//localhost:1313/about/" class="nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="nav-link active">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -104,12 +142,32 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
             
-            <a href="//localhost:1313/about/" class="mobile-nav-link ">
-                About
+            <a href="//localhost:1313/" class="mobile-nav-link ">
+                
+                <i class="fas fa-home nav-icon"></i>
+                
+                <span class="nav-text">Home</span>
             </a>
             
-            <a href="//localhost:1313/contact/" class="mobile-nav-link ">
-                Contact
+            <a href="//localhost:1313/about/" class="mobile-nav-link ">
+                
+                <i class="fas fa-user nav-icon"></i>
+                
+                <span class="nav-text">About</span>
+            </a>
+            
+            <a href="//localhost:1313/archives/" class="mobile-nav-link active">
+                
+                <i class="fas fa-archive nav-icon"></i>
+                
+                <span class="nav-text">Archives</span>
+            </a>
+            
+            <a href="//localhost:1313/achievements/" class="mobile-nav-link ">
+                
+                <i class="fas fa-trophy nav-icon"></i>
+                
+                <span class="nav-text">Achievements</span>
             </a>
             
         </div>
@@ -185,83 +243,586 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-});
+    
+    
+    const header = document.querySelector('.site-header');
+    if (header) {
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+        
+        
+        document.body.classList.add('has-sticky-header');
+    }
+});</script>
 </script>
 
-    
 
     <main>
         
+<div class="archives-page">
+    <div class="page-header">
+        <h1 class="page-title">📁 Archives</h1>
+        <p class="page-description">All posts organized by date and category</p>
+    </div>
 
-<div class="post-overlay active">
-    <div class="post-overlay-backdrop"></div>
-    <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
-        <div class="post-overlay-header">
-            <div class="post-overlay-title">
-                <a href="/" class="overlay-site-title"></a>
-            </div>
-            <button class="post-overlay-close" aria-label="Close post" onclick="window.location.href='/'">
-                <i class="fas fa-times"></i>
-            </button>
+    <div class="archives-stats">
+        <div class="stat-card">
+            <h3>6</h3>
+            <p>Total Posts</p>
         </div>
-        <div class="post-layout">
-        <article class="post-content">
-            <header class="post-header">
-                <div class="post-meta">
-                    <span class="post-date">0001.01.01</span>
-                    <div class="reading-time-post">
-                        <span class="coffee-cups">
-                            
-                            
-                            
-                            
-                            
-                            
-                        </span>
-                        <span>0 min read</span>
-                    </div>
-                </div>
-                <h1 class="post-title"></h1>
-                
-
-                
-            </header>
-            <div class="post-body">
-                
-            </div>
-
-            
-            
-
-            
-            <nav class="post-navigation">
-                
-                <div class="nav-previous">
-                    <span class="nav-label">← Previous</span>
-                    <a href="//localhost:1313/contact/" class="nav-title"></a>
-                </div>
-                
-
-                
-                <div class="nav-next">
-                    <span class="nav-label">Next →</span>
-                    <a href="//localhost:1313/archivements/" class="nav-title"></a>
-                </div>
-                
-            </nav>
-        </article>
-
-        <aside class="sidebar">
-            <nav class="toc">
-                <h4>Contents</h4>
-                <div id="toc-content">
-                    
-                </div>
-            </nav>
-        </aside>
+        <div class="stat-card">
+            <h3>11</h3>
+            <p>Categories</p>
+        </div>
+        <div class="stat-card">
+            <h3>23</h3>
+            <p>Tags</p>
         </div>
     </div>
+
+    
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Posts</button>
+            <button class="filter-tab" data-filter="recent">Recent</button>
+            
+            <button class="filter-tab" data-filter="ai">ai</button>
+            
+            <button class="filter-tab" data-filter="blockchain">blockchain</button>
+            
+            <button class="filter-tab" data-filter="crypto">crypto</button>
+            
+            <button class="filter-tab" data-filter="ctf">ctf</button>
+            
+            <button class="filter-tab" data-filter="forensics">forensics</button>
+            
+            <button class="filter-tab" data-filter="mobile">mobile</button>
+            
+            <button class="filter-tab" data-filter="reverse">reverse</button>
+            
+            <button class="filter-tab" data-filter="security">security</button>
+            
+            <button class="filter-tab" data-filter="tutorial">tutorial</button>
+            
+            <button class="filter-tab" data-filter="web">web</button>
+            
+            <button class="filter-tab" data-filter="web3">web3</button>
+            
+        </div>
+    </div>
+
+    
+    <div class="archives-timeline">
+        
+        
+        <div class="year-section">
+            <h2 class="year-title">2024</h2>
+            <div class="year-posts">
+                
+                <article class="archive-item" data-categories="reverse mobile" data-date="2024-04-15">
+                    <div class="archive-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">Apr</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">Reverse</span>
+                            
+                            <span class="category-tag">Mobile</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-reverse-engineering/">Reverse Engineering Android Apps</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="android-reverse-engineering">Android Reverse Engineering</h2>
+<p>Learn how to analyze and understand Android applications through reverse engineering …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#Android</span>
+                            
+                            <span class="tag-item">#APK</span>
+                            
+                            <span class="tag-item">#Frida</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="archive-item" data-categories="forensics security" data-date="2024-04-05">
+                    <div class="archive-date">
+                        <span class="date-day">05</span>
+                        <span class="date-month">Apr</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">Forensics</span>
+                            
+                            <span class="category-tag">Security</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-forensics/">Digital Forensics: Memory Analysis</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="memory-forensics-fundamentals">Memory Forensics Fundamentals</h2>
+<p>Memory forensics is a critical skill in incident response and malware analysis. This guide …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#Volatility</span>
+                            
+                            <span class="tag-item">#Memory</span>
+                            
+                            <span class="tag-item">#DFIR</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="archive-item" data-categories="blockchain web3" data-date="2024-03-25">
+                    <div class="archive-date">
+                        <span class="date-day">25</span>
+                        <span class="date-month">Mar</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">Blockchain</span>
+                            
+                            <span class="category-tag">Web3</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-blockchain/">Understanding Smart Contracts</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="introduction-to-smart-contracts">Introduction to Smart Contracts</h2>
+<p>Smart contracts are self-executing contracts with the terms directly written into code. …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#Ethereum</span>
+                            
+                            <span class="tag-item">#Solidity</span>
+                            
+                            <span class="tag-item">#DeFi</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="archive-item" data-categories="ai tutorial" data-date="2024-03-10">
+                    <div class="archive-date">
+                        <span class="date-day">10</span>
+                        <span class="date-month">Mar</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">AI</span>
+                            
+                            <span class="category-tag">Tutorial</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-machine-learning/">Deep Learning for Image Classification</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="getting-started-with-deep-learning">Getting Started with Deep Learning</h2>
+<p>Deep learning has revolutionized how we approach computer vision problems. In this …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#Machine Learning</span>
+                            
+                            <span class="tag-item">#Python</span>
+                            
+                            <span class="tag-item">#TensorFlow</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="archive-item" data-categories="crypto ctf" data-date="2024-02-20">
+                    <div class="archive-date">
+                        <span class="date-day">20</span>
+                        <span class="date-month">Feb</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">Crypto</span>
+                            
+                            <span class="category-tag">CTF</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-crypto-ctf/">Crypto CTF 2024 Writeup</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="challenge-overview">Challenge Overview</h2>
+<p>This year&rsquo;s Crypto CTF featured some interesting cryptographic puzzles that tested our …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#Cryptography</span>
+                            
+                            <span class="tag-item">#Security</span>
+                            
+                            <span class="tag-item">#CTF</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="archive-item" data-categories="web" data-date="2024-01-15">
+                    <div class="archive-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">Jan</span>
+                    </div>
+                    <div class="archive-content">
+                        <div class="archive-meta">
+                            
+                            <span class="category-tag">Web</span>
+                            
+                            <span class="reading-time">1 min read</span>
+                        </div>
+                        <h3 class="archive-title">
+                            <a href="//localhost:1313/posts/sample-web-development/">Building Modern Web Apps with React</a>
+                        </h3>
+                        <p class="archive-summary"><h2 id="introduction-to-modern-web-development">Introduction to Modern Web Development</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor …</p></p>
+                        <div class="archive-tags">
+                            
+                            <span class="tag-item">#React</span>
+                            
+                            <span class="tag-item">#JavaScript</span>
+                            
+                            <span class="tag-item">#Frontend</span>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
+        <div id="searchResults" class="search-results"></div>
+    </div>
 </div>
+
+<style>
+.archives-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--btn-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.page-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.archives-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin: 0 0 0.5rem;
+}
+
+.stat-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tab {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.year-section {
+    margin-bottom: 3rem;
+}
+
+.year-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.archive-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.archive-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    border-color: var(--accent-primary);
+}
+
+.archive-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--accent-primary);
+    border-radius: 8px;
+    color: white;
+    min-width: 60px;
+    height: fit-content;
+}
+
+.date-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.archive-content {
+    flex: 1;
+}
+
+.archive-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.category-tag {
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 0, 107, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    color: var(--accent-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.reading-time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.archive-title {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.archive-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.archive-title a:hover {
+    color: var(--accent-primary);
+}
+
+.archive-summary {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.archive-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.search-section {
+    margin-top: 3rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 0, 107, 0.1);
+}
+
+@media (max-width: 768px) {
+    .archives-page {
+        padding: 1rem;
+    }
+    
+    .archive-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .archive-date {
+        align-self: flex-start;
+    }
+    
+    .filter-tabs {
+        justify-content: flex-start;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const archiveItems = document.querySelectorAll('.archive-item');
+    const searchInput = document.getElementById('searchInput');
+    
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            
+            archiveItems.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'flex';
+                } else if (filter === 'recent') {
+                    
+                    const itemDate = new Date(item.dataset.date);
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                    item.style.display = itemDate > thirtyDaysAgo ? 'flex' : 'none';
+                } else {
+                    const categories = item.dataset.categories;
+                    item.style.display = categories.includes(filter) ? 'flex' : 'none';
+                }
+            });
+        });
+    });
+    
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        archiveItems.forEach(item => {
+            const title = item.querySelector('.archive-title').textContent.toLowerCase();
+            const summary = item.querySelector('.archive-summary').textContent.toLowerCase();
+            const categories = item.dataset.categories;
+            
+            const matches = title.includes(searchTerm) || 
+                          summary.includes(searchTerm) || 
+                          categories.includes(searchTerm);
+            
+            item.style.display = matches ? 'flex' : 'none';
+        });
+    });
+});
+</script>
 
     </main>
 
@@ -285,7 +846,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="ambient-label">Click to start ambient sounds</div>
 
     <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="">
+        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
         <div class="equalizer muted">
             
             <div class="equalizer-bar"></div>
@@ -310,6 +871,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    
     <script src="//localhost:1313/js/main.js"></script>
+    <script src="//localhost:1313/js/click-effects.js?v=1758457031"></script>
+    <script src="//localhost:1313/js/cyberpunk-effects.js?v=1758457031"></script>
+    
+    
+    <script src="//localhost:1313/js/master-effects.js?v=1758457031"></script>
 </body>
 </html>
