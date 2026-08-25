@@ -1,0 +1,34 @@
+@keyframes signal-breathe {
+  50% {
+    opacity: 0.65;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.signal-ring {
+  animation: signal-breathe 6s ease-in-out infinite;
+}
+
+.blink-cursor {
+  animation: cursor-blink 1.15s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-ring,
+  .blink-cursor {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="signal-ring" data-signal-ring aria-hidden="true"><span></span><span></span></div>
+
+<style>
+  .signal-ring {
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    display: grid;
+    height: 9rem;
+    opacity: 0.9;
+    place-items: center;
+    position: relative;
+    width: 9rem;
+  }
+
+  .signal-ring::before,
+  .signal-ring::after,
+  .signal-ring span {
+    border: 1px solid var(--color-line);
+    border-radius: inherit;
+    content: "";
+    position: absolute;
+  }
+
+  .signal-ring::before {
+    inset: 0.9rem;
+  }
+
+  .signal-ring::after {
+    inset: 2rem;
+  }
+
+  .signal-ring span:first-child {
+    background: var(--color-accent);
+    border: 0;
+    height: 0.4rem;
+    width: 0.4rem;
+  }
+
+  .signal-ring span:last-child {
+    inset: -0.5rem;
+  }
+</style>

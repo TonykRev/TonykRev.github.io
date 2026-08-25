@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+}
+
+body {
+  margin: 0;
+  min-width: 20rem;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+main {
+  margin-inline: auto;
+  max-width: var(--content-width);
+  padding: var(--space-4) var(--space-2);
+}
+
+.skip-link {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  left: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  position: fixed;
+  top: -4rem;
+  z-index: 2;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}

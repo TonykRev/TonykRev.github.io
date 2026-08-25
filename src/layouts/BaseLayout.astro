@@ -1,0 +1,29 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import { SITE } from "../site.config";
+import "../styles/tokens.css";
+import "../styles/global.css";
+import "../styles/motion.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main"><slot /></main>
+  </body>
+</html>

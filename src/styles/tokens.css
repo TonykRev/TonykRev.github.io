@@ -1,0 +1,16 @@
+:root {
+  --color-bg: #090e14;
+  --color-surface: #0d151d;
+  --color-line: #293747;
+  --color-text: #edf6fc;
+  --color-muted: #8293a6;
+  --color-accent: #76d9ff;
+  --content-width: 74rem;
+  --reading-width: 44rem;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+}
