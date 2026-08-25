@@ -1,0 +1,31 @@
+{
+  "name": "security-blog",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "build": "astro build",
+    "test:links": "linkinator dist --recurse --skip 'mailto:'",
+    "test:built": "node scripts/assert-built-site.mjs",
+    "test:lighthouse": "lhci autorun"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.7",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.62.1",
+    "linkinator": "^8.0.4",
+    "vitest": "^4.1.11"
+  }
+}
