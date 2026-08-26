@@ -7,7 +7,7 @@ const { entries } = Astro.props;
 
 <ol class="research-list">
   {entries.map((entry) => (
-    <li data-research-row data-format={entry.format} data-tags={entry.tags.join(" ")}>
+    <li data-research-row data-format={entry.format} data-tags={JSON.stringify(entry.tags)}>
       <a href={`/research/${entry.id}/`}>
         <strong>{entry.title}</strong>
         <span>{entry.summary}</span>

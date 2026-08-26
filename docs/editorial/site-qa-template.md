@@ -6,7 +6,7 @@ status: "blocked"
 generated_by: "site_qa"
 ---
 # Commands
-Root must replace this section with the approved commands it ran, their integer exit statuses, and observed results.
+Root must replace this section with the complete approved command set it ran, their integer exit statuses, and observed results: `npm test`, `npm run check`, `npm run build`, `npm run test:built`, `npm run test:links`, `npm run test:e2e`, and `npm run test:lighthouse`.
 
 # Decision
 BLOCKED

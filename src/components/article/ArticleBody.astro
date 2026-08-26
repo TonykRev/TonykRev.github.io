@@ -13,16 +13,25 @@
     button.type = "button";
     button.textContent = "Copy";
     button.setAttribute("aria-label", "Copy code");
-    toolbar.append(label, button);
+    const status = document.createElement("span");
+    status.className = "sr-only";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    status.textContent = "";
+    toolbar.append(label, button, status);
     pre.before(frame);
     frame.append(toolbar, pre);
     button.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(pre.innerText);
         button.textContent = "Copied";
-        setTimeout(() => { button.textContent = "Copy"; }, 2000);
+        button.setAttribute("aria-label", "Code copied");
+        status.textContent = "Code copied to clipboard.";
+        setTimeout(() => { button.textContent = "Copy"; button.setAttribute("aria-label", "Copy code"); }, 2000);
       } catch {
         button.textContent = "Copy failed";
+        button.setAttribute("aria-label", "Copy code failed");
+        status.textContent = "Copy failed. Select the code manually.";
       }
     });
   }

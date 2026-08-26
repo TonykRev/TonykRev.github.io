@@ -5,7 +5,7 @@ When the user explicitly asks to run the editorial pipeline or use the editorial
 1. Resolve a stable kebab-case slug and use only `.work/editorial/<slug>/` for work-in-progress artifacts.
 2. Run `research_planner`; root persists its returned Markdown as `01-research-brief.md`; stop if its status is blocked.
 3. Run `evidence_verifier`; root persists its returned Markdown as `02-evidence-ledger.md`; stop if required claims remain unsupported or conflicted.
-4. Run `technical_writer` in read-only mode. Root persists the returned Markdown as `03-draft.mdx`; the writer never writes the workspace.
+4. Run `technical_writer` in read-only mode. Root persists the returned Markdown as `03-draft.md`; the writer never writes the workspace.
 5. Run `security_reviewer and site_qa in parallel`, both read-only. Root persists the returned Markdown as `04-security-review.md` and `05-site-qa.md`; wait for both.
 6. Root, not site_qa, runs approved QA commands, records each command and exit status in `05-site-qa.md`, and may set QA to `PASS` only with successful evidence. Do not let a reviewer edit the draft silently.
 7. The root agent writes `06-release-report.md` from the two reviews. Contract-valid artifacts are not release-ready: publish authorization remains exactly `NOT GRANTED` until the user gives separate approval.

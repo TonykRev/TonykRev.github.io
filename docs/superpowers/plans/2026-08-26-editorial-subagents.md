@@ -61,7 +61,7 @@ Runtime artifacts are deliberately untracked:
 .work/editorial/<slug>/
 ├── 01-research-brief.md
 ├── 02-evidence-ledger.md
-├── 03-draft.mdx
+├── 03-draft.md
 ├── 04-security-review.md
 ├── 05-site-qa.md
 └── 06-release-report.md
@@ -342,7 +342,7 @@ git commit -m "feat: add research planning agents"
 
 **Interfaces:**
 - Consumes: approved brief, supported evidence ledger, website commands from the website plan.
-- Produces: `03-draft.mdx`, `04-security-review.md`, `05-site-qa.md`, and inputs for the root-authored release report.
+- Produces: `03-draft.md`, `04-security-review.md`, `05-site-qa.md`, and inputs for the root-authored release report.
 
 - [ ] **Step 1: Add failing tests for write boundaries and human gates**
 
@@ -352,7 +352,7 @@ git commit -m "feat: add research planning agents"
         writer = (root / "technical-writer.toml").read_text(encoding="utf-8")
         qa = (root / "site-qa.toml").read_text(encoding="utf-8")
         reviewer = (root / "security-reviewer.toml").read_text(encoding="utf-8")
-        self.assertIn(".work/editorial/<slug>/03-draft.mdx", writer)
+        self.assertIn(".work/editorial/<slug>/03-draft.md", writer)
         self.assertIn("Do not commit, push, deploy, or publish", writer)
         self.assertIn('sandbox_mode = "read-only"', reviewer)
         self.assertIn("Do not edit source or content", qa)
@@ -371,7 +371,7 @@ name = "technical_writer"
 description = "English technical writer that converts an approved brief and supported evidence ledger into a reviewable MDX draft."
 sandbox_mode = "workspace-write"
 developer_instructions = """
-Write only `.work/editorial/<slug>/03-draft.mdx`. Do not modify `src/`, configuration, tests, or earlier artifacts.
+Write only `.work/editorial/<slug>/03-draft.md`. Do not modify `src/`, configuration, tests, or earlier artifacts.
 Use English. Follow the approved domain and format enums and the article structure in the design spec.
 Use only claims marked supported. Label inference clearly. Keep citations close to supported claims. Do not invent biography, metrics, commands, findings, IOC, sources, or lab results.
 Never include live malware, direct executable downloads, secrets, tenant identifiers, personal data, or unsafe live URLs. Defang indicators when needed.
@@ -387,7 +387,7 @@ name = "security_reviewer"
 description = "Read-only reviewer for unsafe artifacts, sensitive data, overclaims, IOC handling, and disclosure boundaries."
 sandbox_mode = "read-only"
 developer_instructions = """
-Review `03-draft.mdx` against the brief and evidence ledger. Do not edit the draft.
+Review `03-draft.md` against the brief and evidence ledger. Do not edit the draft.
 Report live malware or executable links, unsafe URLs, secrets, tenant identifiers, personal data, unverified claims, misleading certainty, missing defanging, and disclosure risks.
 Classify each finding as blocker, major, or minor and cite the draft section and supporting artifact.
 Return complete Markdown for `.work/editorial/<slug>/04-security-review.md` using `docs/editorial/security-review-template.md`.
@@ -509,7 +509,7 @@ When the user explicitly asks to run the editorial pipeline or use the editorial
 1. Resolve a stable kebab-case slug and use only `.work/editorial/<slug>/` for work-in-progress artifacts.
 2. Run `research_planner`; save its returned Markdown as `01-research-brief.md`; stop if its status is blocked.
 3. Run `evidence_verifier`; save its returned Markdown as `02-evidence-ledger.md`; stop if required claims remain unsupported or conflicted.
-4. Run `technical_writer`; it may write only `03-draft.mdx`.
+4. Run `technical_writer`; it may write only `03-draft.md`.
 5. Run `security_reviewer and site_qa in parallel`; save the security reviewer's returned Markdown as `04-security-review.md`; wait for both.
 6. The root agent writes `06-release-report.md` from the two reviews. Do not let a reviewer edit the draft silently.
 7. Present blockers, limitations, exact changed files, and validation evidence to the user.
@@ -553,7 +553,7 @@ Ask Codex: `Run the editorial subagent pipeline for the topic I provide. Keep al
 
 1. `research_planner` returns the brief; root saves `01-research-brief.md`.
 2. `evidence_verifier` returns the ledger; root saves `02-evidence-ledger.md` or blocks the run.
-3. `technical_writer` writes `03-draft.mdx` using supported claims only.
+3. `technical_writer` writes `03-draft.md` using supported claims only.
 4. `security_reviewer` and `site_qa` run in parallel; root saves the returned security review as `04-security-review.md`, while site QA writes `05-site-qa.md`.
 5. Root writes `06-release-report.md` with publish authorization set to `NOT GRANTED`.
 
@@ -649,7 +649,7 @@ from pathlib import Path
 REQUIRED_ARTIFACTS = {
     "01-research-brief.md": "research-brief",
     "02-evidence-ledger.md": "evidence-ledger",
-    "03-draft.mdx": "draft",
+    "03-draft.md": "draft",
     "04-security-review.md": "security-review",
     "05-site-qa.md": "site-qa",
     "06-release-report.md": "release-report",
@@ -733,7 +733,7 @@ git commit -m "test: validate editorial subagent handoffs"
 python3 scripts/validate_agent_configs.py
 python3 scripts/validate_editorial_run.py .work/editorial/hash-only-detection
 python3 -m unittest discover -s tests/agents -v
-git check-ignore --no-index .work/editorial/hash-only-detection/03-draft.mdx
+git check-ignore --no-index .work/editorial/hash-only-detection/03-draft.md
 git status --short
 ```
 

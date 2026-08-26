@@ -33,7 +33,9 @@ const label = (value: string) => value.replaceAll("-", " ");
       let visible = 0;
       for (const row of rows) {
         const matchesFormat = !active.format || row.dataset.format === active.format;
-        const matchesTag = !active.tag || (row.dataset.tags ?? "").split(" ").includes(active.tag);
+        let rowTags: string[] = [];
+        try { rowTags = JSON.parse(row.dataset.tags ?? "[]"); } catch { rowTags = []; }
+        const matchesTag = !active.tag || rowTags.includes(active.tag);
         row.hidden = !(matchesFormat && matchesTag);
         if (!row.hidden) visible += 1;
       }

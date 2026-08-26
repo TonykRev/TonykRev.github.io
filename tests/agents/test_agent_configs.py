@@ -6,6 +6,11 @@ from scripts.validate_agent_configs import validate_agent_file
 
 
 class AgentConfigTests(unittest.TestCase):
+    def test_pages_deploy_requires_manual_dispatch(self):
+        workflow = Path(".github/workflows/deploy.yml").read_text(encoding="utf-8")
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertNotIn("push:\n    branches: [main]", workflow)
+
     def test_requires_core_fields_and_safe_sandbox(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "bad.toml"
@@ -53,7 +58,7 @@ class AgentConfigTests(unittest.TestCase):
         qa = (root / "site-qa.toml").read_text(encoding="utf-8")
         reviewer = (root / "security-reviewer.toml").read_text(encoding="utf-8")
         self.assertIn('sandbox_mode = "read-only"', writer)
-        self.assertIn("Return complete Markdown for `03-draft.mdx`", writer)
+        self.assertIn("Return complete Markdown for `03-draft.md`", writer)
         self.assertIn('sandbox_mode = "read-only"', qa)
         self.assertIn("return complete Markdown for `05-site-qa.md`", qa)
         self.assertIn("Do not run commands", qa)

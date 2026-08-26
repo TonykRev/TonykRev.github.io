@@ -19,10 +19,12 @@ test("article exposes evidence, code, references, and table of contents", async 
 test("article code blocks expose accessible copy feedback", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto("/research/dissecting-an-information-stealer/");
-  const copy = page.getByRole("button", { name: "Copy code" });
+  const copy = page.locator(".code-toolbar button");
   await expect(copy).toBeVisible();
   await copy.click();
   await expect(copy).toHaveText("Copied");
+  await expect(copy).toHaveAccessibleName("Code copied");
+  await expect(page.getByRole("status")).toContainText("Code copied to clipboard.");
 });
 
 test("article ends with related research", async ({ page }) => {
