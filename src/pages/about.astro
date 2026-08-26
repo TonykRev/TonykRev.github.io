@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About | HSEC">
+  <section class="simple-page"><p class="technical-label">About the notebook</p><h1>Independent security practice.</h1><p>HSEC is an independent research notebook focused on Malware &amp; DFIR, Cloud Security, and Security Engineering.</p><p>Personal biography, achievements, certifications, and contact links are added only from information supplied and approved by the site owner.</p></section>
+</BaseLayout>
+
+<style>
+  .simple-page { max-width: 44rem; padding: 6rem 0; }
+  h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: .95; margin: 1rem 0 2rem; }
+  .technical-label { color: var(--color-accent); font-family: var(--font-mono); text-transform: uppercase; }
+</style>

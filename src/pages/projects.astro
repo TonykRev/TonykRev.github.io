@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Projects | HSEC">
+  <section class="simple-page"><p class="technical-label">Selected projects</p><h1>Projects.</h1><p>Project entries will appear here after their repository links, scope, and claims have been verified by the site owner.</p></section>
+</BaseLayout>
+
+<style>
+  .simple-page { max-width: 44rem; padding: 6rem 0; }
+  h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: .95; margin: 1rem 0 2rem; }
+  .technical-label { color: var(--color-accent); font-family: var(--font-mono); text-transform: uppercase; }
+</style>

@@ -18,6 +18,20 @@ const recent = visibleResearch(entries).filter((entry) => entry.id !== featured.
   <section id="recent-work" aria-label="Recent work">
     {recent.map((entry) => <a href={`/research/${entry.id}/`}>{entry.title}</a>)}
   </section>
-  <section id="selected-projects" aria-label="Selected projects"></section>
-  <section id="profile" aria-label="Profile"></section>
+  <section id="selected-projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Selected projects</h2>
+    <p>Verified project notes will be published here.</p>
+    <a href="/projects/">View projects</a>
+  </section>
+  <section id="profile" aria-labelledby="profile-title">
+    <h2 id="profile-title">Independent security practice.</h2>
+    <p>Research across Malware &amp; DFIR, Cloud Security, and Security Engineering.</p>
+    <a href="/about/">About this practice</a>
+  </section>
 </BaseLayout>
+
+<style>
+  #recent-work, #selected-projects, #profile { border-top: 1px solid var(--color-line); margin-top: 4rem; padding-block: 3rem; }
+  #recent-work a { display: block; margin-top: 1rem; }
+  h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; }
+</style>
