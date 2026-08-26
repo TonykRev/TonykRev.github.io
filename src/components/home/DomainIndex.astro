@@ -1,0 +1,27 @@
+---
+import { DOMAINS } from "../../lib/content-model";
+
+const domainLabels = ["Malware & DFIR", "Cloud Security", "Security Engineering"] as const;
+const domains = [
+  ...DOMAINS.map((slug, index) => [String(index + 1).padStart(2, "0"), domainLabels[index], slug] as const),
+];
+---
+
+<section id="domain-index" aria-labelledby="domain-title">
+  <p class="technical-label">02 / Research index</p>
+  <h2 id="domain-title">Explore the domains.</h2>
+  <p class="filter-label">FILTER RESEARCH <span class="blink-cursor" aria-hidden="true">▌</span></p>
+  <div class="domain-list">
+    {domains.map(([number, label, slug]) => <a data-domain-row href={`/domains/${slug}/`}><span>{number}</span><strong>{label}</strong><span aria-hidden="true">↗</span></a>)}
+  </div>
+</section>
+
+<style>
+  #domain-index { border-top: 1px solid var(--color-line); padding-block: 5rem; }
+  h2 { font-size: clamp(2.5rem, 6vw, 5rem); margin: 1rem 0 4rem; }
+  .technical-label, .filter-label { color: var(--color-accent); font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+  .blink-cursor { color: var(--color-accent); }
+  .domain-list { border-top: 1px solid var(--color-line); }
+  [data-domain-row] { align-items: center; border-bottom: 1px solid var(--color-line); display: grid; gap: 1rem; grid-template-columns: 3rem 1fr auto; padding: 1.5rem 0; text-decoration: none; }
+  [data-domain-row] strong { font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 400; }
+</style>

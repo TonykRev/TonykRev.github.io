@@ -1,8 +1,23 @@
 ---
-import SignalRing from "../components/home/SignalRing.astro";
+import { getCollection } from "astro:content";
+import FeaturedHero from "../components/home/FeaturedHero.astro";
+import DomainIndex from "../components/home/DomainIndex.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { assertUniqueResearchIds, featuredResearch, visibleResearch } from "../lib/research";
+
+const collection = await getCollection("research");
+const entries = collection.map(({ id, data }) => ({ id, ...data }));
+assertUniqueResearchIds(entries);
+const featured = featuredResearch(entries);
+const recent = visibleResearch(entries).filter((entry) => entry.id !== featured.id).slice(0, 3);
 ---
 
 <BaseLayout>
-  <SignalRing />
+  <FeaturedHero entry={featured} />
+  <DomainIndex />
+  <section id="recent-work" aria-label="Recent work">
+    {recent.map((entry) => <a href={`/research/${entry.id}/`}>{entry.title}</a>)}
+  </section>
+  <section id="selected-projects" aria-label="Selected projects"></section>
+  <section id="profile" aria-label="Profile"></section>
 </BaseLayout>
