@@ -1,13 +1,13 @@
 ---
 import type { Domain, ResearchFormat } from "../../lib/content-model";
 
-interface Props { title: string; published: Date; domain: Domain; format: ResearchFormat; entryNumber: string; }
-const { title, published, domain, format, entryNumber } = Astro.props;
+interface Props { title: string; published: Date; domain: Domain; format: ResearchFormat; }
+const { title, published, domain, format } = Astro.props;
 const publishedLabel = published.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" });
 ---
 
 <header class="article-header">
-  <p class="technical-label">{domain} / {format} / {entryNumber}</p>
+  <p class="technical-label">{domain} / {format}</p>
   <h1>{title}</h1>
   <p class="published">Published {publishedLabel}</p>
 </header>

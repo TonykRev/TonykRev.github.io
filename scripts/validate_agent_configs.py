@@ -6,6 +6,7 @@ from pathlib import Path
 
 REQUIRED = ("name", "description", "developer_instructions")
 SAFE_SANDBOXES = {"read-only", "workspace-write"}
+ROOT_PERSISTED_ARTIFACT_AGENTS = {"technical_writer", "site_qa"}
 
 
 def validate_agent_file(path: Path) -> list[str]:
@@ -14,6 +15,8 @@ def validate_agent_file(path: Path) -> list[str]:
     sandbox = data.get("sandbox_mode", "workspace-write")
     if sandbox not in SAFE_SANDBOXES:
         errors.append(f"unsupported sandbox_mode: {sandbox}")
+    if data.get("name") in ROOT_PERSISTED_ARTIFACT_AGENTS and sandbox != "read-only":
+        errors.append(f"{data['name']} must use read-only sandbox")
     if data.get("name") and path.stem.replace("-", "_") != data["name"]:
         errors.append(f"filename/name mismatch: {path.stem} != {data['name']}")
     return errors

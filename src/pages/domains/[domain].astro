@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ResearchList from "../../components/research/ResearchList.astro";
+import ResearchFilters from "../../components/research/ResearchFilters.astro";
 import { DOMAINS, type Domain } from "../../lib/content-model";
 import { assertUniqueResearchIds, researchByDomain } from "../../lib/research";
 
@@ -19,6 +20,7 @@ const labels: Record<Domain, string> = { "malware-dfir": "Malware & DFIR", "clou
 
 <BaseLayout title={`${labels[domain]} | HSEC`}>
   <header class="page-heading"><p class="technical-label">Domain / {domain}</p><h1>{labels[domain]}.</h1><p>{research.length} published research {research.length === 1 ? "entry" : "entries"}.</p></header>
+  <ResearchFilters entries={research} />
   <ResearchList entries={research} />
 </BaseLayout>
 

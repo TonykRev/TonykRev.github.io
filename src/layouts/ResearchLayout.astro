@@ -7,20 +7,22 @@ import type { ResearchSummary } from "../lib/content-model";
 import "../styles/prose.css";
 
 interface Heading { depth: number; slug: string; text: string; }
-interface Props { entry: { id: string; data: Omit<ResearchSummary, "id"> }; headings: Heading[]; }
-const { entry, headings } = Astro.props;
-const entryNumber = entry.id === "dissecting-an-information-stealer" ? "01" : "02";
+interface Props { entry: { id: string; data: Omit<ResearchSummary, "id"> }; headings: Heading[]; related: ResearchSummary[]; }
+const { entry, headings, related } = Astro.props;
 ---
 
 <BaseLayout title={`${entry.data.title} | HSEC`} description={undefined}>
-  <ArticleHeader title={entry.data.title} published={entry.data.published} domain={entry.data.domain} format={entry.data.format} entryNumber={entryNumber} />
+  <ArticleHeader title={entry.data.title} published={entry.data.published} domain={entry.data.domain} format={entry.data.format} />
   <div class="article-grid">
     <ArticleBody><slot /></ArticleBody>
     <TableOfContents headings={headings} />
   </div>
+  {related.length > 0 && <section class="related" aria-labelledby="related-title"><h2 id="related-title">Related research</h2>{related.map((item) => <a href={`/research/${item.id}/`}>{item.title}</a>)}</section>}
 </BaseLayout>
 
 <style>
   .article-grid { display: grid; gap: 4rem; grid-template-columns: minmax(0, var(--reading-width)) minmax(12rem, 1fr); }
-  @media (max-width: 800px) { .article-grid { grid-template-columns: 1fr; } .toc { position: static; order: -1; } }
+  .related { border-top: 1px solid var(--color-line); display: grid; gap: 1rem; margin-top: 5rem; padding-top: 3rem; }
+  .related h2 { font-size: clamp(2rem, 5vw, 4rem); margin: 0 0 1rem; }
+  @media (max-width: 800px) { .article-grid { grid-template-columns: 1fr; } }
 </style>

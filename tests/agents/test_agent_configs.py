@@ -27,6 +27,18 @@ class AgentConfigTests(unittest.TestCase):
             )
             self.assertEqual(validate_agent_file(path), [])
 
+    def test_rejects_workspace_write_for_root_persisted_editorial_artifacts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "technical-writer.toml"
+            path.write_text(
+                'name = "technical_writer"\n'
+                'description = "Returns the draft to root."\n'
+                'sandbox_mode = "workspace-write"\n'
+                'developer_instructions = "Return Markdown."\n',
+                encoding="utf-8",
+            )
+            self.assertIn("technical_writer must use read-only sandbox", validate_agent_file(path))
+
     def test_read_only_research_agents_name_their_artifacts(self):
         root = Path(".codex/agents")
         expected = {"research-planner.toml": "01-research-brief.md", "evidence-verifier.toml": "02-evidence-ledger.md"}
@@ -35,12 +47,16 @@ class AgentConfigTests(unittest.TestCase):
             self.assertIn('sandbox_mode = "read-only"', text)
             self.assertIn(artifact, text)
 
-    def test_write_capable_agents_state_narrow_boundaries(self):
+    def test_editorial_agents_return_artifacts_to_root_without_workspace_writes(self):
         root = Path(".codex/agents")
         writer = (root / "technical-writer.toml").read_text(encoding="utf-8")
         qa = (root / "site-qa.toml").read_text(encoding="utf-8")
         reviewer = (root / "security-reviewer.toml").read_text(encoding="utf-8")
-        self.assertIn(".work/editorial/<slug>/03-draft.mdx", writer)
+        self.assertIn('sandbox_mode = "read-only"', writer)
+        self.assertIn("Return complete Markdown for `03-draft.mdx`", writer)
+        self.assertIn('sandbox_mode = "read-only"', qa)
+        self.assertIn("return complete Markdown for `05-site-qa.md`", qa)
+        self.assertIn("Do not run commands", qa)
         self.assertIn("Do not commit, push, deploy, or publish", writer)
         self.assertIn('sandbox_mode = "read-only"', reviewer)
         self.assertIn("Do not edit source or content", qa)
@@ -51,6 +67,8 @@ class AgentConfigTests(unittest.TestCase):
         positions = [text.index(name) for name in ordered]
         self.assertEqual(positions, sorted(positions))
         self.assertIn("security_reviewer and site_qa in parallel", text)
+        self.assertIn("Root persists the returned Markdown", text)
+        self.assertIn("Root, not site_qa, runs approved QA commands", text)
         self.assertIn("Never commit, push, deploy, or publish without explicit user approval", text)
 
 

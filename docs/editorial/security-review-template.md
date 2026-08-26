@@ -2,13 +2,13 @@
 topic: "Research topic"
 slug: "research-topic"
 phase: "security-review"
-status: "complete"
+status: "blocked"
 generated_by: "security_reviewer"
 ---
 # Decision
-PASS
+BLOCKED
 # Blockers
-None.
+Complete the security review before changing the decision.
 # Major findings
 None.
 # Minor findings
@@ -21,3 +21,5 @@ No secrets, tenant identifiers, or personal data found.
 All factual claims map to supported evidence IDs.
 # Required changes
 None.
+# Blocking issues
+Complete the security review before changing the decision.

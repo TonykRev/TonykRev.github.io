@@ -1,0 +1,72 @@
+---
+import type { ResearchSummary } from "../../lib/content-model";
+
+interface Props { entries: ResearchSummary[]; }
+const { entries } = Astro.props;
+const formats = [...new Set(entries.map((entry) => entry.format))].sort();
+const tags = [...new Set(entries.flatMap((entry) => entry.tags))].sort();
+const label = (value: string) => value.replaceAll("-", " ");
+---
+
+<fieldset class="research-filters" data-research-filters>
+  <legend>Filter research</legend>
+  <div class="filter-group">
+    <span>Format</span>
+    {formats.map((format) => <button type="button" data-filter-kind="format" data-filter-value={format} aria-pressed="false" aria-label={`Filter by ${label(format)}`}>{label(format)}</button>)}
+  </div>
+  <div class="filter-group">
+    <span>Tags</span>
+    {tags.map((tag) => <button type="button" data-filter-kind="tag" data-filter-value={tag} aria-pressed="false" aria-label={`Filter by ${tag}`}>{tag}</button>)}
+  </div>
+  <button class="clear" type="button" data-filter-clear aria-label="Clear research filters">Clear filters</button>
+  <p class="filter-status" data-filter-status aria-live="polite"></p>
+</fieldset>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-research-filters]")) {
+    const active = { format: "", tag: "" };
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>("[data-filter-kind]")];
+    const rows = [...document.querySelectorAll<HTMLElement>("[data-research-row]")];
+    const status = root.querySelector<HTMLElement>("[data-filter-status]");
+
+    const apply = () => {
+      let visible = 0;
+      for (const row of rows) {
+        const matchesFormat = !active.format || row.dataset.format === active.format;
+        const matchesTag = !active.tag || (row.dataset.tags ?? "").split(" ").includes(active.tag);
+        row.hidden = !(matchesFormat && matchesTag);
+        if (!row.hidden) visible += 1;
+      }
+      if (status) status.textContent = `${visible} research ${visible === 1 ? "entry" : "entries"} shown.`;
+    };
+
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        const kind = button.dataset.filterKind as "format" | "tag";
+        const value = button.dataset.filterValue ?? "";
+        active[kind] = active[kind] === value ? "" : value;
+        for (const peer of buttons.filter((item) => item.dataset.filterKind === kind)) {
+          peer.setAttribute("aria-pressed", String(peer.dataset.filterValue === active[kind]));
+        }
+        apply();
+      });
+    }
+
+    root.querySelector<HTMLButtonElement>("[data-filter-clear]")?.addEventListener("click", () => {
+      active.format = "";
+      active.tag = "";
+      for (const button of buttons) button.setAttribute("aria-pressed", "false");
+      apply();
+    });
+  }
+</script>
+
+<style>
+  .research-filters { border: 0; border-top: 1px solid var(--color-line); display: grid; gap: 1rem; margin: 2rem 0 0; padding: 1.5rem 0 0; }
+  legend, .filter-group > span { color: var(--color-muted); font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+  .filter-group { align-items: center; display: flex; flex-wrap: wrap; gap: .5rem; }
+  button { background: transparent; border: 1px solid var(--color-line); color: inherit; cursor: pointer; padding: .45rem .7rem; }
+  button[aria-pressed="true"] { border-color: var(--color-accent); color: var(--color-accent); }
+  .clear { justify-self: start; }
+  .filter-status { color: var(--color-muted); font-family: var(--font-mono); font-size: .75rem; margin: 0; }
+</style>

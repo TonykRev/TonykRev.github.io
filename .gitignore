@@ -7,3 +7,4 @@
 /.lighthouseci/
 .work/
 __pycache__/
+/.playwright-cli/

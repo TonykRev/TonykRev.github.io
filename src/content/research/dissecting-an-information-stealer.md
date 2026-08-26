@@ -9,17 +9,15 @@ draft: false
 featured: false
 ---
 
-import EvidenceBlock from "../../components/article/EvidenceBlock.astro";
-
 ## Executive summary
 
 This fixture contains no live malware, direct executable link, or sensitive environment data.
 
 ## Static analysis
 
-<EvidenceBlock id="Evidence 01" status="Verified">
-  The fixture confirms that evidence blocks render with explicit verification state.
-</EvidenceBlock>
+> **Evidence 01 — Verified**
+>
+> The fixture confirms that evidence blocks render with explicit verification state.
 
 ```text
 rule Safe_Fixture { condition: false }

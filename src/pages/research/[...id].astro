@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import ResearchLayout from "../../layouts/ResearchLayout.astro";
+import { assertUniqueResearchIds, visibleResearch } from "../../lib/research";
 
 export async function getStaticPaths() {
   const entries = await getCollection("research", ({ data }) => !data.draft);
@@ -9,6 +10,13 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
+const collection = await getCollection("research");
+const summaries = collection.map(({ id, data }) => ({ id, ...data }));
+assertUniqueResearchIds(summaries);
+const related = visibleResearch(summaries)
+  .filter((item) => item.id !== entry.id)
+  .sort((a, b) => Number(b.domain === entry.data.domain) - Number(a.domain === entry.data.domain))
+  .slice(0, 3);
 ---
 
-<ResearchLayout entry={entry} headings={headings}><Content /></ResearchLayout>
+<ResearchLayout entry={entry} headings={headings} related={related}><Content /></ResearchLayout>

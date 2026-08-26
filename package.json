@@ -4,19 +4,19 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "validate:content": "node scripts/validate-research-content.mjs",
+    "dev": "npm run validate:content && astro dev",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "npm run validate:content && astro check",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "build": "astro build",
+    "build": "npm run validate:content && astro build",
     "test:links": "linkinator dist --recurse --skip 'mailto:'",
     "test:built": "node scripts/assert-built-site.mjs",
     "test:lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^7.0.8",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.2.7",

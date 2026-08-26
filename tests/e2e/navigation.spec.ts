@@ -10,6 +10,13 @@ test("global navigation is keyboard accessible", async ({ page }) => {
 
   await expect(skipLink).toBeFocused();
   await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Projects" })).toHaveAttribute("href", "/projects/");
+});
+
+test("global footer exposes the RSS feed", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByRole("contentinfo").getByRole("link", { name: "RSS" })).toHaveAttribute("href", "/rss.xml");
 });
 
 test("reduced motion disables decorative animation", async ({ page }) => {

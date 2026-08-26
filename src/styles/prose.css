@@ -6,3 +6,7 @@
 .prose blockquote { border-left: 2px solid var(--color-accent); margin-inline: 0; padding-left: 1rem; }
 .prose a { color: var(--color-accent); }
 .prose figcaption { color: var(--color-muted); font-size: .875rem; }
+.code-frame { margin: 2rem 0; }
+.code-frame pre { margin: 0; }
+.code-toolbar { align-items: center; background: var(--color-surface); border: 1px solid var(--color-line); border-bottom: 0; display: flex; font-family: var(--font-mono); font-size: .75rem; justify-content: space-between; padding: .5rem .75rem; text-transform: uppercase; }
+.code-toolbar button { background: transparent; border: 1px solid var(--color-line); color: var(--color-text); cursor: pointer; padding: .25rem .5rem; }

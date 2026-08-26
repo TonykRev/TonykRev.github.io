@@ -1,1 +1,29 @@
 <article class="prose" data-article-body><slot /></article>
+
+<script>
+  for (const pre of document.querySelectorAll<HTMLElement>("[data-article-body] pre")) {
+    if (pre.parentElement?.classList.contains("code-frame")) continue;
+    const frame = document.createElement("div");
+    frame.className = "code-frame";
+    const toolbar = document.createElement("div");
+    toolbar.className = "code-toolbar";
+    const label = document.createElement("span");
+    label.textContent = "Code";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Copy";
+    button.setAttribute("aria-label", "Copy code");
+    toolbar.append(label, button);
+    pre.before(frame);
+    frame.append(toolbar, pre);
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(pre.innerText);
+        button.textContent = "Copied";
+        setTimeout(() => { button.textContent = "Copy"; }, 2000);
+      } catch {
+        button.textContent = "Copy failed";
+      }
+    });
+  }
+</script>

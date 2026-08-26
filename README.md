@@ -15,7 +15,7 @@ npm run test:links
 npm run test:e2e
 ```
 
-Research lives in `src/content/research/` as Markdown or MDX. The content schema accepts the formats `deep-research`, `case-study`, and `guide`. Set `draft: true` while iterating, but remember that drafts in a public repository are not confidential; keep sensitive material local and untracked.
+Research lives in `src/content/research/` as Markdown only. The content schema accepts the formats `deep-research`, `case-study`, and `guide`. Every article must set `draft: true` or `draft: false` explicitly. Drafts in a public repository are not confidential; keep sensitive material local and untracked.
 
 ## GitHub Pages release
 

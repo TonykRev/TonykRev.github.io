@@ -1,5 +1,6 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import { SITE } from "../site.config";
 import "../styles/tokens.css";
 import "../styles/global.css";
@@ -26,5 +27,6 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
     <a class="skip-link" href="#main">Skip to content</a>
     <SiteHeader />
     <main id="main"><slot /></main>
+    <SiteFooter />
   </body>
 </html>
