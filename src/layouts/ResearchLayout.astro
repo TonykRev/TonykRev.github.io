@@ -1,0 +1,26 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import ArticleHeader from "../components/article/ArticleHeader.astro";
+import ArticleBody from "../components/article/ArticleBody.astro";
+import TableOfContents from "../components/article/TableOfContents.astro";
+import type { ResearchSummary } from "../lib/content-model";
+import "../styles/prose.css";
+
+interface Heading { depth: number; slug: string; text: string; }
+interface Props { entry: { id: string; data: Omit<ResearchSummary, "id"> }; headings: Heading[]; }
+const { entry, headings } = Astro.props;
+const entryNumber = entry.id === "dissecting-an-information-stealer" ? "01" : "02";
+---
+
+<BaseLayout title={`${entry.data.title} | HSEC`} description={undefined}>
+  <ArticleHeader title={entry.data.title} published={entry.data.published} domain={entry.data.domain} format={entry.data.format} entryNumber={entryNumber} />
+  <div class="article-grid">
+    <ArticleBody><slot /></ArticleBody>
+    <TableOfContents headings={headings} />
+  </div>
+</BaseLayout>
+
+<style>
+  .article-grid { display: grid; gap: 4rem; grid-template-columns: minmax(0, var(--reading-width)) minmax(12rem, 1fr); }
+  @media (max-width: 800px) { .article-grid { grid-template-columns: 1fr; } .toc { position: static; order: -1; } }
+</style>

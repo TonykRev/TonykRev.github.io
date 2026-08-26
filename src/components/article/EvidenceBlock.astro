@@ -1,0 +1,11 @@
+---
+interface Props { id: string; status: "Verified" | "Inferred" | "External"; }
+const { id, status } = Astro.props;
+---
+
+<aside class="evidence-block"><header><span>{id}</span><span>{status}</span></header><div><slot /></div></aside>
+
+<style>
+  .evidence-block { background: var(--color-surface); border: 1px solid var(--color-line); margin: 2rem 0; padding: 1rem; }
+  .evidence-block header { color: var(--color-accent); display: flex; font-family: var(--font-mono); font-size: .75rem; justify-content: space-between; text-transform: uppercase; }
+</style>
