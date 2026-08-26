@@ -15,3 +15,13 @@ export interface ResearchSummary {
   draft: boolean;
   featured: boolean;
 }
+
+export interface SearchRecord {
+  id: string;
+  title: string;
+  summary: string;
+  domain: Domain;
+  format: ResearchFormat;
+  tags: string[];
+  url: string;
+}

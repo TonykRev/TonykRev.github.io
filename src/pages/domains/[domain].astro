@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ResearchList from "../../components/research/ResearchList.astro";
+import { DOMAINS, type Domain } from "../../lib/content-model";
+import { assertUniqueResearchIds, researchByDomain } from "../../lib/research";
+
+export function getStaticPaths() {
+  return DOMAINS.map((domain) => ({ params: { domain }, props: { domain } }));
+}
+
+const { domain } = Astro.props as { domain: Domain };
+const collection = await getCollection("research");
+const entries = collection.map(({ id, data }) => ({ id, ...data }));
+assertUniqueResearchIds(entries);
+const research = researchByDomain(entries, domain);
+const labels: Record<Domain, string> = { "malware-dfir": "Malware & DFIR", "cloud-security": "Cloud Security", "security-engineering": "Security Engineering" };
+---
+
+<BaseLayout title={`${labels[domain]} | HSEC`}>
+  <header class="page-heading"><p class="technical-label">Domain / {domain}</p><h1>{labels[domain]}.</h1><p>{research.length} published research {research.length === 1 ? "entry" : "entries"}.</p></header>
+  <ResearchList entries={research} />
+</BaseLayout>
+
+<style>
+  .page-heading { border-bottom: 1px solid var(--color-line); padding: 5rem 0 3rem; }
+  h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: .95; margin: 1rem 0; }
+  .technical-label { color: var(--color-accent); font-family: var(--font-mono); text-transform: uppercase; }
+</style>

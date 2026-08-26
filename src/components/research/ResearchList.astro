@@ -1,0 +1,27 @@
+---
+import type { ResearchSummary } from "../../lib/content-model";
+
+interface Props { entries: ResearchSummary[]; }
+const { entries } = Astro.props;
+---
+
+<ol class="research-list">
+  {entries.map((entry) => (
+    <li>
+      <a href={`/research/${entry.id}/`}>
+        <strong>{entry.title}</strong>
+        <span>{entry.summary}</span>
+        <time datetime={entry.published.toISOString()}>{entry.published.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" })}</time>
+      </a>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .research-list { list-style: none; margin: 3rem 0 0; padding: 0; }
+  li { border-top: 1px solid var(--color-line); }
+  a { display: grid; gap: .5rem; padding: 1.5rem 0; text-decoration: none; }
+  strong { font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 400; }
+  span, time { color: var(--color-muted); }
+  time { font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; }
+</style>

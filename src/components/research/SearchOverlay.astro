@@ -1,0 +1,35 @@
+<button type="button" data-search-open>Search research</button>
+<dialog data-search-dialog aria-label="Search research">
+  <form method="dialog"><button aria-label="Close search">Close</button></form>
+  <label>Search research <input type="search" aria-label="Search research" data-search-input /></label>
+  <ul data-search-results></ul>
+</dialog>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-search-open]");
+  const dialog = document.querySelector<HTMLDialogElement>("[data-search-dialog]");
+  const input = document.querySelector<HTMLInputElement>("[data-search-input]");
+  const list = document.querySelector<HTMLUListElement>("[data-search-results]");
+  type Record = { title: string; summary: string; domain: string; format: string; tags: string[]; url: string };
+  let records: Record[] | undefined;
+
+  button?.addEventListener("click", async () => {
+    records ??= await fetch("/search-index.json").then((response) => response.json() as Promise<Record[]>);
+    dialog?.showModal();
+    input?.focus();
+  });
+
+  input?.addEventListener("input", () => {
+    if (!list || !records) return;
+    list.replaceChildren();
+    const query = input.value.toLocaleLowerCase("en").trim();
+    for (const record of records.filter((item) => [item.title, item.summary, item.domain, item.format, ...item.tags].join(" ").toLocaleLowerCase("en").includes(query)).slice(0, 10)) {
+      const anchor = document.createElement("a");
+      anchor.href = record.url;
+      anchor.textContent = record.title;
+      const item = document.createElement("li");
+      item.append(anchor);
+      list.append(item);
+    }
+  });
+</script>
