@@ -9,7 +9,7 @@ if (!home.includes("Explore the domains")) throw new Error("Homepage is missing 
 if (home.includes("Static and behavioral analysis of a Windows sample")) throw new Error("Removed article dek leaked into homepage output");
 const expectedOrigin = process.env.SITE_URL;
 if (expectedOrigin) {
-  const normalizedOrigin = expectedOrigin.replace(/\/$/, "");
+  const normalizedOrigin = new URL(expectedOrigin).origin;
   const [rss, sitemapIndex] = await Promise.all([
     readFile(join(root, "rss.xml"), "utf8"),
     readFile(join(root, "sitemap-index.xml"), "utf8"),
