@@ -63,3 +63,17 @@ test("table of contents precedes the article on mobile", async ({ page }) => {
   expect(tocStyles).toEqual({ order: "-1", position: "static" });
   expect(tocBox?.y).toBeLessThan(articleBox?.y ?? Infinity);
 });
+
+test("reading progress appears only on articles and advances on scroll", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 700 });
+  await page.goto("/research/dissecting-an-information-stealer/");
+
+  const progress = page.getByRole("progressbar", { name: "Reading progress" });
+  await expect(progress).toBeVisible();
+  const initial = Number(await progress.getAttribute("aria-valuenow"));
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(async () => Number(await progress.getAttribute("aria-valuenow"))).toBeGreaterThan(initial);
+
+  await page.goto("/about/");
+  await expect(page.getByRole("progressbar", { name: "Reading progress" })).toHaveCount(0);
+});
