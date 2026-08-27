@@ -1,6 +1,7 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import SearchOverlay from "../components/research/SearchOverlay.astro";
 import { SITE } from "../site.config";
 import "../styles/tokens.css";
 import "../styles/global.css";
@@ -31,6 +32,7 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <SiteHeader />
+    <SearchOverlay />
     <main id="main"><slot /></main>
     <SiteFooter />
   </body>

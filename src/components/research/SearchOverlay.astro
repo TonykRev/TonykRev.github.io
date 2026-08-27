@@ -1,4 +1,3 @@
-<button type="button" data-search-open>Search research</button>
 <dialog data-search-dialog aria-label="Search research">
   <form method="dialog"><button aria-label="Close search">Close</button></form>
   <label>Search research <input type="search" aria-label="Search research" data-search-input /></label>
@@ -15,7 +14,7 @@
   type Record = { title: string; summary: string; domain: string; format: string; tags: string[]; url: string };
   let records: Record[] | undefined;
 
-  button?.addEventListener("click", async () => {
+  const openSearch = async () => {
     try {
       if (!records) {
         const response = await fetch("/search-index.json");
@@ -33,6 +32,17 @@
       }
       dialog?.showModal();
     }
+  };
+
+  button?.addEventListener("click", openSearch);
+  document.addEventListener("keydown", (event) => {
+    const editable = event.target instanceof HTMLElement && event.target.matches("input, textarea, select, [contenteditable=true]");
+    const isShortcut = event.key === "/" || ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k");
+    if (!editable && isShortcut) {
+      event.preventDefault();
+      void openSearch();
+    }
+    if (event.key === "Escape" && dialog?.open) dialog.close();
   });
 
   input?.addEventListener("input", () => {
@@ -42,10 +52,31 @@
     for (const record of records.filter((item) => [item.title, item.summary, item.domain, item.format, ...item.tags].join(" ").toLocaleLowerCase("en").includes(query)).slice(0, 10)) {
       const anchor = document.createElement("a");
       anchor.href = record.url;
-      anchor.textContent = record.title;
+      const title = document.createElement("strong");
+      title.textContent = record.title;
+      const meta = document.createElement("span");
+      meta.className = "search-result__meta";
+      meta.textContent = `${record.domain.replaceAll("-", " ")} / ${record.format.replaceAll("-", " ")}`;
+      const summary = document.createElement("span");
+      summary.className = "search-result__summary";
+      summary.textContent = record.summary;
+      anchor.append(title, meta, summary);
       const item = document.createElement("li");
       item.append(anchor);
       list.append(item);
     }
   });
 </script>
+
+<style>
+  dialog { background: var(--color-surface); border: 1px solid var(--color-line); color: var(--color-text); max-width: 38rem; padding: 1.5rem; width: calc(100% - 2rem); }
+  dialog::backdrop { background: rgb(0 0 0 / .7); }
+  form { display: flex; justify-content: flex-end; }
+  button { background: transparent; border: 1px solid var(--color-line); color: inherit; cursor: pointer; padding: .5rem .75rem; }
+  input { background: var(--color-bg); border: 1px solid var(--color-line); color: inherit; display: block; margin-top: .5rem; padding: .75rem; width: 100%; }
+  ul { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  li { border-top: 1px solid var(--color-line); }
+  li a { display: grid; gap: .35rem; padding: 1rem 0; text-decoration: none; }
+  .search-result__meta, .search-result__summary { color: var(--color-muted); }
+  .search-result__meta { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; }
+</style>
