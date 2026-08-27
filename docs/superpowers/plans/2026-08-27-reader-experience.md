@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Dark is first-render default; persist only an explicit reader choice in `localStorage`.
-- Use system color preference only before a saved choice exists.
+- Always use dark before a saved explicit choice exists.
 - Add no framework, animation library, remote search service, analytics, or account data.
 - Retain navigation and article reading with JavaScript disabled.
 - Preserve reduced-motion behavior and search failure feedback.

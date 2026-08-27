@@ -12,7 +12,7 @@ Improve reading and discovery without changing the site's dark, research-noteboo
 - Render dark by default when no saved preference exists.
 - Provide one accessible header control with a text label and pressed state.
 - Persist an explicit reader choice in `localStorage`.
-- Use the operating-system color preference only when no saved choice exists.
+- Always use dark when no saved choice exists; do not infer an initial theme from the operating system.
 - Apply the resolved theme before first paint to avoid a visible theme flash.
 
 ### Reading progress
