@@ -1,5 +1,6 @@
 ---
 import { SITE } from "../site.config";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="site-header">
@@ -12,6 +13,7 @@ import { SITE } from "../site.config";
         <li><a href="/about/">About</a></li>
       </ul>
     </nav>
+    <ThemeToggle />
   </div>
 </header>
 
@@ -23,7 +25,7 @@ import { SITE } from "../site.config";
   .site-header__inner {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    gap: var(--space-2);
     margin-inline: auto;
     max-width: var(--content-width);
     padding: var(--space-2);
@@ -57,4 +59,6 @@ import { SITE } from "../site.config";
   .site-header__links a:hover {
     color: var(--color-accent);
   }
+
+  nav { margin-left: auto; }
 </style>

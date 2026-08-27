@@ -15,11 +15,16 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={SITE.language}>
+<html lang={SITE.language} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <script is:inline>
+      try {
+        if (localStorage.getItem("hsec-theme") === "light") document.documentElement.dataset.theme = "light";
+      } catch {}
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{title}</title>
   </head>
