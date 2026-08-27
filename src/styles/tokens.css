@@ -14,3 +14,12 @@
   --space-3: 1.5rem;
   --space-4: 2.5rem;
 }
+
+:root[data-theme="light"] {
+  --color-bg: #f7fbfd;
+  --color-surface: #ffffff;
+  --color-line: #c6d4df;
+  --color-text: #10202d;
+  --color-muted: #536678;
+  --color-accent: #006e9b;
+}

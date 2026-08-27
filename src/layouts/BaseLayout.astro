@@ -1,6 +1,7 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import SearchOverlay from "../components/research/SearchOverlay.astro";
 import { SITE } from "../site.config";
 import "../styles/tokens.css";
 import "../styles/global.css";
@@ -15,17 +16,23 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={SITE.language}>
+<html lang={SITE.language} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <script is:inline>
+      try {
+        if (localStorage.getItem("hsec-theme") === "light") document.documentElement.dataset.theme = "light";
+      } catch {}
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <SiteHeader />
+    <SearchOverlay />
     <main id="main"><slot /></main>
     <SiteFooter />
   </body>

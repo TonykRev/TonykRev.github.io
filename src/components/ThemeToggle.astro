@@ -1,0 +1,28 @@
+<button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light theme">
+  <span aria-hidden="true" data-theme-icon>◐</span>
+  <span data-theme-label>Theme</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const icon = button?.querySelector<HTMLElement>("[data-theme-icon]");
+
+  const update = () => {
+    const isLight = document.documentElement.dataset.theme === "light";
+    button?.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    if (icon) icon.textContent = isLight ? "◑" : "◐";
+  };
+
+  update();
+  button?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("hsec-theme", next);
+    update();
+  });
+</script>
+
+<style>
+  .theme-toggle { align-items: center; background: transparent; border: 1px solid var(--color-line); color: var(--color-text); cursor: pointer; display: inline-flex; font: inherit; font-family: var(--font-mono); font-size: .72rem; gap: .35rem; letter-spacing: .06em; padding: .4rem .55rem; text-transform: uppercase; }
+  .theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); }
+</style>

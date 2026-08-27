@@ -1,5 +1,6 @@
 ---
 import { SITE } from "../site.config";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="site-header">
@@ -12,6 +13,8 @@ import { SITE } from "../site.config";
         <li><a href="/about/">About</a></li>
       </ul>
     </nav>
+    <button class="search-trigger" type="button" data-search-open aria-label="Search research">Search <kbd>⌘K</kbd></button>
+    <ThemeToggle />
   </div>
 </header>
 
@@ -23,7 +26,7 @@ import { SITE } from "../site.config";
   .site-header__inner {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    gap: var(--space-2);
     margin-inline: auto;
     max-width: var(--content-width);
     padding: var(--space-2);
@@ -57,4 +60,12 @@ import { SITE } from "../site.config";
   .site-header__links a:hover {
     color: var(--color-accent);
   }
+
+  nav { margin-left: auto; }
+
+  .search-trigger { background: transparent; border: 1px solid var(--color-line); color: var(--color-text); cursor: pointer; font-family: var(--font-mono); font-size: .72rem; padding: .4rem .55rem; text-transform: uppercase; }
+  .search-trigger:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  kbd { color: var(--color-muted); font: inherit; margin-left: .25rem; }
+
+  @media (max-width: 650px) { .site-header__links { gap: .75rem; } .search-trigger kbd { display: none; } }
 </style>

@@ -3,6 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import ArticleHeader from "../components/article/ArticleHeader.astro";
 import ArticleBody from "../components/article/ArticleBody.astro";
 import TableOfContents from "../components/article/TableOfContents.astro";
+import ReadingProgress from "../components/article/ReadingProgress.astro";
 import type { ResearchSummary } from "../lib/content-model";
 import "../styles/prose.css";
 
@@ -12,6 +13,7 @@ const { entry, headings, related } = Astro.props;
 ---
 
 <BaseLayout title={`${entry.data.title} | HSEC`} description={undefined}>
+  <ReadingProgress />
   <ArticleHeader title={entry.data.title} published={entry.data.published} domain={entry.data.domain} format={entry.data.format} />
   <div class="article-grid">
     <ArticleBody><slot /></ArticleBody>
